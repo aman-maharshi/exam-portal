@@ -10,11 +10,15 @@ body {
   background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
+.card-gradient {
+  background-image: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+}
+
 .card-shadow {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
 }
