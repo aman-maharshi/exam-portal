@@ -3,6 +3,8 @@ import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
 import { useNavigate } from 'react-router-dom'
 
+import { defaultPassword } from "../utils/apiConstants"
+
 const Login = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const [username, setUsername] = useState('')
@@ -12,6 +14,11 @@ const Login = () => {
 
   const handleLogin = () => {
     if (username && email && password) {
+      if (password !== defaultPassword) {
+        alert('Incorrect Password!')
+        return
+      }
+
       setUserData({ username, email, password })
       navigate('/home')
     }
