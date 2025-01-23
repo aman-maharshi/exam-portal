@@ -1,10 +1,17 @@
-import { useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
 import Sidebar from '../components/Sidebar'
 
 const Home = () => {
   const { userData, setUserData } = useContext(GlobalContext)
+
+  useEffect(() => {
+    if (!userData?.password) {
+      window.location.href = '/'
+    }
+  }, [userData])
+  
 
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const currentDate = new Date().toLocaleDateString(undefined, options)
