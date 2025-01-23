@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar'
 import CircleIcon from "../../public/circle.svg?react"
 import CircleCheckIcon from "../../public/check-circle.svg?react"
 
-const Home = () => {
+const Results = () => {
   const { userData, setUserData } = useContext(GlobalContext)
 
   useEffect(() => {
@@ -31,44 +31,25 @@ const Home = () => {
               <div>
                 <p className='font-bold text-lg'>{currentDate}</p>
                 <div className='max-w-lg mt-4'>
-                  Here you can take new tests to challenge your knowledge and skills, and revisit detailed solutions to previously attempted ones.
+                  View your scores for attempted tests and track your performance effortlessly. Stay informed about your progress and identify areas for improvement!
                 </div>
               </div>
               <div>
-                <img src="/study-male.svg" alt="student" className='h-36 w-36 bg-white rounded-full' />
+                <img src="/study-female.svg" alt="student" className='h-36 w-36 bg-white rounded-full' />
               </div>
             </div>
 
             <div className='mt-6'>
-              <h3 className='text-xl font-bold'>Available Tests</h3>
+              <h3 className='text-xl font-bold'>Available Results</h3>
 
               <div className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
                 <div className='flex items-center gap-4'>
-                  <CircleIcon className="h-5 w-5" />
+                  <CircleCheckIcon className="h-5 w-5" />
                   <div className='font-medium text-lg'>Sound</div>
                 </div>
-                <button className='card-gradient text-white font-bold py-2 px-8 rounded-lg'>
-                  Take Test
-                </button>
-              </div>
-
-              <div className='bg-gray-100 border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
-                <div className='flex items-center gap-4'>
-                  <CircleCheckIcon className="h-5 w-5 text-green-700" />
-                  <div className='font-medium text-lg'>Light</div>
-                </div>
-                <div className='flex items-center gap-4'>
-                  <button
-                    className='card-gradient text-white font-bold py-2 px-8 rounded-lg'
-                  >
-                    Solutions
-                  </button>
-                  <button
-                    className='bg-[#3d6eff] disabled:bg-gray-200 disabled:text-gray-500 text-white font-bold py-2 px-8 rounded-lg'
-                    disabled={true}
-                  >
-                    Take Test
-                  </button>
+                <div className='flex items-end gap-4'>
+                  <div className='font-bold text-3xl'>8/10</div>
+                  <div className='text-gray-500 text-sm'>80%</div>
                 </div>
               </div>
             </div>
@@ -79,4 +60,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Results

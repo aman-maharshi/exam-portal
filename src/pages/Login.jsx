@@ -57,7 +57,7 @@ const Login = () => {
 
           <button
             onClick={handleLogin}
-            className='p-2 mt-4 rounded-lg text-white transition-all duration-300 bg-[#3d6eff]'
+            className='p-2 mt-4 rounded-lg text-white transition-all duration-300 card-gradient'
           >
             Login
           </button>

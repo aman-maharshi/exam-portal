@@ -1,10 +1,13 @@
 import { useContext } from 'react'
 import GlobalContext from "../GlobalContext"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
+import clsx from 'clsx'
 
 const Sidebar = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const navigate = useNavigate()
+
+  const { pathname } = useLocation()
 
   const handleLogout = () => {
     setUserData({})
@@ -13,9 +16,32 @@ const Sidebar = () => {
 
   return (
     <div className='bg-white w-[250px] p-4 h-full rounded-xl shadow-md flex flex-col gap-4'>
-      <div className='p-4 rounded-xl font-bold card-gradient text-white cursor-pointer'>Home</div>
-      <div className='p-4 rounded-xl font-bold bg-gray-100 cursor-pointer '>Study Material</div>
-      <div className='p-4 rounded-xl font-bold bg-gray-100 cursor-pointer '>Test Results</div>
+      <div
+        onClick={() => navigate('/home')}
+        className={clsx(
+          'p-4 rounded-xl font-bold cursor-pointer',
+          pathname === '/home' ? 'card-gradient text-white' : 'bg-gray-100'
+        )}
+      >
+        Home
+      </div>
+      <div
+        onClick={() => navigate('/results')}
+        className={clsx(
+          'p-4 rounded-xl font-bold cursor-pointer',
+          pathname === '/results' ? 'card-gradient text-white' : 'bg-gray-100'
+        )}
+      >
+        Test Results
+      </div>
+      <div
+        className={clsx(
+          'p-4 rounded-xl font-bold cursor-pointer',
+          pathname === '/study-material' ? 'card-gradient text-white' : 'bg-gray-100'
+        )}
+      >
+        Study Material
+      </div>
 
 
       <div onClick={handleLogout} className='p-4 mt-auto text-gray-500 font-bold cursor-pointer'>
