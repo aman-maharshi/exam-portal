@@ -1,12 +1,16 @@
 import { useEffect, useContext } from 'react'
-import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
-import Sidebar from '../components/Sidebar'
 import CircleIcon from "../../public/circle.svg?react"
 import CircleCheckIcon from "../../public/check-circle.svg?react"
+import { useNavigate } from 'react-router-dom'
+
+// COMPONENTS
+import Layout from '../Layout'
+import Sidebar from '../components/Sidebar'
 
 const Home = () => {
   const { userData, setUserData } = useContext(GlobalContext)
+  const navigate = useNavigate()
 
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const currentDate = new Date().toLocaleDateString(undefined, options)
@@ -40,7 +44,7 @@ const Home = () => {
                   <CircleIcon className="h-5 w-5" />
                   <div className='font-medium text-lg'>Sound</div>
                 </div>
-                <button className='card-gradient text-white font-bold py-2 px-8 rounded-lg'>
+                <button onClick={() => navigate('/instructions/1')} className='card-gradient text-white font-bold py-2 px-8 rounded-lg'>
                   Take Test
                 </button>
               </div>
