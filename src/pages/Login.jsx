@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
 import { useNavigate } from 'react-router-dom'
-
+import { ToastContainer, toast } from 'react-toastify';
 import { defaultPassword } from "../utils/apiConstants"
 
 const Login = () => {
@@ -15,7 +15,13 @@ const Login = () => {
   const handleLogin = () => {
     if (username && email && password) {
       if (password !== defaultPassword) {
-        alert('Incorrect Password!')
+        // alert('Incorrect Password!')
+        toast('Incorrect Password!', {
+          position: "top-center",
+          type: "error",
+          limit: 1,
+          autoClose: 5000,
+        })
         return
       }
 

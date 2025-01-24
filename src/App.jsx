@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import GlobalContext from './GlobalContext'
 import Results from './pages/Results'
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')) || {})
@@ -11,7 +12,6 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('userData', JSON.stringify(userData))
   }, [userData])
-  
 
   const contextObject = { userData, setUserData }
 
@@ -24,6 +24,7 @@ const App = () => {
           <Route path="/results" element={<Results />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer limit={3} />
     </GlobalContext.Provider >
   )
 }
