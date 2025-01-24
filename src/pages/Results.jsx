@@ -49,7 +49,7 @@ const Results = () => {
                 </div>
                 <div className='flex items-end gap-4'>
                   <div className='font-bold text-3xl'>8/10</div>
-                  <div className='text-gray-500 text-sm'>80%</div>
+                  <div className='text-gray-500 text-sm pb-0.5'>80%</div>
                 </div>
               </div>
             </div>
