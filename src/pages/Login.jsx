@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
@@ -31,7 +30,7 @@ const Login = () => {
   }
 
   return (
-    <Layout>
+    <div className='w-full min-h-screen bg-gradient text-[#1b1b1b]'>
       <div className='min-h-screen flex items-center justify-center'>
         <div className='bg-white p-10 rounded-xl card-shadow flex flex-col w-[450px]'>
           <h2 className='text-3xl font-bold text-center mb-2'>Exam Portal</h2>
@@ -69,7 +68,7 @@ const Login = () => {
           </button>
         </div>
       </div>
-    </Layout>
+    </div>
   )
 }
 

@@ -2,18 +2,10 @@ import { useEffect, useContext } from 'react'
 import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
 import Sidebar from '../components/Sidebar'
-import CircleIcon from "../../public/circle.svg?react"
 import CircleCheckIcon from "../../public/check-circle.svg?react"
 
 const Results = () => {
   const { userData, setUserData } = useContext(GlobalContext)
-
-  useEffect(() => {
-    if (!userData?.password) {
-      window.location.href = '/'
-    }
-  }, [userData])
-
 
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const currentDate = new Date().toLocaleDateString(undefined, options)
