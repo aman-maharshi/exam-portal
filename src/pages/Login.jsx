@@ -24,7 +24,7 @@ const Login = () => {
         return
       }
 
-      setUserData({ username, email, password })
+      setUserData({ username, email, password, results: [] })
       navigate('/home')
     }
   }

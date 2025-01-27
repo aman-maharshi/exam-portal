@@ -8,6 +8,8 @@ import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Instructions from './pages/Instructions'
+import Result from './pages/Result'
+import Test from './pages/Test'
 
 const App = () => {
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')) || {})
@@ -26,6 +28,8 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/results" element={<Results />} />
           <Route path="/instructions/:testId" element={<Instructions />} />
+          <Route path="/test/:testId" element={<Test />} />
+          <Route path="/result/:testId" element={<Result />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer limit={3} />

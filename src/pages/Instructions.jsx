@@ -3,12 +3,14 @@ import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
 import CheckIcon from "../../public/check.svg?react"
 import { useNavigate, useParams } from 'react-router-dom'
+import { data } from "../data"
 
-const Results = () => {
+const Instructions = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const navigate = useNavigate()
   const { testId } = useParams()
-  console.log(testId, "testId")
+  // console.log(testId, "testId")
+  const test = data.find(test => test.id === parseInt(testId))
 
   return (
     <Layout>
@@ -18,9 +20,18 @@ const Results = () => {
           <h2 className='text-4xl font-bold text-center mt-4'>Test Instructions</h2>
 
           <div className='flex items-center gap-4 justify-center mt-4'>
-            <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>Test: Name</div>
-            <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>Duration: 10 mins</div>
-            <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>Questions: 5</div>
+            <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>
+              Topic: {test.topic}
+            </div>
+            <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>
+              Class: {test?.class}
+            </div>
+            <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>
+              Duration: {test?.duration}
+            </div>
+            <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>
+              Questions: {test?.questionsList?.length}
+            </div>
           </div>
 
           <div className='max-w-[500px] my-10 mx-auto text-stone-600'>
@@ -54,7 +65,10 @@ const Results = () => {
             </ul>
           </div>
 
-          <button className='card-gradient py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white'>
+          <button
+            onClick={() => navigate(`/test/${testId}`)}
+            className='card-gradient py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white'
+          >
             Start Test
           </button>
         </div>
@@ -64,4 +78,4 @@ const Results = () => {
   )
 }
 
-export default Results
+export default Instructions

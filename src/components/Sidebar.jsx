@@ -15,7 +15,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='bg-white w-[250px] p-4 h-full rounded-xl shadow-md flex flex-col gap-4'>
+    <div className='bg-white w-[250px] p-4 h-full rounded-xl shadow-md hidden md:flex flex-col gap-4'>
       <div
         onClick={() => navigate('/home')}
         className={clsx(
