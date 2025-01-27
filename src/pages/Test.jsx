@@ -34,13 +34,24 @@ const Test = () => {
   }, [answersList])
 
   const handleSubmitTest = () => {
+    const existingResultIndex = userData.results.findIndex(result => result.testId === testId)
+    let updatedResults
+
+    if (existingResultIndex !== -1) {
+      updatedResults = userData.results.map((result, index) => 
+      index === existingResultIndex ? { ...result, totalMarks } : result
+      )
+    } else {
+      updatedResults = [...userData.results, {
+      testId,
+      totalMarks,
+      topic: test?.topic
+      }]
+    }
+
     const updatedData = {
       ...userData,
-      results: [...userData.results, {
-        testId,
-        totalMarks,
-        topic: test?.topic
-      }]
+      results: updatedResults
     }
     setUserData(updatedData)
   }
