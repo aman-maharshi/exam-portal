@@ -45,6 +45,7 @@ const Test = () => {
       updatedResults = [...userData.results, {
       testId,
       totalMarks,
+      totalQuestions: test?.questionsList.length,
       topic: test?.topic
       }]
     }
@@ -54,6 +55,10 @@ const Test = () => {
       results: updatedResults
     }
     setUserData(updatedData)
+
+    setTimeout(() => {
+      navigate('/result/' + testId)
+    }, 250)
   }
 
   return (
