@@ -4,7 +4,7 @@ import GlobalContext from "../GlobalContext"
 import CheckIcon from "../../public/check.svg?react"
 import { useNavigate, useParams } from 'react-router-dom'
 
-const Results = () => {
+const Instructions = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const navigate = useNavigate()
   const { testId } = useParams()
@@ -54,7 +54,10 @@ const Results = () => {
             </ul>
           </div>
 
-          <button className='card-gradient py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white'>
+          <button
+            onClick={() => navigate(`/test/${testId}`)}
+            className='card-gradient py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white'
+          >
             Start Test
           </button>
         </div>
@@ -64,4 +67,4 @@ const Results = () => {
   )
 }
 
-export default Results
+export default Instructions
