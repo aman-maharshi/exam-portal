@@ -1,10 +1,15 @@
 import React from 'react'
 
-const Question = ({ index, question, setTotalMarks }) => {
+const Question = ({ index, question, setAnswersList }) => {
   const { questionText, questionImage, options, answer, solution } = question
 
   const handleOptionChange = (e) => {
     const value = e.target.value
+    setAnswersList(prevState => {
+      const updatedAnswers = [...prevState]
+      updatedAnswers[index].selectedAnswer = value
+      return updatedAnswers
+    })
   }
 
   return (

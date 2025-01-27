@@ -9,7 +9,7 @@ const Instructions = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const navigate = useNavigate()
   const { testId } = useParams()
-  console.log(testId, "testId")
+  // console.log(testId, "testId")
   const test = data.find(test => test.id === parseInt(testId))
 
   return (
