@@ -26,7 +26,7 @@ const Sidebar = () => {
         Home
       </div>
       <div
-        onClick={() => navigate('/results')}
+        // onClick={() => navigate('/results')}
         className={clsx(
           'p-4 rounded-xl font-bold cursor-pointer',
           pathname === '/results' ? 'card-gradient text-white' : 'bg-gray-100'

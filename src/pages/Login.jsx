@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const handleLogin = () => {
-    if (username && email && password) {
+    if (username && password) {
       if (password !== defaultPassword) {
         // alert('Incorrect Password!')
         toast('Incorrect Password!', {
@@ -24,7 +24,7 @@ const Login = () => {
         return
       }
 
-      setUserData({ username, email, password, results: [] })
+      setUserData({ username, password, results: [] })
       navigate('/home')
     }
   }
@@ -44,13 +44,13 @@ const Login = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
 
-          <input
+          {/* <input
             type="email"
             placeholder='Enter your Email'
             className='border p-2 rounded-lg mb-4'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
+          /> */}
 
           <input
             type="password"

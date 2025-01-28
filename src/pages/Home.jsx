@@ -3,6 +3,7 @@ import GlobalContext from "../GlobalContext"
 import CircleIcon from "../../public/circle.svg?react"
 import CircleCheckIcon from "../../public/check-circle.svg?react"
 import { useNavigate } from 'react-router-dom'
+import { data } from "../data"
 
 // COMPONENTS
 import Layout from '../Layout'
@@ -14,6 +15,7 @@ const Home = () => {
 
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const currentDate = new Date().toLocaleDateString(undefined, options)
+  console.log(data, "data")
 
   return (
     <Layout>
@@ -39,17 +41,24 @@ const Home = () => {
             <div className='mt-6'>
               <h3 className='text-xl font-bold'>Available Tests</h3>
 
-              <div className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
-                <div className='flex items-center gap-4'>
-                  <CircleIcon className="h-5 w-5" />
-                  <div className='font-medium text-lg'>Sound</div>
+              {data.map((test, index) => (
+                <div key={index} className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
+                  <div className='flex items-center gap-4'>
+                    <CircleIcon className="h-5 w-5" />
+                    <div className='font-medium text-lg'>
+                      {test?.topic}
+                    </div>
+                    <div className='text-sm px-3 py-0.5 rounded-full bg-orange-200'>
+                      {test?.class}
+                    </div>
+                  </div>
+                  <button onClick={() => navigate(`/instructions/${test?.id}`)} className='card-gradient text-white font-bold py-2 px-8 rounded-lg'>
+                    Take Test
+                  </button>
                 </div>
-                <button onClick={() => navigate('/instructions/1')} className='card-gradient text-white font-bold py-2 px-8 rounded-lg'>
-                  Take Test
-                </button>
-              </div>
+              ))}
 
-              <div className='bg-gray-100 border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
+              {/* <div className='bg-gray-100 border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
                 <div className='flex items-center gap-4'>
                   <CircleCheckIcon className="h-5 w-5 text-green-700" />
                   <div className='font-medium text-lg'>Light</div>
@@ -67,7 +76,8 @@ const Home = () => {
                     Take Test
                   </button>
                 </div>
-              </div>
+              </div> */}
+
             </div>
           </div>
         </div>

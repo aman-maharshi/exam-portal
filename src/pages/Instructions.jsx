@@ -11,6 +11,7 @@ const Instructions = () => {
   const { testId } = useParams()
   // console.log(testId, "testId")
   const test = data.find(test => test.id === parseInt(testId))
+  // console.log(test, "test")
 
   return (
     <Layout>
@@ -37,10 +38,10 @@ const Instructions = () => {
           <div className='max-w-[500px] my-10 mx-auto text-stone-600'>
             <p>Welcome to the test portal! Please read the following instructions carefully before starting the test:</p>
 
-            <ul className='list-none mt-4'>
+            <ul className='list-none mt-6 flex flex-col gap-2'>
               <li className='flex gap-2 items-start'>
                 <CheckIcon className="h-4 w-4 mt-1" />
-                There are a total of 5 questions in this test.
+                There are a total of {test?.questionsList?.length} questions in this test.
               </li>
               <li className='flex gap-2 items-start'>
                 <CheckIcon className="h-4 w-4 mt-1" />
