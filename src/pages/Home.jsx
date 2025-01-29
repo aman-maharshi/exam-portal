@@ -15,7 +15,7 @@ const Home = () => {
 
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const currentDate = new Date().toLocaleDateString(undefined, options)
-  console.log(data, "data")
+  // console.log(data, "data")
 
   return (
     <Layout>
