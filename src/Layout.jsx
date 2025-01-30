@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   const { userData, setUserData } = useContext(GlobalContext)
 
   useEffect(() => {
-    if (!userData?.password) {
+    if (!userData?.loggedIn) {
       window.location.href = '/'
     }
   }, [userData])
