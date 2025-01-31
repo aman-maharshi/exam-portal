@@ -12,13 +12,18 @@ function Timer({ targetDate, handleTimerEnd }) {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
-    if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
-      handleTimerEnd();
-      return;
-    }
-    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    const timer = setInterval(() => {
+      const newTimeLeft = getTimeLeft();
+      setTimeLeft(newTimeLeft);
+
+      if (newTimeLeft.minutes === 0 && newTimeLeft.seconds === 0) {
+        clearInterval(timer);
+        handleTimerEnd();
+      }
+    }, 1000);
+
     return () => clearInterval(timer);
-  }, [timeLeft]);
+  }, [targetDate, handleTimerEnd]);
 
   return (
     <div className="rounded-xl bg-white p-4 shadow-md text-center">
