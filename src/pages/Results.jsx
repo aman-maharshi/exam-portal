@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react'
 import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
 import Sidebar from '../components/Sidebar'
-import CircleCheckIcon from "../../public/check-circle.svg?react"
+import CircleCheckIcon from "../assets/check-circle.svg?react"
 
 const Results = () => {
   const { userData, setUserData } = useContext(GlobalContext)

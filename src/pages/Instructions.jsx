@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import Layout from '../Layout'
 import GlobalContext from "../GlobalContext"
-import CheckIcon from "../../public/check.svg?react"
+import CheckIcon from "../assets/check.svg?react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { data } from "../data"
 

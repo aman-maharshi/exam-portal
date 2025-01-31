@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import GlobalContext from "../GlobalContext"
-import CircleIcon from "../../public/circle.svg?react"
-import CircleCheckIcon from "../../public/check-circle.svg?react"
+import CircleIcon from "../assets/circle.svg?react"
+import CircleCheckIcon from "../assets/check-circle.svg?react"
 import { useNavigate } from 'react-router-dom'
 import { data } from "../data"
 
