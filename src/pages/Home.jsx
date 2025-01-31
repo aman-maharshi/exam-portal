@@ -43,16 +43,19 @@ const Home = () => {
 
               {data.map((test, index) => (
                 <div key={index} className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
-                  <div className='flex items-center gap-4'>
+                  <div className='flex items-center gap-3 lg:gap-4'>
                     <CircleIcon className="h-5 w-5" />
-                    <div className='font-medium text-lg'>
+                    <div className='font-medium text-base lg:text-lg'>
                       {test?.topic}
                     </div>
                     <div className='text-sm px-3 py-0.5 rounded-full bg-orange-200'>
                       {test?.class}
                     </div>
                   </div>
-                  <button onClick={() => navigate(`/instructions/${test?.id}`)} className='card-gradient text-white font-bold py-2 px-8 rounded-lg'>
+                  <button
+                    onClick={() => navigate(`/instructions/${test?.id}`)}
+                    className='card-gradient text-white font-bold py-2 px-4 lg:px-8 rounded-lg'
+                  >
                     Take Test
                   </button>
                 </div>
