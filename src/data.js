@@ -270,5 +270,73 @@ export const data = [
         "solution": "The organisms that feed on the dead and decaying organisms are called saprotrophs. ",
       },
     ]
+  },
+  {
+    id: 5,
+    class: "7th",
+    topic: "Light",
+    duration: "10 mins",
+    questionsList: [
+      {
+        "questionText": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called ____________________.",
+        "questionImage": "",
+        "options": [
+          "electric fuses",
+          "reflection",
+          "reflection of light",
+          "refraction of light",
+        ],
+        "answer": "reflection of light",
+        "solution": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called reflection of light."
+      },
+      {
+        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a __________________ .",
+        "questionImage": "",
+        "options": [
+          "plain image",
+          "virtual",
+          "virtual image",
+          "real image",
+        ],
+        "answer": "real image",
+        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image."
+      },
+      {
+        "questionText": " A ____________ splits a beam of sunlight into ______________colours.",
+        "questionImage": "",
+        "options": [
+          "iron and seven",
+          "magnet and seven",
+          "seven and prism",
+          "prism and seven",
+        ],
+        "answer": "prism and seven",
+        "solution": "A prism splits a beam of sunlight into seven colours."
+      },
+      {
+        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a _______________.",
+        "questionImage": "",
+        "options": [
+          "false image",
+          "real image",
+          "vertual image",
+          "virtual image",
+        ],
+        "answer": "virtual image",
+        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image. ",
+      },
+      {
+        "questionText": "Image formed by a convex mirror is ____________, _______________ and smaller in size than the object.",
+        "questionImage": "",
+        "options": [
+          "heating and cooling",
+          "erect, virtual",
+          "erect, real",
+          "magnet and real",
+        ],
+        "answer": "erect, virtual",
+        "solution": "Image formed by a convex mirror is erect, virtual and smaller in size than the object.",
+      },
+    ]
   }
 ]
