@@ -202,5 +202,141 @@ export const data = [
         "solution": "In electroplating the free copper gets drawn to the electrode connected to the negative terminal of the battery and gets deposited on it. "
       },
     ]
+  },
+  {
+    id: 4,
+    class: "7th",
+    topic: "Forests: Our Lifeline",
+    duration: "10 mins",
+    questionsList: [
+      {
+        "questionText": "The branches of the tall trees look like a roof over the other plants in the forest is called  __________________.",
+        "questionImage": "",
+        "options": [
+          "canopy",
+          "emergent layer",
+          "understory",
+          "forest floor",
+        ],
+        "answer": "canopy",
+        "solution": "The branches of the tall trees look like a roof over the other plants in the forest is called canopy."
+      },
+      {
+        "questionText": "The micro-organisms which convert the dead plants and animals to humus are known as _______________.",
+        "questionImage": "",
+        "options": [
+          "humus",
+          "decomposers",
+          "black colour substance",
+          "red soil",
+        ],
+        "answer": "decomposers",
+        "solution": "The micro-organisms which convert the dead plants and animals to humus are known as decomposers."
+      },
+      {
+        "questionText": " If forests disappear, the amount of carbon dioxide in air will _____________, resulting in the increase of earth’s temperature .",
+        "questionImage": "",
+        "options": [
+          "decrease",
+          "reduce",
+          "increase",
+          "remain same",
+        ],
+        "answer": "increase",
+        "solution": "If forests disappear, the amount of carbon dioxide in air will increase, resulting in the increase of earth’s temperature."
+      },
+      {
+        "questionText": " Forests protect the soil from _______________.",
+        "questionImage": "",
+        "options": [
+          "none of there",
+          "reducing",
+          "distruction",
+          "erosion",
+        ],
+        "answer": "erosion ",
+        "solution": "Forests protect the soil from erosion. ",
+      },
+      {
+        "questionText": "​The organisms that feed on the dead and decaying organisms are called ________________.",
+        "questionImage": "",
+        "options": [
+          "trophs",
+          "saprotrophs",
+          "autotrophs",
+          "heterotrophs",
+        ],
+        "answer": "saprotrophs",
+        "solution": "The organisms that feed on the dead and decaying organisms are called saprotrophs. ",
+      },
+    ]
+  },
+  {
+    id: 5,
+    class: "7th",
+    topic: "Light",
+    duration: "10 mins",
+    questionsList: [
+      {
+        "questionText": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called ____________________.",
+        "questionImage": "",
+        "options": [
+          "electric fuses",
+          "reflection",
+          "reflection of light",
+          "refraction of light",
+        ],
+        "answer": "reflection of light",
+        "solution": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called reflection of light."
+      },
+      {
+        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a __________________ .",
+        "questionImage": "",
+        "options": [
+          "plain image",
+          "virtual",
+          "virtual image",
+          "real image",
+        ],
+        "answer": "real image",
+        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image."
+      },
+      {
+        "questionText": " A ____________ splits a beam of sunlight into ______________colours.",
+        "questionImage": "",
+        "options": [
+          "iron and seven",
+          "magnet and seven",
+          "seven and prism",
+          "prism and seven",
+        ],
+        "answer": "prism and seven",
+        "solution": "A prism splits a beam of sunlight into seven colours."
+      },
+      {
+        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a _______________.",
+        "questionImage": "",
+        "options": [
+          "false image",
+          "real image",
+          "vertual image",
+          "virtual image",
+        ],
+        "answer": "virtual image",
+        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image. ",
+      },
+      {
+        "questionText": "Image formed by a convex mirror is ____________, _______________ and smaller in size than the object.",
+        "questionImage": "",
+        "options": [
+          "heating and cooling",
+          "erect, virtual",
+          "erect, real",
+          "magnet and real",
+        ],
+        "answer": "erect, virtual",
+        "solution": "Image formed by a convex mirror is erect, virtual and smaller in size than the object.",
+      },
+    ]
   }
 ]
