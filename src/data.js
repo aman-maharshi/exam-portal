@@ -202,5 +202,73 @@ export const data = [
         "solution": "In electroplating the free copper gets drawn to the electrode connected to the negative terminal of the battery and gets deposited on it. "
       },
     ]
+  },
+  {
+    id: 4,
+    class: "7th",
+    topic: "Forests: Our Lifeline",
+    duration: "10 mins",
+    questionsList: [
+      {
+        "questionText": "The branches of the tall trees look like a roof over the other plants in the forest is called  __________________.",
+        "questionImage": "",
+        "options": [
+          "canopy",
+          "emergent layer",
+          "understory",
+          "forest floor",
+        ],
+        "answer": "canopy",
+        "solution": "The branches of the tall trees look like a roof over the other plants in the forest is called canopy."
+      },
+      {
+        "questionText": "The micro-organisms which convert the dead plants and animals to humus are known as _______________.",
+        "questionImage": "",
+        "options": [
+          "humus",
+          "decomposers",
+          "black colour substance",
+          "red soil",
+        ],
+        "answer": "decomposers",
+        "solution": "The micro-organisms which convert the dead plants and animals to humus are known as decomposers."
+      },
+      {
+        "questionText": " If forests disappear, the amount of carbon dioxide in air will _____________, resulting in the increase of earth’s temperature .",
+        "questionImage": "",
+        "options": [
+          "decrease",
+          "reduce",
+          "increase",
+          "remain same",
+        ],
+        "answer": "increase",
+        "solution": "If forests disappear, the amount of carbon dioxide in air will increase, resulting in the increase of earth’s temperature."
+      },
+      {
+        "questionText": " Forests protect the soil from _______________.",
+        "questionImage": "",
+        "options": [
+          "none of there",
+          "reducing",
+          "distruction",
+          "erosion",
+        ],
+        "answer": "erosion ",
+        "solution": "Forests protect the soil from erosion. ",
+      },
+      {
+        "questionText": "​The organisms that feed on the dead and decaying organisms are called ________________.",
+        "questionImage": "",
+        "options": [
+          "trophs",
+          "saprotrophs",
+          "autotrophs",
+          "heterotrophs",
+        ],
+        "answer": "saprotrophs",
+        "solution": "The organisms that feed on the dead and decaying organisms are called saprotrophs. ",
+      },
+    ]
   }
 ]

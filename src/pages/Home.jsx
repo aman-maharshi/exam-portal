@@ -15,7 +15,10 @@ const Home = () => {
 
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const currentDate = new Date().toLocaleDateString(undefined, options)
+  // console.log(userData, "userData")
   // console.log(data, "data")
+
+  const availableTests = data.filter(item => item.class === userData?.grade)
 
   return (
     <Layout>
@@ -41,7 +44,7 @@ const Home = () => {
             <div className='mt-6'>
               <h3 className='text-xl font-bold'>Available Tests</h3>
 
-              {data.map((test, index) => (
+              {availableTests.map((test, index) => (
                 <div key={index} className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
                   <div className='flex items-center gap-3 lg:gap-4'>
                     <CircleIcon className="h-5 w-5" />
