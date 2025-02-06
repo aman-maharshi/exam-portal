@@ -262,11 +262,11 @@ export const data = [
         "questionImage": "",
         "options": [
           "trophs",
-          "saprotrophs",
+          "saphrotrophs",
           "autotrophs",
           "heterotrophs",
         ],
-        "answer": "saprotrophs",
+        "answer": "saphrotrophs",
         "solution": "The organisms that feed on the dead and decaying organisms are called saprotrophs. ",
       },
     ]
@@ -298,7 +298,7 @@ export const data = [
           "virtual image",
           "real image",
         ],
-        "answer": "real image",
+        "answer": "virtual image",
         "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image."
       },
       {
@@ -336,6 +336,74 @@ export const data = [
         ],
         "answer": "erect, virtual",
         "solution": "Image formed by a convex mirror is erect, virtual and smaller in size than the object.",
+      },
+    ]
+  },
+  {
+    id: 6,
+    class: "7th",
+    topic: "Chemical effects of electicity",
+    duration: "10 mins",
+    questionsList: [
+      {
+        "questionText": "Wires made from some special materials melt quickly and break when large electric currents are passed through them. These wires are used for making _____________.",
+        "questionImage": "",
+        "options": [
+          "electric fuse",
+          "circuit",
+          "switch",
+          "wire",
+        ],
+        "answer": "electric fuse",
+        "solution": "Wires made from some special materials melt quickly and break when large electric currents are passed through them. These wires are used for making electric fuse."
+      },
+      {
+        "questionText": "When an electric current flows through a wire, it behaves like a _____________.",
+        "questionImage": "",
+        "options": [
+          "electric wire",
+          "magnet",
+          "circuit",
+          "iron rod ",
+        ],
+        "answer": "magnet",
+        "solution": "When an electric current flows through a wire, it behaves like a magnet."
+      },
+      {
+        "questionText": " A current carrying coil of an insulated wire wrapped around a piece of iron is called an ____________________ .",
+        "questionImage": "",
+        "options": [
+          "electric wire",
+          "magent",
+          "electromagnet",
+          "switch",
+        ],
+        "answer": "electromagnet",
+        "solution": "A current carrying coil of an insulated wire wrapped around a piece of iron is called an electromagnet."
+      },
+      {
+        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a _______________.",
+        "questionImage": "",
+        "options": [
+          "false image",
+          "real image",
+          "vertual image",
+          "virtual image",
+        ],
+        "answer": "virtual image",
+        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image. ",
+      },
+      {
+        "questionText": "When an electric current flows through a wire, the wire gets heated. It is the ______________ current",
+        "questionImage": "",
+        "options": [
+          "heating",
+          "boiling effect of",
+          "melting effect of",
+          "heating effect of",
+        ],
+        "answer": "heating effect of",
+        "solution": "When an electric current flows through a wire, the wire gets heated. It is the heating effect of current ",
       },
     ]
   }
