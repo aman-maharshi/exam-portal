@@ -12,7 +12,7 @@ import Result from './pages/Result'
 import Test from './pages/Test'
 
 const App = () => {
-  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')) || {})
+  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')) || {role: "student"})
 
   useEffect(() => {
     localStorage.setItem('userData', JSON.stringify(userData))
