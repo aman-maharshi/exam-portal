@@ -12,7 +12,7 @@ export const data = [
         "questionImage": "",
         "options": [
           "movement",
-          "wavelenght",
+          "wavelength",
           "vibrations",
           "frequency"
         ],
@@ -35,7 +35,7 @@ export const data = [
         "questionText": "Frequency is expressed in ________ . Its symbol is ______.",
         "questionImage": "",
         "options": [
-          "secound, sec",
+          "second, sec",
           "kilometer, pa ",
           "meter, Hz",
           "hertz, Hz"
@@ -53,10 +53,10 @@ export const data = [
           "meter"
         ],
         "answer": "shrillness or pitch",
-        "solution": "The frequency determines the ________ of a sound. "
+        "solution": "The frequency determines the shrillness or pitch of a sound."
       },
       {
-        "questionText": "for human ear, the range of audible frequencies is roughly from _______________ .",
+        "questionText": "For human ear, the range of audible frequencies is roughly from _______________ .",
         "questionImage": "",
         "options": [
           "200 to 20,000 Hz",
@@ -78,7 +78,7 @@ export const data = [
     "timer": 5,
     "questionsList": [
       {
-        "questionText": "  First the laws of reflection is angle of _________ is always equal to the angle of __________.",
+        "questionText": "The First laws of reflection is angle of _________ is always equal to the angle of __________.",
         "questionImage": "",
         "options": [
           "incidence, reflection",
@@ -154,7 +154,7 @@ export const data = [
           "electroplating",
           "chemical plating",
           "galvanization",
-          "electrods",
+          "electrodes",
         ],
         "answer": "electroplating",
         "solution": "The process of depositing a layer of any desired metal on another material by means of electricity is called electroplating."
@@ -163,7 +163,7 @@ export const data = [
         "questionText": "When electric current is passed through the copper sulphate solution, copper sulphate dissociates into ________________.",
         "questionImage": "",
         "options": [
-          "copper and sulpher",
+          "copper and sulfur",
           "copper and sulphate",
           "zinc and sulphate",
           "zinc and copper",
@@ -184,7 +184,7 @@ export const data = [
         "solution": "A coating of zinc is deposited on iron to protect it from corrosion and formation of rust is called galvanization."
       },
       {
-        "questionText": " distilled water is a _____________ .",
+        "questionText": "Distilled water is a _____________ .",
         "questionImage": "",
         "options": [
           "neutral",
@@ -257,16 +257,16 @@ export const data = [
         "questionText": " Forests protect the soil from _______________.",
         "questionImage": "",
         "options": [
-          "none of there",
+          "none of these",
           "reducing",
-          "distruction",
+          "destruction",
           "erosion",
         ],
-        "answer": "erosion ",
+        "answer": "erosion",
         "solution": "Forests protect the soil from erosion. ",
       },
       {
-        "questionText": "​The organisms that feed on the dead and decaying organisms are called ________________.",
+        "questionText": "The organisms that feed on the dead and decaying organisms are called ________________.",
         "questionImage": "",
         "options": [
           "trophs",
@@ -300,7 +300,7 @@ export const data = [
         "solution": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called reflection of light."
       },
       {
-        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a __________________ .",
+        "questionText": "The image formed by a plane mirror could not be obtained on a screen. Such an image is called a __________________ .",
         "questionImage": "",
         "options": [
           "plain image",
@@ -309,7 +309,7 @@ export const data = [
           "real image",
         ],
         "answer": "virtual image",
-        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image."
+        "solution": "The image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image."
       },
       {
         "questionText": " A ____________ splits a beam of sunlight into ______________colours.",
@@ -352,7 +352,7 @@ export const data = [
   {
     "id": 6,
     "class": "7th",
-    "topic": "Chemical effects of electicity",
+    "topic": "Electric Current and Its Effects",
     "duration": "5 mins",
     "difficulty": "easy",
     "timer": 5,
@@ -404,7 +404,20 @@ export const data = [
         ],
         "answer": "heating effect of",
         "solution": "When an electric current flows through a wire, the wire gets heated. It is the heating effect of current ",
-      }
+      },
+      {
+          "questionText": "What does this image show?",
+          "questionImage": "fuse.png",
+          "imageWidth": "250px",
+          "options": [
+            "switch",
+            "magnet",
+            "electric fuse",
+            "electric wire",
+          ],
+          "answer": "electric fuse",
+          "solution": "",
+        }
     ]
   }
 ]

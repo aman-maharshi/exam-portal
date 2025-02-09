@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Question = ({ index, question, setAnswersList }) => {
-  const { questionText, questionImage, options, answer, solution } = question
+  const { questionText, questionImage, imageWidth, options, answer, solution } = question
 
   const handleOptionChange = (e) => {
     const value = e.target.value
@@ -15,6 +15,16 @@ const Question = ({ index, question, setAnswersList }) => {
   return (
     <div className="mb-8">
       {index + 1}. {questionText}
+
+      {questionImage && (
+        <div className={`w-[${imageWidth}]`}>
+          <img
+            src={`/questions/${questionImage}`}
+            alt={questionImage}
+            className='h-full w-full object-contain'
+          />
+        </div>
+      )}
 
       <div className="my-4">
         {options.map((option, i) => (
