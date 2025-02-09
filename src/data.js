@@ -1,11 +1,12 @@
 export const data = [
   {
-    id: 1,
-    class: "8th",
-    topic: "Sound",
-    duration: "10 mins",
-    timer: 5,
-    questionsList: [
+    "id": 1,
+    "class": "8th",
+    "topic": "Sound",
+    "duration": "5 mins",
+    "difficulty": "easy",
+    "timer": 5,
+    "questionsList": [
       {
         "questionText": "Sound is caused by _________ of an object.",
         "questionImage": "",
@@ -69,12 +70,13 @@ export const data = [
     ]
   },
   {
-    id: 2,
-    class: "8th",
-    topic: "Light",
-    duration: "10 mins",
-    timer: 5,
-    questionsList: [
+    "id": 2,
+    "class": "8th",
+    "topic": "Light",
+    "duration": "5 mins",
+    "difficulty": "easy",
+    "timer": 5,
+    "questionsList": [
       {
         "questionText": "  First the laws of reflection is angle of _________ is always equal to the angle of __________.",
         "questionImage": "",
@@ -138,12 +140,13 @@ export const data = [
     ]
   },
   {
-    id: 3,
-    class: "8th",
-    topic: "Chemical Effects of Electricity",
-    duration: "10 mins",
-    timer: 5,
-    questionsList: [
+    "id": 3,
+    "class": "8th",
+    "topic": "Chemical Effects of Electricity",
+    "duration": "5 mins",
+    "timer": 5,
+    "difficulty": "easy",
+    "questionsList": [
       {
         "questionText": " The process of depositing a layer of any desired metal on another material by means of electricity is called________________ .",
         "questionImage": "",
@@ -207,12 +210,13 @@ export const data = [
     ]
   },
   {
-    id: 4,
-    class: "7th",
-    topic: "Forests: Our Lifeline",
-    duration: "10 mins",
-    timer: 5,
-    questionsList: [
+    "id": 4,
+    "class": "7th",
+    "topic": "Forests: Our Lifeline",
+    "duration": "5 mins",
+    "timer": 5,
+    "difficulty": "easy",
+    "questionsList": [
       {
         "questionText": "The branches of the tall trees look like a roof over the other plants in the forest is called  __________________.",
         "questionImage": "",
@@ -276,12 +280,13 @@ export const data = [
     ]
   },
   {
-    id: 5,
-    class: "7th",
-    topic: "Light",
-    duration: "10 mins",
-    timer: 5,
-    questionsList: [
+    "id": 5,
+    "class": "7th",
+    "topic": "Light",
+    "duration": "5 mins",
+    "difficulty": "easy",
+    "timer": 5,
+    "questionsList": [
       {
         "questionText": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called ____________________.",
         "questionImage": "",
@@ -303,7 +308,7 @@ export const data = [
           "virtual image",
           "real image",
         ],
-        "answer": "real image",
+        "answer": "virtual image",
         "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image."
       },
       {
@@ -345,12 +350,13 @@ export const data = [
     ]
   },
   {
-    id: 6,
-    class: "7th",
-    topic: "Chemical effects of electicity",
-    duration: "10 mins",
-    timer: 5,
-    questionsList: [
+    "id": 6,
+    "class": "7th",
+    "topic": "Chemical effects of electicity",
+    "duration": "5 mins",
+    "difficulty": "easy",
+    "timer": 5,
+    "questionsList": [
       {
         "questionText": "Wires made from some special materials melt quickly and break when large electric currents are passed through them. These wires are used for making _____________.",
         "questionImage": "",
@@ -386,18 +392,6 @@ export const data = [
         ],
         "answer": "electromagnet",
         "solution": "A current carrying coil of an insulated wire wrapped around a piece of iron is called an electromagnet."
-      },
-      {
-        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a _______________.",
-        "questionImage": "",
-        "options": [
-          "false image",
-          "real image",
-          "vertual image",
-          "virtual image",
-        ],
-        "answer": "virtual image",
-        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image. ",
       },
       {
         "questionText": "When an electric current flows through a wire, the wire gets heated. It is the ______________ current",
