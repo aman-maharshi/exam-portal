@@ -4,6 +4,7 @@ export const data = [
     class: "8th",
     topic: "Sound",
     duration: "10 mins",
+    timer: 5,
     questionsList: [
       {
         "questionText": "Sound is caused by _________ of an object.",
@@ -72,6 +73,7 @@ export const data = [
     class: "8th",
     topic: "Light",
     duration: "10 mins",
+    timer: 5,
     questionsList: [
       {
         "questionText": "  First the laws of reflection is angle of _________ is always equal to the angle of __________.",
@@ -140,6 +142,7 @@ export const data = [
     class: "8th",
     topic: "Chemical Effects of Electricity",
     duration: "10 mins",
+    timer: 5,
     questionsList: [
       {
         "questionText": " The process of depositing a layer of any desired metal on another material by means of electricity is called________________ .",
@@ -208,6 +211,7 @@ export const data = [
     class: "7th",
     topic: "Forests: Our Lifeline",
     duration: "10 mins",
+    timer: 5,
     questionsList: [
       {
         "questionText": "The branches of the tall trees look like a roof over the other plants in the forest is called  __________________.",
@@ -276,6 +280,7 @@ export const data = [
     class: "7th",
     topic: "Light",
     duration: "10 mins",
+    timer: 5,
     questionsList: [
       {
         "questionText": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called ____________________.",
@@ -337,6 +342,75 @@ export const data = [
         "answer": "erect, virtual",
         "solution": "Image formed by a convex mirror is erect, virtual and smaller in size than the object.",
       },
+    ]
+  },
+  {
+    id: 6,
+    class: "7th",
+    topic: "Chemical effects of electicity",
+    duration: "10 mins",
+    timer: 5,
+    questionsList: [
+      {
+        "questionText": "Wires made from some special materials melt quickly and break when large electric currents are passed through them. These wires are used for making _____________.",
+        "questionImage": "",
+        "options": [
+          "electric fuse",
+          "circuit",
+          "switch",
+          "wire",
+        ],
+        "answer": "electric fuse",
+        "solution": "Wires made from some special materials melt quickly and break when large electric currents are passed through them. These wires are used for making electric fuse."
+      },
+      {
+        "questionText": "When an electric current flows through a wire, it behaves like a _____________.",
+        "questionImage": "",
+        "options": [
+          "electric wire",
+          "magnet",
+          "circuit",
+          "iron rod ",
+        ],
+        "answer": "magnet",
+        "solution": "When an electric current flows through a wire, it behaves like a magnet."
+      },
+      {
+        "questionText": " A current carrying coil of an insulated wire wrapped around a piece of iron is called an ____________________ .",
+        "questionImage": "",
+        "options": [
+          "electric wire",
+          "magent",
+          "electromagnet",
+          "switch",
+        ],
+        "answer": "electromagnet",
+        "solution": "A current carrying coil of an insulated wire wrapped around a piece of iron is called an electromagnet."
+      },
+      {
+        "questionText": " the image formed by a plane mirror could not be obtained on a screen. Such an image is called a _______________.",
+        "questionImage": "",
+        "options": [
+          "false image",
+          "real image",
+          "vertual image",
+          "virtual image",
+        ],
+        "answer": "virtual image",
+        "solution": "the image formed by a plane mirror could not be obtained on a screen. Such an image is called a virtual image. ",
+      },
+      {
+        "questionText": "When an electric current flows through a wire, the wire gets heated. It is the ______________ current",
+        "questionImage": "",
+        "options": [
+          "heating",
+          "boiling effect of",
+          "melting effect of",
+          "heating effect of",
+        ],
+        "answer": "heating effect of",
+        "solution": "When an electric current flows through a wire, the wire gets heated. It is the heating effect of current ",
+      }
     ]
   }
 ]

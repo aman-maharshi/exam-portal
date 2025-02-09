@@ -26,7 +26,7 @@ const Sidebar = () => {
         Home
       </div>
       <div
-        // onClick={() => navigate('/results')}
+        onClick={() => navigate('/results')}
         className={clsx(
           'p-4 rounded-xl font-bold cursor-pointer',
           pathname === '/results' ? 'card-gradient text-white' : 'bg-gray-100'
@@ -36,7 +36,7 @@ const Sidebar = () => {
       </div>
       <div
         className={clsx(
-          'p-4 rounded-xl font-bold cursor-pointer',
+          'p-4 rounded-xl font-bold cursor-default',
           pathname === '/study-material' ? 'card-gradient text-white' : 'bg-gray-100'
         )}
       >

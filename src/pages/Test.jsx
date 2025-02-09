@@ -73,7 +73,9 @@ const Test = () => {
     handleSubmitTest()
   }
 
-  const targetDate = new Date(new Date().getTime() + 10 * 60 * 1000).toISOString() // 10 minutes
+  const targetDate = test?.timer ?
+    new Date(new Date().getTime() + test.timer * 60 * 1000).toISOString() :
+    new Date(new Date().getTime() + 10 * 60 * 1000).toISOString() // 10 minutes
 
   return (
     <Layout>
@@ -81,7 +83,7 @@ const Test = () => {
 
         <div className='bg-white p-4 rounded-xl max-w-[800px] mx-auto mt-10 relative'>
 
-          <div className='fixed top-4 right-4 lg:top-6 lg:right-6'> 
+          <div className='fixed top-4 right-4 lg:top-6 lg:right-6'>
             {!timerEnded ? (
               <Timer targetDate={targetDate} handleTimerEnd={handleTimerEnd} />
             ) : (
