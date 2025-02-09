@@ -66,6 +66,15 @@ const Results = () => {
                 )
               })}
 
+              {userData?.results.length === 0 && (
+                <div>
+                  <div className='text-center text-gray-500 mt-8'>
+                    <p className='text-xl'>No results available</p>
+                    <p className='text-base'>You haven't attempted any tests yet</p>
+                  </div>
+                </div>
+              )}
+
             </div>
           </div>
         </div>
