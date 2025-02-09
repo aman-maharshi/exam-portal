@@ -92,7 +92,7 @@ const Test = () => {
               </div>
             )}
           </div>
-          <h2 className='text-4xl font-bold text-center mt-4'>{test?.topic}</h2>
+          <h2 className='text-2xl md:text-4xl font-bold text-center mt-4'>{test?.topic}</h2>
           <div className='max-w-[600px] my-10 mx-auto text-stone-600'>
             {test?.questionsList?.map((question, index) => (
               <Question
