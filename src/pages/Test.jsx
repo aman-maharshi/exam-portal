@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 import GlobalContext from "../GlobalContext"
 import { useNavigate, useParams } from 'react-router-dom'
 import { data } from "../data"
+import { updateTestResult } from '../../appwrite'
+import { clsx } from 'clsx'
 
 // COMPONENTS
 import Layout from '../Layout'
@@ -16,6 +18,8 @@ const Test = () => {
   // console.log(test)
 
   const [totalMarks, setTotalMarks] = useState(0)
+  const [loading, setLoading] = useState(false)
+
   const answersMap = test?.questionsList.map(item => ({
     question: item.questionText,
     answer: item.answer,
@@ -35,7 +39,26 @@ const Test = () => {
     }
   }, [answersList])
 
-  const handleSubmitTest = () => {
+  const handleSubmitTest = async () => {
+    setLoading(true)
+    updateResultLocally()
+
+    // try {
+    //   const percentage = parseInt((totalMarks / test?.questionsList.length) * 100)
+    //   await updateTestResult(Number(testId), userData.username, percentage)
+    // } catch (error) {
+    //   console.log(error)
+    // } finally {
+    //   setLoading(false)
+    // }
+
+    setTimeout(() => {
+      setLoading(false)
+      navigate('/result/' + testId)
+    }, 250)
+  }
+
+  const updateResultLocally = () => {
     const existingResultIndex = userData.results.findIndex(result => result.testId === testId)
     let updatedResults
 
@@ -57,10 +80,6 @@ const Test = () => {
       results: updatedResults
     }
     setUserData(updatedData)
-
-    setTimeout(() => {
-      navigate('/result/' + testId)
-    }, 250)
   }
 
   /*
@@ -106,9 +125,13 @@ const Test = () => {
 
           <button
             onClick={handleSubmitTest}
-            className='card-gradient py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white'
+            className={clsx(
+              'py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white',
+              loading ? "bg-stone-400" : "card-gradient"
+            )}
+            disabled={loading}
           >
-            Submit
+            {loading ? "Submitting..." : "Submit"}
           </button>
         </div>
 
