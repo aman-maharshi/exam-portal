@@ -4,8 +4,12 @@ import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { defaultPassword } from "../utils/apiConstants"
 import clsx from 'clsx'
+
+// ICONS
 import DownArrow from "../assets/down-arrow.svg?react"
 import UserInfo from "../assets/user-info.svg?react"
+import ShowPassword from "../assets/password-show.svg?react"
+import HidePassword from "../assets/password-hide.svg?react"
 
 const Login = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -13,6 +17,7 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [grade, setGrade] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
   const testUserPassword = import.meta.env.VITE_DEFAULT_PASSWORD
 
@@ -86,13 +91,26 @@ const Login = () => {
             <DownArrow className="h-5 w-5" />
           </div>
 
-          <input
-            type="password"
-            placeholder='Enter Password'
-            className='border p-2 rounded-lg mb-4'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className='relative mb-4'>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              placeholder='Enter Password'
+              className='border p-2 rounded-lg w-full pr-10'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className='absolute right-2 top-1/2 -translate-y-1/2 text-sm text-gray-600'
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <ShowPassword className="h-6 w-6 text-black" />
+              ) : (
+                <HidePassword className="h-6 w-6 text-black" />
+              )}
+            </button>
+          </div>
 
           <button
             onClick={handleLogin}

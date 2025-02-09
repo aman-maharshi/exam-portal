@@ -15,13 +15,13 @@ const Results = () => {
 
   return (
     <Layout>
-      <div className='min-h-screen bg-[#ecf2f9] w-full p-6 flex'>
+      <div className='min-h-screen bg-[#ecf2f9] w-full p-4 sm:p-6 flex'>
 
-        <div className='flex gap-6 flex-1'>
+        <div className='flex gap-4 sm:gap-6 flex-1'>
           <Sidebar />
 
           <div className='flex-1 rounded-xl'>
-            <div className='flex justify-between items-center'>
+            <div className='flex flex-col sm:flex-row justify-between items-center'>
               <h1 className='font-bold text-xl sm:text-3xl'>Welcome, {userData?.username} 👋</h1>
               <div className='flex items-center gap-2'>
                 <div>Class : </div>
@@ -30,7 +30,7 @@ const Results = () => {
                 </div>
               </div>
             </div>
-            <div className='p-4 py-6 mt-4 px-8 rounded-xl card-gradient text-gray-200 shadow-md flex justify-between'>
+            <div className='p-4 py-6 mt-4 px-8 rounded-xl card-gradient text-gray-200 shadow-md flex flex-col-reverse sm:flex-row justify-between gap-4'>
               <div>
                 <p className='font-bold text-lg'>{currentDate}</p>
                 <div className='max-w-lg mt-4 text-sm sm:text-base'>
