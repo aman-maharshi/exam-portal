@@ -4,6 +4,7 @@ import GlobalContext from "../GlobalContext"
 import Sidebar from '../components/Sidebar'
 import CircleCheckIcon from "../assets/check-circle.svg?react"
 import clsx from 'clsx'
+import { Link } from 'react-router-dom'
 
 const Results = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -11,7 +12,7 @@ const Results = () => {
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const currentDate = new Date().toLocaleDateString(undefined, options)
 
-  console.log(userData?.results, "results")
+  // console.log(userData?.results, "results")
 
   return (
     <Layout>
@@ -24,9 +25,8 @@ const Results = () => {
             <div className='flex flex-col sm:flex-row justify-between items-center'>
               <h1 className='font-bold text-xl sm:text-3xl'>Welcome, {userData?.username} 👋</h1>
               <div className='flex items-center gap-2'>
-                <div>Class : </div>
-                <div className='px-3 py-0.5 rounded-full bg-blue-200 text-base font-bold'>
-                  {userData?.grade}
+                <div className='px-3 py-0.5 rounded-full text-base font-bold card-gradient text-white'>
+                  {userData?.grade} Class
                 </div>
               </div>
             </div>
@@ -51,10 +51,26 @@ const Results = () => {
 
                 return (
                   <div key={index} className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
-                    <div className='flex items-center gap-4'>
-                      <CircleCheckIcon className="h-5 w-5" />
-                      <div className='font-medium text-lg'>{result.topic}</div>
+                    <div className='flex items-center gap-3 lg:gap-4'>
+                      <CircleCheckIcon className="h-5 w-5 text-slate-700" />
+                      <div className='font-medium text-base lg:text-lg'>
+                        {result?.topic}
+                      </div>
+                      <div className={clsx(
+                        'text-sm px-3 py-0.5 rounded-full',
+                        result?.difficulty === 'Easy' && 'bg-green-100 text-green-600',
+                        result?.difficulty === 'Moderate' && 'bg-yellow-100 text-yellow-600',
+                      )}>
+                        {result?.difficulty}
+                      </div>
                     </div>
+
+                    <Link
+                      to={`/solution/${result?.testId}`}
+                      className='underline font-medium text-slate-700'
+                    >
+                      View Solutions
+                    </Link>
                     <div className='flex items-end gap-4'>
                       <div className='font-bold text-4xl'>
                         <span className={textColor}>{result?.totalMarks}</span>

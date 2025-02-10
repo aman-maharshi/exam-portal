@@ -71,7 +71,8 @@ const Test = () => {
         testId,
         totalMarks,
         totalQuestions: test?.questionsList.length,
-        topic: test?.topic
+        topic: test?.topic,
+        difficulty: test?.difficulty
       }]
     }
 

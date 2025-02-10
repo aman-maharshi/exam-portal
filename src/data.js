@@ -3,9 +3,9 @@ export const data = [
     "id": 1,
     "class": "8th",
     "topic": "Sound",
-    "duration": "5 mins",
-    "difficulty": "easy",
-    "timer": 5,
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "Sound is caused by _________ of an object.",
@@ -73,9 +73,9 @@ export const data = [
     "id": 2,
     "class": "8th",
     "topic": "Light",
-    "duration": "5 mins",
-    "difficulty": "easy",
-    "timer": 5,
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "The First laws of reflection is angle of _________ is always equal to the angle of __________.",
@@ -143,9 +143,9 @@ export const data = [
     "id": 3,
     "class": "8th",
     "topic": "Chemical Effects of Electricity",
-    "duration": "5 mins",
-    "timer": 5,
-    "difficulty": "easy",
+    "duration": "3 mins",
+    "timer": 3,
+    "difficulty": "Easy",
     "questionsList": [
       {
         "questionText": " The process of depositing a layer of any desired metal on another material by means of electricity is called________________ .",
@@ -213,9 +213,9 @@ export const data = [
     "id": 4,
     "class": "7th",
     "topic": "Forests: Our Lifeline",
-    "duration": "5 mins",
-    "timer": 5,
-    "difficulty": "easy",
+    "duration": "3 mins",
+    "timer": 3,
+    "difficulty": "Easy",
     "questionsList": [
       {
         "questionText": "The branches of the tall trees look like a roof over the other plants in the forest is called  __________________.",
@@ -283,9 +283,9 @@ export const data = [
     "id": 5,
     "class": "7th",
     "topic": "Light",
-    "duration": "5 mins",
-    "difficulty": "easy",
-    "timer": 5,
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called ____________________.",
@@ -353,9 +353,9 @@ export const data = [
     "id": 6,
     "class": "7th",
     "topic": "Electric Current and Its Effects",
-    "duration": "5 mins",
-    "difficulty": "easy",
-    "timer": 5,
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "Wires made from some special materials melt quickly and break when large electric currents are passed through them. These wires are used for making _____________.",
@@ -406,18 +406,108 @@ export const data = [
         "solution": "When an electric current flows through a wire, the wire gets heated. It is the heating effect of current ",
       },
       {
-          "questionText": "What does this image show?",
-          "questionImage": "fuse.png",
-          "imageWidth": "250px",
-          "options": [
-            "switch",
-            "magnet",
-            "electric fuse",
-            "electric wire",
-          ],
-          "answer": "electric fuse",
-          "solution": "",
-        }
+        "questionText": "What does this image show?",
+        "questionImage": "fuse.png",
+        "imageWidth": "250px",
+        "options": [
+          "switch",
+          "magnet",
+          "electric fuse",
+          "electric wire",
+        ],
+        "answer": "electric fuse",
+        "solution": "",
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "class": "8th",
+    "topic": "Light",
+    "duration": "3 mins",
+    "difficulty": "Moderate",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "The First laws of reflection is angle of incidence is always unequal to the angle of reflection.",
+        "questionImage": "",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "solution": "angle of incidence is always EQUAL to the angle of reflection(<i=<r)."
+      },
+      {
+        "questionText": "2nd Law of reflection is the incident ray, the normal at the point of incidence and the reflected ray all lie in the different plane..",
+        "questionImage": "",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "solution": " 2nd Law of reflection is,the incident ray, the normal at the point of incidence and the reflected ray all lie in the SAME plane."
+      },
+      {
+        "questionText": "If angle if incidence is equal to 73.5 degree angle of reflection is equal to ________degree.",
+        "questionImage": "",
+        "options": [
+          "74",
+          "45",
+          "73.6",
+          "73.5"
+        ],
+        "answer": "73.5",
+        "solution": "If angle if incidence is equal to 73.5 degree angle of reflection is equal to 73.5 degree."
+      },
+      {
+        "questionText": "When reflected rays from a surface are not parallel such a reflection is known as____________ reflection.",
+        "questionImage": "",
+        "options": [
+          "regular",
+          "smooth",
+          "rought",
+          "irregular"
+        ],
+        "answer": "irregular",
+        "solution": "When reflected rays from a surface are not parallel such a reflection is known as IRREGULAR or DIFFUSED reflection."
+      },
+      {
+        "questionText": "__________ numbers of mirrors are used in periscope.",
+        "questionImage": "",
+        "options": [
+          "Three",
+          "Four",
+          "Five",
+          "Two"
+        ],
+        "answer": "Two",
+        "solution": "TWO numbers of mirrors are used in periscope. "
+      },
+      {
+        "questionText": "__________ mirrors are used in periscope.",
+        "questionImage": "",
+        "options": [
+          "Concave",
+          "Convex",
+          "Plane",
+          "none"
+        ],
+        "answer": "Plane",
+        "solution": "PLANE mirrors are used in periscope."
+      },
+      {
+        "questionText": "When two plane mirrors are parallel to each other, an/a ___________ number of images are formed.",
+        "questionImage": "",
+        "options": [
+          "one",
+          "none",
+          "infinite",
+          "zero"
+        ],
+        "answer": "infinite",
+        "solution": "When two plane mirrors are parallel to each other, an INFINITE number of images are formed. This is because of multiple reflections between the two mirrors"
+      }
     ]
   }
 ]
