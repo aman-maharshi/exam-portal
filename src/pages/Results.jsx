@@ -45,7 +45,7 @@ const Results = () => {
             <div className='mt-6'>
               <h3 className='text-xl font-bold'>Available Results</h3>
 
-              {userData?.results.map((result, index) => {
+              {userData?.results?.map((result, index) => {
                 const resultPercentage = parseInt((result?.totalMarks / result?.totalQuestions) * 100)
                 let textColor = resultPercentage >= 75 ? 'text-green-600' : resultPercentage >= 50 ? 'text-yellow-600' : 'text-red-600'
 

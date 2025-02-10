@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 import GlobalContext from "../GlobalContext"
 import { useNavigate, useParams } from 'react-router-dom'
 import { data } from "../data"
@@ -87,15 +87,14 @@ const Test = () => {
     TIMER
   ---------*/
   const [timerEnded, setTimerEnded] = useState(false)
+  const targetDateRef = useRef(test?.timer ?
+    new Date(new Date().getTime() + test.timer * 60 * 1000).toISOString() :
+    new Date(new Date().getTime() + 10 * 60 * 1000).toISOString()) // 10 minutes
 
   const handleTimerEnd = () => {
     setTimerEnded(true)
     handleSubmitTest()
   }
-
-  const targetDate = test?.timer ?
-    new Date(new Date().getTime() + test.timer * 60 * 1000).toISOString() :
-    new Date(new Date().getTime() + 10 * 60 * 1000).toISOString() // 10 minutes
 
   return (
     <Layout>
@@ -105,7 +104,7 @@ const Test = () => {
 
           <div className='fixed top-4 right-4 lg:top-6 lg:right-6'>
             {!timerEnded ? (
-              <Timer targetDate={targetDate} handleTimerEnd={handleTimerEnd} />
+              <Timer targetDate={targetDateRef.current} handleTimerEnd={handleTimerEnd} />
             ) : (
               <div className="p-4 text-lg font-bold text-red-500">
                 Timer has ended!
