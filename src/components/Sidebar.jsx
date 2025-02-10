@@ -16,7 +16,7 @@ const Sidebar = () => {
   const { pathname } = useLocation()
 
   const handleLogout = () => {
-    setUserData({})
+    setUserData({ role: userData?.role })
     navigate('/')
   }
 

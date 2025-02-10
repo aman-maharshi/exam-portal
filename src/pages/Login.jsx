@@ -16,12 +16,13 @@ const Login = () => {
   const [username, setUsername] = useState('')
   const [grade, setGrade] = useState('')
   const [password, setPassword] = useState('')
+  const [role, setRole] = useState('student')
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
   const testUserPassword = import.meta.env.VITE_DEFAULT_PASSWORD
 
   const handleLogin = () => {
-    if (userData.role !== 'student') {
+    if (role !== 'student') {
       return showToast('Unauthorized')
     }
 
@@ -33,7 +34,7 @@ const Login = () => {
       return showToast('Incorrect Password!')
     }
 
-    setUserData({ username, password, grade, loggedIn: true, results: [] })
+    setUserData({ username, password, grade, role, loggedIn: true, results: [] })
     navigate('/home')
   }
 
@@ -54,18 +55,18 @@ const Login = () => {
             <button
               className={clsx(
                 'py-2 px-4 rounded-l-lg transition-all font-medium duration-300',
-                userData.role === 'student' ? 'card-gradient text-white' : 'bg-gray-200 text-black'
+                role === 'student' ? 'card-gradient text-white' : 'bg-gray-200 text-black'
               )}
-              onClick={() => setUserData({ ...userData, role: 'student' })}
+              onClick={() => setRole('student')}
             >
               Student Login
             </button>
             <button
               className={clsx(
                 'py-2 px-4 rounded-r-lg transition-all font-medium duration-300',
-                userData.role === 'teacher' ? 'card-gradient text-white' : 'bg-gray-200 text-black'
+                role === 'teacher' ? 'card-gradient text-white' : 'bg-gray-200 text-black'
               )}
-              onClick={() => setUserData({ ...userData, role: 'teacher' })}
+              onClick={() => setRole('teacher')}
             >
               Teacher Login
             </button>
@@ -82,7 +83,7 @@ const Login = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
 
-          {userData.role === 'student' && (
+          {role === 'student' && (
             <div className='border p-2 rounded-lg overflow-hidden mb-4 flex items-center justify-between'>
               <select
                 className={clsx(
@@ -129,7 +130,7 @@ const Login = () => {
           </button>
         </div>
 
-        {userData?.role === 'student' && (
+        {role === 'student' && (
           <div className='p-4 w-[250px] bg-stone-200 border border-stone-400 rounded-md flex items-center gap-6'>
             <div>
               <UserInfo className="h-7 w-7 text-black" />

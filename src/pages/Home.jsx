@@ -31,9 +31,8 @@ const Home = () => {
             <div className='flex flex-col sm:flex-row justify-between items-center'>
               <h1 className='font-bold text-xl sm:text-3xl'>Welcome, {userData?.username} 👋</h1>
               <div className='flex items-center gap-2'>
-                <div>Class : </div> 
-                <div className='px-3 py-0.5 rounded-full bg-blue-200 text-base font-bold'>
-                  {userData?.grade}
+                <div className='px-3 py-0.5 rounded-full text-base font-bold card-gradient text-white'>
+                  {userData?.grade} Class
                 </div>
               </div>
             </div>
