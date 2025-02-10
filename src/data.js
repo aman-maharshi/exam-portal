@@ -3,9 +3,9 @@ export const data = [
     "id": 1,
     "class": "8th",
     "topic": "Sound",
-    "duration": "5 mins",
+    "duration": "3 mins",
     "difficulty": "Easy",
-    "timer": 5,
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "Sound is caused by _________ of an object.",
@@ -73,9 +73,9 @@ export const data = [
     "id": 2,
     "class": "8th",
     "topic": "Light",
-    "duration": "5 mins",
+    "duration": "3 mins",
     "difficulty": "Easy",
-    "timer": 5,
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "The First laws of reflection is angle of _________ is always equal to the angle of __________.",
@@ -143,8 +143,8 @@ export const data = [
     "id": 3,
     "class": "8th",
     "topic": "Chemical Effects of Electricity",
-    "duration": "5 mins",
-    "timer": 5,
+    "duration": "3 mins",
+    "timer": 3,
     "difficulty": "Easy",
     "questionsList": [
       {
@@ -213,8 +213,8 @@ export const data = [
     "id": 4,
     "class": "7th",
     "topic": "Forests: Our Lifeline",
-    "duration": "5 mins",
-    "timer": 5,
+    "duration": "3 mins",
+    "timer": 3,
     "difficulty": "Easy",
     "questionsList": [
       {
@@ -283,9 +283,9 @@ export const data = [
     "id": 5,
     "class": "7th",
     "topic": "Light",
-    "duration": "5 mins",
+    "duration": "3 mins",
     "difficulty": "Easy",
-    "timer": 5,
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "A mirror changes the direction of light that falls on it. This change of direction by a mirror is called ____________________.",
@@ -353,9 +353,9 @@ export const data = [
     "id": 6,
     "class": "7th",
     "topic": "Electric Current and Its Effects",
-    "duration": "5 mins",
+    "duration": "3 mins",
     "difficulty": "Easy",
-    "timer": 5,
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "Wires made from some special materials melt quickly and break when large electric currents are passed through them. These wires are used for making _____________.",
@@ -424,9 +424,9 @@ export const data = [
     "id": 7,
     "class": "8th",
     "topic": "Light",
-    "duration": "5 mins",
+    "duration": "3 mins",
     "difficulty": "Moderate",
-    "timer": 5,
+    "timer": 3,
     "questionsList": [
       {
         "questionText": "The First laws of reflection is angle of incidence is always unequal to the angle of reflection.",

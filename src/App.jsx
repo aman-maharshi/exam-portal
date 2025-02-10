@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import Instructions from './pages/Instructions'
 import Result from './pages/Result'
 import Test from './pages/Test'
+import Solution from './pages/Solution';
 
 const App = () => {
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')))
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/instructions/:testId" element={<Instructions />} />
           <Route path="/test/:testId" element={<Test />} />
           <Route path="/result/:testId" element={<Result />} />
+          <Route path="/solution/:testId" element={<Solution />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer limit={3} />
