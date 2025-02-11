@@ -52,7 +52,7 @@ const Results = () => {
                 return (
                   <div key={index} className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
                     <div className='flex items-center gap-3 lg:gap-4'>
-                      <CircleCheckIcon className="h-5 w-5 text-slate-700" />
+                      <CircleCheckIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
                       <div className='font-medium text-base lg:text-lg'>
                         {result?.topic}
                       </div>

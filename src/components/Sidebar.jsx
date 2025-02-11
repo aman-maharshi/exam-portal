@@ -21,7 +21,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='flex flex-col gap-4 bg-white w-auto md:w-[250px] p-4 h-full rounded-xl shadow-md'>
+    <div className='flex flex-col gap-4 bg-white w-auto lg:w-[250px] p-4 h-full rounded-xl shadow-lg'>
       <div
         onClick={() => navigate('/home')}
         className={clsx(
@@ -30,7 +30,7 @@ const Sidebar = () => {
         )}
       >
         <HomeIcon className='w-5 h-5' />
-        <div className='hidden md:flex'>Home</div>
+        <div className='hidden lg:flex'>Home</div>
       </div>
       <div
         onClick={() => navigate('/results')}
@@ -40,7 +40,7 @@ const Sidebar = () => {
         )}
       >
         <TrophyIcon className='w-5 h-5' />
-        <div className='hidden md:flex'>Test Results</div>
+        <div className='hidden lg:flex'>Test Results</div>
       </div>
       <div
         className={clsx(
@@ -49,13 +49,13 @@ const Sidebar = () => {
         )}
       >
         <BookIcon className='w-5 h-5' />
-        <div className='hidden md:flex'>Study Material</div>
+        <div className='hidden lg:flex'>Study Material</div>
       </div>
 
 
       <div onClick={handleLogout} className='p-4 mt-auto text-gray-500 font-bold cursor-pointer flex items-center gap-3'>
         <LogoutIcon className='w-5 h-5' />
-        <div className='hidden md:flex'>Logout</div>
+        <div className='hidden lg:flex'>Logout</div>
       </div>
     </div>
   )
