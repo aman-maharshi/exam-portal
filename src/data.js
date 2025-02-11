@@ -424,9 +424,9 @@ export const data = [
     "id": 7,
     "class": "8th",
     "topic": "Light",
-    "duration": "3 mins",
+    "duration": "5 mins",
     "difficulty": "Moderate",
-    "timer": 3,
+    "timer": 5,
     "questionsList": [
       {
         "questionText": "The First laws of reflection is angle of incidence is always unequal to the angle of reflection.",
@@ -507,6 +507,100 @@ export const data = [
         ],
         "answer": "infinite",
         "solution": "When two plane mirrors are parallel to each other, an INFINITE number of images are formed. This is because of multiple reflections between the two mirrors"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "class": "7th",
+    "topic": "Light",
+    "duration": "5 mins",
+    "difficulty": "Moderate",
+    "timer": 5,
+    "questionsList": [
+      {
+        "questionText": "In a side view mirror of a scooty or a car the image of all objects appears to be ____________ size.",
+        "questionImage": "",
+        "options": [
+          "same",
+          "large",
+          "smaller",
+          "distorted"
+        ],
+        "answer": "smaller",
+        "solution": "In a side view mirror of a scooty or a car the image of all objects appears to be SMALLER  size then the object themselves, convex mirror image smaller then object."
+      },
+      {
+        "questionText": "The inner surface of the spoon acts like ____________ mirror, while the outter surface acts like _____________mirror.",
+        "questionImage": "",
+        "options": [
+          "plane, plane",
+          "convex, plane",
+          "concave, convex",
+          "convex, concave"
+        ],
+        "answer": "concave, convex",
+        "solution": "The inner surface of the spoon acts like CONCAVE mirror, while the outter surface acts like CONVEX mirror ."
+      },
+      {
+        "questionText": "Which of these is not a use of concave mirror?",
+        "questionImage": "",
+        "options": [
+          "Used by dentist",
+          "Used as a rear view mirror in car",
+          "Used in car headlight",
+          "used in torches"
+        ],
+        "answer": "Used as a rear view mirror in car",
+        "solution": "Concave mirrors are used  by dentist, in car headlight and torches and used in solar furnaces to absorb sunlight, NOT USED AS A REAR VIEW MIRROR IN CAR."
+      },
+      {
+        "questionText": "Which of these is not a use of convex mirror?.",
+        "questionImage": "",
+        "options": [
+          "Used as shaving mirror",
+          "Used for security purposes",
+          "Used in parking lots",
+          "Used in telescopes"
+        ],
+        "answer": "Used as shaving mirror",
+        "solution": "Convex mirror are used for security purposes, used in parking lots and used in telescopes. NOT USED AS SHAVING MIRROR."
+      },
+      {
+        "questionText": "Magnifying glasses are made up of a  _____________ lens.",
+        "questionImage": "",
+        "options": [
+          "concave",
+          "convex",
+          "plane",
+          "curved"
+        ],
+        "answer": "convex",
+        "solution": "Magnifying glasses are made up of a convex lens."
+      },
+      {
+        "questionText": "Image formed by a concave lens is ________________ .",
+        "questionImage": "",
+        "options": [
+          "virtual",
+          "erect",
+          "smaller size",
+          "all of the above"
+        ],
+        "answer": "all of the above",
+        "solution": "Image formed by a concave lens is (VIRTUAL, ERECT and SMALLER SIZE) ALL OF THE ABOVE."
+      },
+      {
+        "questionText": "Prism splits ________ light into _________ colours.",
+        "questionImage": "",
+        "options": [
+          "yellow, seven",
+          "white, eight",
+          "white, seven",
+          "red, eight"
+        ],
+        "answer": "white, seven",
+        "solution": "Prism splits WHITE light into SEVEN colours."
       }
     ]
   }

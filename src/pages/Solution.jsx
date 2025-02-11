@@ -60,9 +60,15 @@ const Solution = () => {
                   ))}
                 </div>
                 {showSolutions && (
-                  <div className="my-4 bg-blue-100 border border-blue-200 p-2 rounded-md">
-                    Correct Answer: <strong>{question.answer}</strong>
-                  </div>
+                  <>
+                    <div className="my-4 bg-blue-100 border border-blue-200 p-2 rounded-md">
+                      <span className='underline'>Correct Answer</span> : <strong>{question.answer}</strong>
+
+                      <div className='mt-2'>
+                        <span className='underline'>Explanation</span> : {question?.solution}
+                      </div>
+                    </div>
+                  </>
                 )}
 
               </div>

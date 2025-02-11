@@ -40,11 +40,11 @@ const Home = () => {
               <div>
                 <p className='font-bold text-lg'>{currentDate}</p>
                 <div className='max-w-lg mt-4 text-sm sm:text-base'>
-                  Here you can take new tests to challenge your knowledge and skills, and revisit detailed solutions to previously attempted ones.
+                  Here, you can explore all the available tests and choose the ones that interest you. Attempt tests to challenge your knowledge and improve your skills.
                 </div>
               </div>
               <div>
-                <img src="/study-male.svg" alt="student" className='h-24 w-24 min-w-24 lg:h-36 lg:w-36 lg:min-w-36 bg-white rounded-full' />
+                <img src="/study-male.svg" alt="student" className='h-24 w-24 min-w-24 lg:h-32 lg:w-32 lg:min-w-32 bg-white rounded-full' />
               </div>
             </div>
 
