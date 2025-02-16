@@ -127,7 +127,7 @@ const Test = () => {
             onClick={handleSubmitTest}
             className={clsx(
               'py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white',
-              loading ? "bg-stone-400" : "card-gradient"
+              loading ? "bg-stone-400" : "cta-gradient"
             )}
             disabled={loading}
           >

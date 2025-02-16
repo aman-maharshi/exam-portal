@@ -12,7 +12,10 @@ const AvailableTestRow = ({ test, userData }) => {
   // console.log(testAttempted, "testAttempted")
 
   return (
-    <div className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
+    <div className={clsx(
+      'bg-white border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4',
+      testAttempted && 'bg-slate-300'
+    )}>
       <div className='flex items-center gap-3 lg:gap-4'>
         {testAttempted ? <CircleCheckIcon className="h-5 w-5 text-green-600 flex-shrink-0" /> : <CircleIcon className="h-5 w-5 flex-shrink-0" />}
         <div className='font-medium text-base lg:text-lg'>
@@ -28,7 +31,7 @@ const AvailableTestRow = ({ test, userData }) => {
       </div>
       <button
         onClick={() => navigate(`/instructions/${test?.id}`)}
-        className='card-gradient text-white font-bold py-2 px-4 lg:px-8 rounded-lg'
+        className='cta-gradient text-white font-bold py-2 px-2 sm:px-4 lg:px-8 rounded-lg'
       >
         Take Test
       </button>
