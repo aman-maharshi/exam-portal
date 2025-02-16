@@ -28,7 +28,7 @@ const AvailableTestRow = ({ test, userData }) => {
       </div>
       <button
         onClick={() => navigate(`/instructions/${test?.id}`)}
-        className='card-gradient text-white font-bold py-2 px-4 lg:px-8 rounded-lg'
+        className='cta-gradient text-white font-bold py-2 px-4 lg:px-8 rounded-lg'
       >
         Take Test
       </button>

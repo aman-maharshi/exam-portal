@@ -20,7 +20,7 @@ const Solution = () => {
       <div className='min-h-screen bg-[#ecf2f9] w-full p-6 relative'>
         <button
           onClick={() => navigate('/results')}
-          className='absolute left-4 top-4 z-10 lg:left-8 lg:top-8 card-gradient py-2 px-4 mx-auto rounded-lg text-white flex items-center gap-2'
+          className='absolute left-4 top-4 z-10 lg:left-8 lg:top-8 cta-gradient py-2 px-4 mx-auto rounded-lg text-white flex items-center gap-2'
         >
           <BackIcon className="size-4" />
           Back
@@ -76,7 +76,7 @@ const Solution = () => {
 
             <button
               onClick={() => navigate('/results')}
-              className='card-gradient py-2 px-4 mt-14 mb-4 mx-auto rounded-lg text-white flex items-center gap-2'
+              className='cta-gradient py-2 px-4 mt-14 mb-4 mx-auto rounded-lg text-white flex items-center gap-2'
             >
               <BackIcon className="size-4" />
               Back

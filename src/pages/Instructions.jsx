@@ -68,7 +68,7 @@ const Instructions = () => {
 
           <button
             onClick={() => navigate(`/test/${testId}`)}
-            className='card-gradient py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white'
+            className='cta-gradient py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white'
           >
             Start Test
           </button>

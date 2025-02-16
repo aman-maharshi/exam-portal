@@ -55,7 +55,7 @@ const Login = () => {
             <button
               className={clsx(
                 'py-2 px-4 rounded-l-lg transition-all font-medium duration-300',
-                role === 'student' ? 'card-gradient text-white' : 'bg-gray-200 text-black'
+                role === 'student' ? 'cta-gradient text-white' : 'bg-gray-200 text-black'
               )}
               onClick={() => setRole('student')}
             >
@@ -64,7 +64,7 @@ const Login = () => {
             <button
               className={clsx(
                 'py-2 px-4 rounded-r-lg transition-all font-medium duration-300',
-                role === 'teacher' ? 'card-gradient text-white' : 'bg-gray-200 text-black'
+                role === 'teacher' ? 'cta-gradient text-white' : 'bg-gray-200 text-black'
               )}
               onClick={() => setRole('teacher')}
             >
@@ -124,7 +124,7 @@ const Login = () => {
 
           <button
             onClick={handleLogin}
-            className='p-2 mt-4 rounded-lg text-white transition-all duration-300 card-gradient'
+            className='p-2 mt-4 rounded-lg text-white transition-all duration-300 cta-gradient'
           >
             Login
           </button>
