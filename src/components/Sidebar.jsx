@@ -32,7 +32,7 @@ const Sidebar = () => {
     <>
       <button
         onClick={toggleSidebar}
-        className="lg:hidden p-2 fixed top-3 left-3 sm:top-5 sm:left-4 z-50 cta-gradient rounded-full shadow-lg"
+        className="lg:hidden p-2 fixed top-3 left-3 sm:top-4 sm:left-4 z-50 cta-gradient rounded-full shadow-lg"
       >
         {isOpen ? <CloseIcon className="size-5 sm:size-6 text-white" /> : <MenuIcon className="size-5 sm:size-6 text-white" />}
       </button>

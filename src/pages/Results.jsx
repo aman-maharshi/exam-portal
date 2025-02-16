@@ -24,10 +24,10 @@ const Results = () => {
 
           <div className='flex-1 rounded-xl'>
             <Topbar userData={userData} />
-            <div className='p-4 py-6 mt-4 px-8 rounded-xl cta-gradient text-gray-200 shadow-md flex flex-col-reverse sm:flex-row justify-between gap-4'>
+            <div className='p-4 lg:py-6 lg:px-8 mt-4 rounded-xl cta-gradient text-gray-200 shadow-md flex flex-col-reverse sm:flex-row justify-between gap-4'>
               <div>
-                <p className='font-bold text-lg'>{currentDate}</p>
-                <div className='max-w-lg mt-4 text-sm sm:text-base'>
+                <p className='font-bold lg:text-lg'>{currentDate}</p>
+                <div className='max-w-lg mt-2 lg:mt-4 text-sm sm:text-base'>
                   Here you can review your attempted test results, view your test score, and access the corresponding solutions.
                 </div>
               </div>
@@ -44,7 +44,7 @@ const Results = () => {
                 let textColor = resultPercentage >= 75 ? 'text-green-600' : resultPercentage >= 50 ? 'text-yellow-600' : 'text-red-600'
 
                 return (
-                  <div key={index} className='bg-white border p-4 rounded-xl my-4 flex justify-between items-center gap-4'>
+                  <div key={index} className='bg-white border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4'>
                     <div className='flex items-center gap-3 lg:gap-4'>
                       <CircleCheckIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
                       <div className='font-medium text-base lg:text-lg'>
@@ -65,7 +65,8 @@ const Results = () => {
                     >
                       View Solutions
                     </Link>
-                    <div className='flex items-end gap-4'>
+
+                    <div className='flex items-end justify-end gap-4'>
                       <div className='font-bold text-4xl'>
                         <span className={textColor}>{result?.totalMarks}</span>
                         <span className='text-2xl text-black'> / {result?.totalQuestions}</span>

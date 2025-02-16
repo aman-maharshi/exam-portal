@@ -30,10 +30,10 @@ const Home = () => {
 
           <div className='flex-1 rounded-xl'>
             <Topbar userData={userData} />
-            <div className='p-4 py-6 mt-4 px-8 rounded-xl cta-gradient text-gray-200 shadow-md flex flex-col-reverse sm:flex-row justify-between gap-4'>
+            <div className='p-4 lg:py-6 lg:px-8 mt-4 rounded-xl cta-gradient text-gray-200 shadow-md flex flex-col-reverse sm:flex-row justify-between gap-4'>
               <div>
-                <p className='font-bold text-lg'>{currentDate}</p>
-                <div className='max-w-lg mt-4 text-sm sm:text-base'>
+                <p className='font-bold lg:text-lg'>{currentDate}</p>
+                <div className='max-w-lg mt-2 lg:mt-4 text-sm sm:text-base'>
                   Here, you can explore all the available tests and choose the ones that interest you. Attempt tests to challenge your knowledge and improve your skills.
                 </div>
               </div>
