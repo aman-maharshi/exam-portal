@@ -45,7 +45,7 @@ const Results = () => {
 
                 return (
                   <div key={index} className='bg-white border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4'>
-                    <div className='flex items-center gap-3 lg:gap-4'>
+                    <div className='flex items-center gap-3 lg:gap-4 sm:w-[350px]'>
                       <CircleCheckIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
                       <div className='font-medium text-base lg:text-lg'>
                         {result?.topic}
@@ -61,7 +61,7 @@ const Results = () => {
 
                     <Link
                       to={`/solution/${result?.testId}`}
-                      className='underline font-medium text-slate-700'
+                      className='cta-gradient py-1 px-2 text-white text-center rounded-lg text-sm'
                     >
                       View Solutions
                     </Link>

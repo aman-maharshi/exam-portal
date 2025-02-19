@@ -20,7 +20,7 @@ const Instructions = () => {
         <div className='bg-white p-4 rounded-xl max-w-[800px] mx-auto mt-10'>
           <h2 className='text-4xl font-bold text-center mt-4'>Test Instructions</h2>
 
-          <div className='flex items-center gap-4 justify-center mt-4'>
+          <div className='flex flex-wrap items-center gap-4 justify-center mt-4'>
             <div className='bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium'>
               Topic: {test.topic}
             </div>
