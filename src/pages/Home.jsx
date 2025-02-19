@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import GlobalContext from "../GlobalContext"
 
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +19,19 @@ const Home = () => {
   // console.log(userData, "userData")
   // console.log(data, "data")
 
-  const availableTests = data.filter(item => item.class === userData?.grade)
+  const filteredData = data.filter(item => item.class === userData?.grade)
+  const [availableTests, setAvailableTests] = useState(filteredData)
+  // console.log(availableTests, "availableTests")
+
+  useEffect(() => {
+    const results = userData?.results
+    if (results && results.length > 0) {
+      const testIds = results.map(result => Number(result.testId))
+      const attemptedTests = availableTests.filter(test => testIds.includes(test.id))
+      const remainingTests = availableTests.filter(test => !testIds.includes(test.id))
+      setAvailableTests([...remainingTests, ...attemptedTests])
+    }
+  }, [userData])
 
   return (
     <Layout>
