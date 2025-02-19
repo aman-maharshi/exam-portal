@@ -28,14 +28,14 @@ const Solution = () => {
 
         <div className='bg-white p-4 rounded-xl max-w-[800px] mx-auto mt-10 relative'>
           <button
-            className='flex gap-2 items-center absolute right-4 top-4 bg-gray-200 px-2 py-1 rounded-lg text-sm'
+            className='flex justify-center gap-2 items-center relative top-0 right-0 w-full sm:w-[150px] sm:absolute sm:right-3 sm:top-3 bg-gray-200 border border-gray-400 px-2 py-1 rounded-lg text-sm'
             onClick={() => setshowSolutions(!showSolutions)}
           >
             {showSolutions ? <HidePassword className="size-4" /> : <ShowPassword className="size-4" />}
             {showSolutions ? 'Hide Solutions' : 'Show Solutions'}
           </button>
 
-          <h2 className='text-2xl md:text-4xl font-bold text-center mt-4'>{test?.topic}</h2>
+          <h2 className='text-2xl md:text-3xl font-bold text-center mt-4'>{test?.topic}</h2>
 
           <div className='max-w-[600px] my-10 mx-auto text-stone-600'>
             {test?.questionsList.map((question, index) => (
