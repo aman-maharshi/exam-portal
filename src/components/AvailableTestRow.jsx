@@ -8,7 +8,7 @@ const AvailableTestRow = ({ test, userData }) => {
   const navigate = useNavigate()
   // console.log(test, "test data")
   
-  const testAttempted = userData?.results.find(item => item.testId == test?.id)
+  const testAttempted = userData?.results?.find(item => item.testId == test?.id)
   // console.log(testAttempted, "testAttempted")
 
   return (

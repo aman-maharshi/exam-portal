@@ -10,10 +10,12 @@ import BookIcon from "../assets/book.svg?react"
 import LogoutIcon from "../assets/logout.svg?react"
 import MenuIcon from "../assets/menu.svg?react"
 import CloseIcon from "../assets/close.svg?react"
+import LogoutModal from './LogoutModal'
 
 const Sidebar = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const navigate = useNavigate()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const { pathname } = useLocation()
 
@@ -73,7 +75,7 @@ const Sidebar = () => {
             <div>Study Material</div>
           </div>
           <div
-            onClick={handleLogout}
+            onClick={() => setIsModalOpen(true)}
             className="p-4 mt-auto text-gray-500 font-bold cursor-pointer flex items-center gap-3"
           >
             <LogoutIcon className="w-5 h-5" />
@@ -81,6 +83,14 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <LogoutModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          handleLogout={handleLogout}
+        />
+      )}
     </>
   );
 }
