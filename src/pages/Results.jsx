@@ -44,7 +44,7 @@ const Results = () => {
                 let textColor = resultPercentage >= 75 ? 'text-green-600' : resultPercentage >= 50 ? 'text-yellow-600' : 'text-red-600'
 
                 return (
-                  <div key={index} className='bg-white border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4'>
+                  <div key={index} className='bg-white border p-4 rounded-xl my-4 flex flex-col md:flex-row justify-between md:items-center gap-4'>
                     <div className='flex items-center gap-3 lg:gap-4 sm:w-[350px]'>
                       <CircleCheckIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
                       <div className='font-medium text-base lg:text-lg'>
@@ -67,11 +67,12 @@ const Results = () => {
                     </Link>
 
                     <div className='flex items-end justify-end gap-4'>
+                      <span className='text-sm text-gray-500'>you scored</span>
                       <div className='font-bold text-4xl'>
                         <span className={textColor}>{result?.totalMarks}</span>
                         <span className='text-2xl text-black'> / {result?.totalQuestions}</span>
                       </div>
-                      <div className='text-gray-500 text-base pb-0.5'>{resultPercentage}%</div>
+                      <div className='text-gray-600 text-base pb-0.5 font-medium'>{resultPercentage}%</div>
                     </div>
                   </div>
                 )

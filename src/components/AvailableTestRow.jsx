@@ -14,7 +14,7 @@ const AvailableTestRow = ({ test, userData }) => {
   return (
     <div className={clsx(
       'border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4',
-      testAttempted ? 'bg-stone-200' : "bg-white"
+      testAttempted ? 'bg-stone-200 border-stone-300' : "bg-white"
     )}>
       <div className='flex items-center gap-3 lg:gap-4'>
         {testAttempted ? <CircleCheckIcon className="h-5 w-5 text-green-600 flex-shrink-0" /> : <CircleIcon className="h-5 w-5 flex-shrink-0" />}
