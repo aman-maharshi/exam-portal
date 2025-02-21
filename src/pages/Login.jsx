@@ -54,7 +54,7 @@ const Login = () => {
           <div className='flex justify-center mb-6'>
             <button
               className={clsx(
-                'py-2 px-4 rounded-l-lg transition-all font-medium duration-300',
+                'py-2 px-4 rounded-l-lg transition-all font-medium duration-300 outline-none',
                 role === 'student' ? 'cta-gradient text-white' : 'bg-gray-200 text-black'
               )}
               onClick={() => setRole('student')}
@@ -63,7 +63,7 @@ const Login = () => {
             </button>
             <button
               className={clsx(
-                'py-2 px-4 rounded-r-lg transition-all font-medium duration-300',
+                'py-2 px-4 rounded-r-lg transition-all font-medium duration-300 outline-none',
                 role === 'teacher' ? 'cta-gradient text-white' : 'bg-gray-200 text-black'
               )}
               onClick={() => setRole('teacher')}
