@@ -1,10 +1,12 @@
 import { useEffect, useContext } from 'react'
-import Layout from '../Layout'
-import GlobalContext from "../GlobalContext"
-import Sidebar from '../components/Sidebar'
-import CircleCheckIcon from "../assets/check-circle.svg?react"
-import clsx from 'clsx'
 import { Link } from 'react-router-dom'
+import clsx from 'clsx'
+import GlobalContext from "../GlobalContext"
+import CircleCheckIcon from "../assets/check-circle.svg?react"
+
+// COMPONENTS
+import Layout from '../Layout'
+import Sidebar from '../components/Sidebar'
 import Topbar from '../components/Topbar'
 import InfoCard from '../components/InfoCard'
 
