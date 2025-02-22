@@ -66,9 +66,10 @@ const Sidebar = () => {
             <div>Test Results</div>
           </div>
           <div
+            onClick={() => navigate('/study-materials')}
             className={clsx(
-              'p-4 rounded-xl font-bold cursor-default flex items-center gap-3 opacity-50',
-              pathname === '/study-material' ? 'cta-gradient text-white' : 'bg-gray-100'
+              'p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3',
+              pathname === '/study-materials' ? 'cta-gradient text-white' : 'bg-gray-100'
             )}
           >
             <BookIcon className="w-5 h-5" />

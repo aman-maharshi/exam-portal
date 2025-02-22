@@ -25,6 +25,12 @@ const StudyMaterials = () => {
 
             <div className='mt-6'>
               <h3 className='text-xl font-bold'>Study Materials</h3>
+
+              <div>
+                <div className='text-center text-gray-500 mt-8'>
+                  <p className='text-xl'>No study materials available</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
