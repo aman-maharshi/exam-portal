@@ -44,7 +44,7 @@ const Sidebar = () => {
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 h-full">
           <div
             onClick={() => navigate('/home')}
             className={clsx(

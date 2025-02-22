@@ -1,17 +1,17 @@
 import { useEffect, useContext } from 'react'
-import Layout from '../Layout'
-import GlobalContext from "../GlobalContext"
-import Sidebar from '../components/Sidebar'
-import CircleCheckIcon from "../assets/check-circle.svg?react"
-import clsx from 'clsx'
 import { Link } from 'react-router-dom'
+import clsx from 'clsx'
+import GlobalContext from "../GlobalContext"
+import CircleCheckIcon from "../assets/check-circle.svg?react"
+
+// COMPONENTS
+import Layout from '../Layout'
+import Sidebar from '../components/Sidebar'
 import Topbar from '../components/Topbar'
+import InfoCard from '../components/InfoCard'
 
 const Results = () => {
   const { userData, setUserData } = useContext(GlobalContext)
-
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-  const currentDate = new Date().toLocaleDateString(undefined, options)
 
   // console.log(userData?.results, "results")
 
@@ -24,17 +24,11 @@ const Results = () => {
 
           <div className='flex-1 rounded-xl'>
             <Topbar userData={userData} />
-            <div className='p-4 lg:py-6 lg:px-8 mt-4 rounded-xl cta-gradient text-gray-200 shadow-md flex flex-col-reverse sm:flex-row justify-between gap-4'>
-              <div>
-                <p className='font-bold lg:text-lg'>{currentDate}</p>
-                <div className='max-w-lg mt-2 lg:mt-4 text-sm sm:text-base'>
-                  Here you can review your attempted test results, view your test score, and access the corresponding solutions.
-                </div>
-              </div>
-              <div>
-                <img src="/study-female.svg" alt="student" className='h-24 w-24 min-w-24 lg:h-32 lg:w-32 lg:min-w-32 bg-white rounded-full' />
-              </div>
-            </div>
+
+            <InfoCard
+              text="Here you can review your attempted test results, view your test score, and access the corresponding solutions."
+              image="/study-female.svg"
+            />
 
             <div className='mt-6'>
               <h3 className='text-xl font-bold'>Available Results</h3>
