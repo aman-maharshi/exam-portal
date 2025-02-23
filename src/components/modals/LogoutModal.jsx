@@ -1,6 +1,6 @@
 import React from 'react'
 import Modal from 'react-modal';
-import CloseIcon from "../assets/close.svg?react"
+import CloseIcon from "../../assets/close.svg?react"
 
 const LogoutModal = ({ isModalOpen, setIsModalOpen, handleLogout }) => {
 

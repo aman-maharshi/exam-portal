@@ -10,7 +10,7 @@ import BookIcon from "../assets/book.svg?react"
 import LogoutIcon from "../assets/logout.svg?react"
 import MenuIcon from "../assets/menu.svg?react"
 import CloseIcon from "../assets/close.svg?react"
-import LogoutModal from './LogoutModal'
+import LogoutModal from './modals/LogoutModal'
 
 const Sidebar = () => {
   const { userData, setUserData } = useContext(GlobalContext)
