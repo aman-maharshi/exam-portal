@@ -8,7 +8,7 @@ const InfoCard = ({ text, image }) => {
     <div className='p-4 lg:p-6 mt-4 rounded-xl cta-gradient text-gray-200 shadow-md flex flex-col-reverse sm:flex-row justify-between gap-4'>
       <div>
         <p className='font-bold lg:text-lg'>{currentDate}</p>
-        <div className='max-w-xl mt-2 lg:mt-4 text-sm sm:text-base'>
+        <div className='max-w-2xl mt-2 lg:mt-4 text-sm sm:text-base'>
           {text}
         </div>
       </div>
