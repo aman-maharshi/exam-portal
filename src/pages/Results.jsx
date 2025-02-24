@@ -61,7 +61,7 @@ const Results = () => {
                     </Link>
 
                     <div className='flex items-end justify-end gap-4'>
-                      <span className='text-sm text-gray-500'>you scored</span>
+                      <span className='text-sm text-gray-500 font-medium'>you scored</span>
                       <div className='font-bold text-4xl'>
                         <span className={textColor}>{result?.totalMarks}</span>
                         <span className='text-2xl text-black'> / {result?.totalQuestions}</span>

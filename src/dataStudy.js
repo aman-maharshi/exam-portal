@@ -10,5 +10,11 @@ export const studyMaterialsData = [
     "class": "8th",
     "title": "Human Eye",
     "file": "human-eye.pdf",
+  },
+  {
+    "id": 3,
+    "class": "7th",
+    "title": "Human Heart",
+    "file": "human-heart.pdf",
   }
 ]
