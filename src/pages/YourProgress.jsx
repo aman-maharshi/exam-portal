@@ -22,6 +22,18 @@ const YourProgress = () => {
     }
   }, [userData?.results])
 
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-white p-2 border rounded shadow-md text-base">
+          <p className="font-semibold">{`Topic: ${label}`}</p>
+          <p className='text-[#4F46E5]'>{`Percentage: ${payload[0].value}%`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
 
   return (
     <Layout>
@@ -42,12 +54,12 @@ const YourProgress = () => {
               <h3 className='text-xl font-bold'>Your Progress</h3>
 
               {results?.length > 1 ? (
-                <div className="w-full max-w-2xl p-4 mt-10">
+                <div className="w-full max-w-2xl py-4 mt-10">
                   <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={results}>
-                      <XAxis dataKey="topic" tick={{ fontSize: 12 }} />
-                      <YAxis label={{ value: 'Percentage', angle: -90, position: 'insideLeft', style: { fontSize: 12 } }} />
-                      <Tooltip />
+                      <XAxis dataKey="topic" tick={{ fontSize: 13 }} />
+                      <YAxis label={{ value: 'Percentage', angle: -90, position: 'insideLeft', style: { fontSize: 13 } }} />
+                      <Tooltip content={<CustomTooltip />} />
                       <Bar dataKey="percentage" fill="#4F46E5" radius={[5, 5, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
