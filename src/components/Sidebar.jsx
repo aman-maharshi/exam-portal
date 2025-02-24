@@ -2,6 +2,7 @@ import { useContext, useState } from 'react'
 import GlobalContext from "../GlobalContext"
 import { useNavigate, useLocation } from 'react-router-dom'
 import clsx from 'clsx'
+import LogoutModal from './modals/LogoutModal'
 
 // ICONS
 import TrophyIcon from "../assets/trophy.svg?react"
@@ -10,7 +11,8 @@ import BookIcon from "../assets/book.svg?react"
 import LogoutIcon from "../assets/logout.svg?react"
 import MenuIcon from "../assets/menu.svg?react"
 import CloseIcon from "../assets/close.svg?react"
-import LogoutModal from './modals/LogoutModal'
+import GraphIcon from "../assets/graph.svg?react"
+
 
 const Sidebar = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -74,6 +76,14 @@ const Sidebar = () => {
           >
             <BookIcon className="w-5 h-5" />
             <div>Study Material</div>
+          </div>
+          <div
+            className={clsx(
+              'p-4 rounded-xl font-bold cursor-default flex items-center gap-3 bg-gray-200 opacity-40',
+            )}
+          >
+            <GraphIcon className="w-5 h-5" />
+            <div>Your Progress</div>
           </div>
           <div
             onClick={() => setIsModalOpen(true)}
