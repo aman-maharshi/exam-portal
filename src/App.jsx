@@ -12,6 +12,7 @@ import Result from './pages/Result'
 import Test from './pages/Test'
 import Solution from './pages/Solution';
 import StudyMaterials from './pages/StudyMaterials';
+import YourProgress from './pages/YourProgress';
 
 const App = () => {
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')))
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/results" element={<Results />} />
           <Route path="/study-materials" element={<StudyMaterials />} />
+          <Route path="/your-progress" element={<YourProgress />} />
           <Route path="/instructions/:testId" element={<Instructions />} />
           <Route path="/test/:testId" element={<Test />} />
           <Route path="/result/:testId" element={<Result />} />

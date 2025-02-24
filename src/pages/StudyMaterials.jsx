@@ -11,8 +11,8 @@ import DownloadIcon from "../assets/download.svg?react"
 
 const StudyMaterials = () => {
   const { userData, setUserData } = useContext(GlobalContext)
-  console.log(userData, "userData")
-  console.log(studyMaterialsData, "studyMaterialsData")
+  // console.log(userData, "userData")
+  // console.log(studyMaterialsData, "studyMaterialsData")
 
   const filteredData = studyMaterialsData?.filter(item => item.class === userData.grade)
   const [studyMaterials, setStudyMaterials] = useState(filteredData || [])
