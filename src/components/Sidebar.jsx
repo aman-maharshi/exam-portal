@@ -42,7 +42,7 @@ const Sidebar = () => {
       </button>
       <div
         className={clsx(
-          'fixed top-0 left-0 lg:relative h-full bg-white w-[250px] p-4 pt-20 lg:pt-4 rounded-xl shadow-xl transform transition-transform lg:translate-x-0',
+          'fixed top-0 left-0 z-40 lg:relative h-full bg-white w-[250px] p-4 pt-20 lg:pt-4 rounded-xl shadow-xl transform transition-transform lg:translate-x-0',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
@@ -78,8 +78,10 @@ const Sidebar = () => {
             <div>Study Material</div>
           </div>
           <div
+          onClick={() => navigate('/your-progress')}
             className={clsx(
-              'p-4 rounded-xl font-bold cursor-default flex items-center gap-3 bg-gray-200 opacity-40',
+              'p-4 rounded-xl font-bold cursor-default flex items-center gap-3',
+              pathname === '/your-progress' ? 'cta-gradient text-white' : 'bg-gray-100'
             )}
           >
             <GraphIcon className="w-5 h-5" />
