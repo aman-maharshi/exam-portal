@@ -42,7 +42,7 @@ const Sidebar = () => {
       </button>
       <div
         className={clsx(
-          'fixed top-0 left-0 z-40 lg:relative h-full bg-white w-[250px] p-4 pt-20 lg:pt-4 rounded-xl shadow-xl transform transition-transform lg:translate-x-0',
+          'fixed top-0 left-0 z-40 lg:relative h-full lg:h-[calc(100vh-3rem)] bg-white w-[250px] p-4 pt-20 lg:pt-4 rounded-xl shadow-xl transform transition-transform lg:translate-x-0',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >

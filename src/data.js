@@ -603,5 +603,215 @@ export const data = [
         "solution": "Prism splits WHITE light into SEVEN colours."
       }
     ]
-  }
+  },
+  {
+    "id": 9,
+    "class": "7th",
+    "topic": "Respiration Of Organsims",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "The process of breakdown of food in the cell with the release of energy is called ___________.",
+        "questionImage": "",
+        "options": [
+          "aerobic respiration",
+          "cellular respiration",
+          "anaerobic respiration",
+          "breathing"
+        ],
+        "answer": "cellular respiration",
+        "solution": "The process of breakdown of food in the cell with the release of energy is called CELLULAR RESPIRATION."
+      },
+      {
+        "questionText": "When breakdown of glucose occurs with the use of oxygen it is called __________________.",
+        "questionImage": "",
+        "options": [
+          "cellular respiration",
+          "anaerobic respiration",
+          "aerobic respiration",
+          "anaerobes"
+        ],
+        "answer": "aerobic respiration",
+        "solution": "When breakdown of glucose occurs with the use of oxygen it is called AEROBIC RESPIRATION."
+      },
+      {
+        "questionText": "There are some organisms such as yeast that can survive in the absence of air. They are called _____________.",
+        "questionImage": "",
+        "options": [
+          "microbes",
+          "insects",
+          "anaerobes",
+          "yeast"
+        ],
+        "answer": "anaerobes",
+        "solution": "There are some organisms such as yeast that can survive in the absence of air. They are called ANAEROBES."
+      },
+      {
+        "questionText": "The number of times a person breathes in a minute is termed as the________________ .",
+        "questionImage": "",
+        "options": [
+          "breathing",
+          "oxygen rate",
+          "respiration rate",
+          "breathing rate"
+        ],
+        "answer": "breathing rate",
+        "solution": "The number of times a person breathes in a minute is termed as the BREATHING RATE."
+      },
+      {
+        "questionText": "In earthworm, the exchange of gases occurs through the _____________.",
+        "questionImage": "",
+        "options": [
+          "gills",
+          "lungs",
+          "moist skin",
+          "mouth"
+        ],
+        "answer": "moist skin",
+        "solution": "In earthworm, the exchange of gases occurs through the MOIST SKIN."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "class": "7th",
+    "topic": "Motion And Time",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "The distance covered by an object in a unit time is called the _______ of the object.",
+        "questionImage": "",
+        "options": [
+          "slow",
+          "speed",
+          "fast",
+          "ossilation"
+        ],
+        "answer": "speed",
+        "solution": "The distance covered by an object in a unit time is called the SPEED of the object."
+      },
+      {
+        "questionText": "The to and fro motion of a simple pendulum is an example of a/an _______________ motion.",
+        "questionImage": "",
+        "options": [
+          "pendulum",
+          "oscillatory",
+          "bob",
+          "time period"
+        ],
+        "answer": "oscillatory",
+        "solution": "The to and fro motion of a simple pendulum is an example of a/an OSCILLATORY motion."
+      },
+      {
+        "questionText": "An object moving along a straight line with a constant speed is said to be in ________ motion.",
+        "questionImage": "",
+        "options": [
+          "speed",
+          "uniform",
+          "non uniform",
+          "time"
+        ],
+        "answer": "uniform",
+        "solution": "An object moving along a straight line with a constant speed is said to be in UNIFORM motion."
+      },
+      {
+        "questionText": "There is a meter that measures the distance moved by the vehicle. It is known as an ______________.",
+        "questionImage": "",
+        "options": [
+          "water clock",
+          "odometer",
+          "speedometer",
+          "sundial"
+        ],
+        "answer": "odometer",
+        "solution": "There is a meter that measures the distance moved by the vehicle. It is known as an ODOMETER."
+      },
+      {
+        "questionText": "The basic unit of speed is______________.",
+        "questionImage": "",
+        "options": [
+          "Km/min",
+          "Km/h",
+          "m/min",
+          "m/s"
+        ],
+        "answer": "m/s",
+        "solution": "The basic unit of speed is M/S."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "class": "7th",
+    "topic": "Reproduction In Plants",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "Most plants have roots, stems and leaves. These are called the______________ parts of a plant.",
+        "questionImage": "",
+        "options": [
+          "reproductive",
+          "vegetative",
+          "reproductive",
+          "breathing"
+        ],
+        "answer": "vegetative",
+        "solution": "Most plants have roots, stems and leaves. These are called the VEGETATIVE parts of a plant."
+      },
+      {
+        "questionText": "It is a type of asexual reproduction in which new plants are produced from roots, stems, leaves and buds its called ___________________.",
+        "questionImage": "",
+        "options": [
+          "cellular respiration ",
+          "vegetative propagation",
+          "aerobic respiration",
+          "anaerobes"
+        ],
+        "answer": "vegetative propagation",
+        "solution": "It is a type of asexual reproduction in which new plants are produced from roots, stems, leaves and buds its called VEGETATIVE PROPAGATION."
+      },
+      {
+        "questionText": "Flowers which contain both stamens and pistil are called ____________.",
+        "questionImage": "",
+        "options": [
+          "unisexual flowers",
+          "bisexual flowers",
+          "male gametes",
+          "female gametes"
+        ],
+        "answer": "bisexual flowers",
+        "solution": "Flowers which contain both stamens and pistil are called BISEXUAL FLOWERS."
+      },
+      {
+        "questionText": "Stamens are the male reproductive part and pistil is the female reproductive part",
+        "questionImage": "",
+        "options": [
+          "budd, spore",
+          "female, male",
+          "male, female",
+          "spore, budd"
+        ],
+        "answer": "male, female",
+        "solution": "Stamens are the MALE reproductive part and pistil is the FEMALE reproductive part."
+      },
+      {
+        "questionText": "The cell which results after fusion of the gametes is called a _____________.",
+        "questionImage": "",
+        "options": [
+          "embryo",
+          "zygote",
+          "seeds",
+          "wing"
+        ],
+        "answer": "zygote",
+        "solution": "The cell which results after fusion of the gametes is called a ZYGOTE."
+      }
+    ]
+  },
 ]
