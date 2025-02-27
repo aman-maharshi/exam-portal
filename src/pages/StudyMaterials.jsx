@@ -35,17 +35,17 @@ const StudyMaterials = () => {
 
   return (
     <Layout>
-      <div className='min-h-screen bg-[#ecf2f9] w-full p-4 sm:p-6 flex'>
+      <div className='min-h-screen bg-[#ecf2f9] w-full flex'>
 
-        <div className='flex gap-4 sm:gap-6 flex-1'>
+        <div className='flex flex-1'>
           <Sidebar />
 
-          <div className='flex-1 rounded-xl'>
+          <div className='flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto'>
             <Topbar userData={userData} />
 
             <InfoCard
               text="Here you can explore a variety of study materials, including notes, guides, and practice resources, to help you prepare effectively and enhance your understanding of key concepts."
-              image="/study-female.svg"
+              image="/study-male.svg"
             />
 
             <div className='mt-6'>

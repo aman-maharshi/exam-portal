@@ -17,12 +17,12 @@ const Results = () => {
 
   return (
     <Layout>
-      <div className='min-h-screen bg-[#ecf2f9] w-full p-4 sm:p-6 flex'>
+      <div className='min-h-screen bg-[#ecf2f9] w-full flex'>
 
-        <div className='flex gap-4 sm:gap-6 flex-1'>
+        <div className='flex flex-1'>
           <Sidebar />
 
-          <div className='flex-1 rounded-xl'>
+          <div className='flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto'>
             <Topbar userData={userData} />
 
             <InfoCard
@@ -40,7 +40,7 @@ const Results = () => {
                 return (
                   <div key={index} className='bg-white border p-4 rounded-xl my-4 flex flex-col md:flex-row justify-between md:items-center gap-4'>
                     <div className='flex items-center gap-3 lg:gap-4 sm:w-[350px]'>
-                      <CircleCheckIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
+                      {/* <CircleCheckIcon className="h-5 w-5 text-slate-700 flex-shrink-0" /> */}
                       <div className='font-medium text-base lg:text-lg'>
                         {result?.topic}
                       </div>
@@ -55,7 +55,7 @@ const Results = () => {
 
                     <Link
                       to={`/solution/${result?.testId}`}
-                      className='cta-gradient py-1 px-2 text-white text-center rounded-lg text-sm'
+                      className='cta-gradient text-white font-bold py-2 px-2 sm:px-4 rounded-lg text-center'
                     >
                       View Solutions
                     </Link>

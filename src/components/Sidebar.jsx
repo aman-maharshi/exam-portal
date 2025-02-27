@@ -42,7 +42,7 @@ const Sidebar = () => {
       </button>
       <div
         className={clsx(
-          'fixed top-0 left-0 z-40 lg:relative h-full lg:h-[calc(100vh-3rem)] bg-white w-[250px] p-4 pt-20 lg:pt-4 rounded-xl shadow-xl transform transition-transform lg:translate-x-0',
+          'fixed top-0 left-0 z-40 lg:relative h-screen bg-white w-[250px] p-4 pt-20 lg:pt-6 shadow-xl transform transition-transform lg:translate-x-0',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
@@ -80,7 +80,7 @@ const Sidebar = () => {
           <div
           onClick={() => navigate('/your-progress')}
             className={clsx(
-              'p-4 rounded-xl font-bold cursor-default flex items-center gap-3',
+              'p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3',
               pathname === '/your-progress' ? 'cta-gradient text-white' : 'bg-gray-100'
             )}
           >

@@ -814,4 +814,213 @@ export const data = [
       }
     ]
   },
+  {
+    "id": 12,
+    "class": "8th",
+    "topic": "Reaching The Age of Adolescence",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "The period of life, when the body undergoes changes, leading to reproductive maturity, is called _______________.",
+        "questionImage": "",
+        "options": [
+          "growing up",
+          "adolescence",
+          "puberty",
+          "development"
+        ],
+        "answer": "adolescence",
+        "solution": "The period of life, when the body undergoes changes, leading to reproductive maturity, is called ADOLESCENCE."
+      },
+      {
+        "questionText": "Pancreas produce the hormone called ____________.",
+        "options": [
+          "thyroxine",
+          "insulin",
+          "adrenalin",
+          "anaerobes"
+        ],
+        "answer": "insulin",
+        "solution": "Pancreas produce the hormone called INSULIN."
+      },
+      {
+        "questionText": "The first menstrual flow begins at puberty and is termed___________.",
+        "questionImage": "",
+        "options": [
+          "menopause",
+          "menarche",
+          "puberty",
+          "harmones"
+        ],
+        "answer": "menarche",
+        "solution": "The first menstrual flow begins at puberty and is termed MENARCHE ."
+      },
+      {
+        "questionText": "The change from larva to adult is called metamorphosis. Metamorphosis in insects is controlled by insect hormones. In a frog, it is controlled by ___________.",
+        "questionImage": "",
+        "options": [
+          "adrenalin",
+          "growth harmone",
+          "thyroid",
+          "thyroxine"
+        ],
+        "answer": "thyroxine",
+        "solution": "The change from larva to adult is called metamorphosis. Metamorphosis in insects is controlled by insect hormones. In a frog, it is controlled by THYROXINE."
+      },
+      {
+        "questionText": "Hormones are secretions of______________ glands which pour them directly into the blood stream.",
+        "questionImage": "",
+        "options": [
+          "exocrine",
+          "endocrine",
+          "adrenalin",
+          "thyroid"
+        ],
+        "answer": "endocrine",
+        "solution": "Hormones are secretions of ENDOCRINE glands which pour them directly into the blood stream."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "class": "8th",
+    "topic": "Friction",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "______________ is a device used for measuring the force acting on an object.",
+        "questionImage": "",
+        "options": [
+          "Periscope",
+          "Spring balance",
+          "Friction",
+          "Pressure"
+        ],
+        "answer": "Spring balance",
+        "solution": "SPRING BALANCE is a device used for measuring the force acting on an object."
+      },
+      {
+        "questionText": "Friction is caused by the _____________ on the two surfaces in contact.",
+        "questionImage": "",
+        "options": [
+          "smoothness",
+          "evenness",
+          "lubrication",
+          "irregularities"
+        ],
+        "answer": "irregularities",
+        "solution": "Friction is caused by the IRREGULARITIES on the two surfaces in contact."
+      },
+      {
+        "questionText": "The force required to overcome friction at the instant an object starts moving from rest is a measure of _________________.",
+        "questionImage": "",
+        "options": [
+          "rolling friction",
+          "static friction",
+          "sliding friction",
+          "kinetic friction"
+        ],
+        "answer": "static friction",
+        "solution": "The force required to overcome friction at the instant an object starts moving from rest is a measure of STATIC FRICTION."
+      },
+      {
+        "questionText": "The substances which reduce friction are called ___________.",
+        "questionImage": "",
+        "options": [
+          "ball bearing",
+          "oil",
+          "lubricants ",
+          "grease"
+        ],
+        "answer": "lubricants",
+        "solution": "The substances which reduce friction are called LUBRICANTS."
+      },
+      {
+        "questionText": "The frictional force exerted by fluids is also called ____________.",
+        "questionImage": "",
+        "options": [
+          "drag",
+          "force",
+          "viscous",
+          "friction"
+        ],
+        "answer": "drag",
+        "solution": "The frictional force exerted by fluids is also called DRAG."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "class": "8th",
+    "topic": "Reproduction",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "The fusion of ovum and sperm is called ___________.",
+        "questionImage": "",
+        "options": [
+          "zygote",
+          "embryo",
+          "foetus",
+          "fertilization"
+        ],
+        "answer": "fertilization",
+        "solution": "The fusion of ovum and sperm is called FERTILIZATION."
+      },
+      {
+        "questionText": "The stage of the embryo in which all the body parts can be identified is called a __________.",
+        "questionImage": "",
+        "options": [
+          "zygote",
+          "estrogen",
+          "fertilization",
+          "foetus"
+        ],
+        "answer": "foetus",
+        "solution": "The stage of the embryo in which all the body parts can be identified is called a FOETUS."
+      },
+      {
+        "questionText": "The animals which give birth to young ones are called _______________ animals. Those animals which lay eggs are called ____________ animals.",
+        "questionImage": "",
+        "options": [
+          "oviparous, viviparous",
+          "oviparous, internal fertiliztion",
+          "viviparous, oviparous",
+          "external fertilization, viviparous"
+        ],
+        "answer": "viviparous, oviparous",
+        "solution": "The animals which give birth to young ones are called VIVIPAROUS animals. Those animals which lay eggs are called OVIPAROUS animals."
+      },
+      {
+        "questionText": "The transformation of the larva into an adult through drastic changes is called ____________.",
+        "questionImage": "",
+        "options": [
+          "frog",
+          "mitamorphosis",
+          "matemorphosis",
+          "metamorphosis"
+        ],
+        "answer": "metamorphosis",
+        "solution": "The transformation of the larva into an adult through drastic changes is called METAMORPHOSIS."
+      },
+      {
+        "questionText": "The type of reproduction in which only a single parent is involved is called ________________.",
+        "questionImage": "",
+        "options": [
+          "budding",
+          "sexual reproduction",
+          "asexual reproduction",
+          "binary fission"
+        ],
+        "answer": "asexual reproduction",
+        "solution": "The type of reproduction in which only a single parent is involved is called ASEXUAL REPRODUCTION."
+      }
+    ]
+  },
 ]
