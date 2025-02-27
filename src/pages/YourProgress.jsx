@@ -37,12 +37,12 @@ const YourProgress = () => {
 
   return (
     <Layout>
-      <div className='min-h-screen bg-[#ecf2f9] w-full p-4 sm:p-6 flex'>
+      <div className='min-h-screen bg-[#ecf2f9] w-full flex'>
 
-        <div className='flex gap-4 sm:gap-6 flex-1'>
+        <div className='flex flex-1'>
           <Sidebar />
 
-          <div className='flex-1 rounded-xl'>
+          <div className='flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto'>
             <Topbar userData={userData} />
 
             <InfoCard
