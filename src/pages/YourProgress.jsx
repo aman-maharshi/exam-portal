@@ -26,8 +26,13 @@ const YourProgress = () => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-2 border rounded shadow-md text-base">
-          <p className="font-semibold">{`Topic: ${label}`}</p>
-          <p className='text-[#4F46E5]'>{`Percentage: ${payload[0].value}%`}</p>
+          <p>
+            {`Topic: ${label}`}
+          </p>
+          <p className='text-[#4F46E5]'>
+            {`Percentage: ${payload[0].value}%`}
+          </p>
+          <p className='text-sm text-gray-500'>Difficulty: {payload[0]?.payload?.difficulty}</p>
         </div>
       );
     }
