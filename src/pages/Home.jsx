@@ -26,6 +26,8 @@ const Home = () => {
   const [showFilterTabs, setShowFilterTabs] = useState(false)
   // console.log(availableTests, "availableTests")
 
+  // TODO: moditfy this such that both tabs and this filter work together
+  // Modify the tests to show attempted tests last
   useEffect(() => {
     const results = userData?.results
     if (results && results.length > 0) {
@@ -36,6 +38,7 @@ const Home = () => {
     }
   }, [userData])
 
+  // To show filter tabs only if there are tests other than 'Easy'
   useEffect(() => {
     const hasNonEasyTests = availableTests.some(test => test.difficulty !== 'Easy')
     setShowFilterTabs(hasNonEasyTests)
@@ -102,8 +105,6 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-
-
 
               {availableTests.map((test, index) => (
                 <AvailableTestRow
