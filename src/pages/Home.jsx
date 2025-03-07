@@ -26,36 +26,44 @@ const Home = () => {
   const [showFilterTabs, setShowFilterTabs] = useState(false)
   // console.log(availableTests, "availableTests")
 
-  // TODO: moditfy this such that both tabs and this filter work together
-  // Modify the tests to show attempted tests last
-  useEffect(() => {
-    const results = userData?.results
-    if (results && results.length > 0) {
-      const testIds = results.map(result => Number(result.testId))
-      const attemptedTests = availableTests.filter(test => testIds.includes(test.id))
-      const remainingTests = availableTests.filter(test => !testIds.includes(test.id))
-      setAvailableTests([...remainingTests, ...attemptedTests])
-    }
-  }, [userData])
-
   // To show filter tabs only if there are tests other than 'Easy'
   useEffect(() => {
     const hasNonEasyTests = availableTests.some(test => test.difficulty !== 'Easy')
     setShowFilterTabs(hasNonEasyTests)
   }, [availableTests])
 
+  // Ensure attempted tests are moved to the end on initial load
+  useEffect(() => {
+    setAvailableTests(putAttemptedTestsEnd(filteredData))
+  }, [])
+
   const handleFilter = (tab) => {
     if (tab === 'All') {
-      setAvailableTests(availabeTestsCopy)
+      const tests = availabeTestsCopy
+      setAvailableTests(putAttemptedTestsEnd(tests))
       setActiveTab('All')
     } 
     if (tab === 'Easy') {
-      setAvailableTests([...availabeTestsCopy].filter(test => test.difficulty === 'Easy'))
+      const tests = [...availabeTestsCopy].filter(test => test.difficulty === 'Easy')
+      setAvailableTests(putAttemptedTestsEnd(tests))
       setActiveTab('Easy')
     }
     if (tab === 'Moderate') {
-      setAvailableTests([...availabeTestsCopy].filter(test => test.difficulty === 'Moderate'))
+      const tests= [...availabeTestsCopy].filter(test => test.difficulty === 'Moderate')
+      setAvailableTests(putAttemptedTestsEnd(tests))
       setActiveTab('Moderate')
+    }
+  }
+
+  const putAttemptedTestsEnd = (tests) => {
+    const results = userData?.results
+    if (results && results.length > 0) {
+      const testIds = results.map(result => Number(result.testId))
+      const attemptedTests = tests.filter(test => testIds.includes(test.id))
+      const remainingTests = tests.filter(test => !testIds.includes(test.id))
+      return [...remainingTests, ...attemptedTests]
+    } else {
+      return tests
     }
   }
 
@@ -101,7 +109,7 @@ const Home = () => {
                     )}
                     onClick={() => handleFilter('Moderate')}
                   >
-                    Medium
+                    Moderate
                   </button>
                 </div>
               </div>
