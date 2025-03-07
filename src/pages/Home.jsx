@@ -10,6 +10,7 @@ import Sidebar from '../components/Sidebar'
 import AvailableTestRow from '../components/AvailableTestRow'
 import Topbar from '../components/Topbar'
 import InfoCard from '../components/InfoCard'
+import clsx from 'clsx'
 
 const Home = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -20,17 +21,51 @@ const Home = () => {
 
   const filteredData = data.filter(item => item.class === userData?.grade)
   const [availableTests, setAvailableTests] = useState(filteredData)
+  const [availabeTestsCopy, setAvailabeTestsCopy] = useState(filteredData)
+  const [activeTab, setActiveTab] = useState('All')
+  const [showFilterTabs, setShowFilterTabs] = useState(false)
   // console.log(availableTests, "availableTests")
 
+  // To show filter tabs only if there are tests other than 'Easy'
   useEffect(() => {
+    const hasNonEasyTests = availableTests.some(test => test.difficulty !== 'Easy')
+    setShowFilterTabs(hasNonEasyTests)
+  }, [availableTests])
+
+  // Ensure attempted tests are moved to the end on initial load
+  useEffect(() => {
+    setAvailableTests(putAttemptedTestsEnd(filteredData))
+  }, [])
+
+  const handleFilter = (tab) => {
+    if (tab === 'All') {
+      const tests = availabeTestsCopy
+      setAvailableTests(putAttemptedTestsEnd(tests))
+      setActiveTab('All')
+    } 
+    if (tab === 'Easy') {
+      const tests = [...availabeTestsCopy].filter(test => test.difficulty === 'Easy')
+      setAvailableTests(putAttemptedTestsEnd(tests))
+      setActiveTab('Easy')
+    }
+    if (tab === 'Moderate') {
+      const tests= [...availabeTestsCopy].filter(test => test.difficulty === 'Moderate')
+      setAvailableTests(putAttemptedTestsEnd(tests))
+      setActiveTab('Moderate')
+    }
+  }
+
+  const putAttemptedTestsEnd = (tests) => {
     const results = userData?.results
     if (results && results.length > 0) {
       const testIds = results.map(result => Number(result.testId))
-      const attemptedTests = availableTests.filter(test => testIds.includes(test.id))
-      const remainingTests = availableTests.filter(test => !testIds.includes(test.id))
-      setAvailableTests([...remainingTests, ...attemptedTests])
+      const attemptedTests = tests.filter(test => testIds.includes(test.id))
+      const remainingTests = tests.filter(test => !testIds.includes(test.id))
+      return [...remainingTests, ...attemptedTests]
+    } else {
+      return tests
     }
-  }, [userData])
+  }
 
   return (
     <Layout>
@@ -46,7 +81,38 @@ const Home = () => {
               image="/study-male.svg"
             />
             <div className='mt-6'>
-              <h3 className='text-xl font-bold'>Available Tests</h3>
+              <div className='flex gap-6'>
+                <h3 className='text-xl font-bold'>Available Tests</h3>
+                <div className='flex space-x-2'>
+                  <button
+                    className={clsx(
+                      'px-4 py-1 text-sm bg-transparent rounded-3xl',
+                      activeTab === 'All' ? 'cta-gradient text-white' : 'text-black'
+                    )}
+                    onClick={() => handleFilter('All')}
+                  >
+                    All
+                  </button>
+                  <button
+                    className={clsx(
+                      'px-4 py-1 text-sm bg-transparent rounded-3xl',
+                      activeTab === 'Easy' ? 'cta-gradient text-white' : 'text-black'
+                    )}
+                    onClick={() => handleFilter('Easy')}
+                  >
+                    Easy
+                  </button>
+                  <button
+                    className={clsx(
+                      'px-4 py-1 text-sm bg-transparent rounded-3xl',
+                      activeTab === 'Moderate' ? 'cta-gradient text-white' : 'text-black'
+                    )}
+                    onClick={() => handleFilter('Moderate')}
+                  >
+                    Moderate
+                  </button>
+                </div>
+              </div>
 
               {availableTests.map((test, index) => (
                 <AvailableTestRow

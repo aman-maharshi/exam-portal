@@ -17,7 +17,7 @@ const AvailableTestRow = ({ test, userData }) => {
       testAttempted ? 'bg-stone-200 border-stone-300' : "bg-white"
     )}>
       <div className='flex items-center gap-3 lg:gap-4'>
-        {testAttempted ? <CircleCheckIcon className="h-5 w-5 text-green-600 flex-shrink-0" /> : <CircleIcon className="h-5 w-5 flex-shrink-0" />}
+        {/* {testAttempted ? <CircleCheckIcon className="h-5 w-5 text-green-600 flex-shrink-0" /> : <CircleIcon className="h-5 w-5 flex-shrink-0" />} */}
         <div className='font-medium text-base lg:text-lg'>
           {test?.topic}
         </div>
