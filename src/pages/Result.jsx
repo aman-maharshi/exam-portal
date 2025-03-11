@@ -5,8 +5,12 @@ import CheckIcon from "../assets/check.svg?react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { data } from "../data"
 
+import { useWindowSize } from 'react-use'
+import Confetti from 'react-confetti'
+
 const Result = () => {
   const { userData, setUserData } = useContext(GlobalContext)
+  const { width, height } = useWindowSize()
   const navigate = useNavigate()
   const { testId } = useParams()
   // console.log(testId, "testId")
@@ -18,6 +22,10 @@ const Result = () => {
 
   return (
     <Layout>
+      <Confetti
+        width={width}
+        height={height}
+      />
       <div className='min-h-screen bg-[#ecf2f9] w-full p-6'>
 
         <div className='bg-white p-4 rounded-xl max-w-[800px] mx-auto mt-10'>
