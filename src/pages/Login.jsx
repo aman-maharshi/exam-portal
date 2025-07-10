@@ -96,6 +96,7 @@ const Login = () => {
                 <option value="" disabled>Select your class</option>
                 <option value="7th">7th</option>
                 <option value="8th">8th</option>
+                <option value="9th">9th</option>
               </select>
               <DownArrow className="h-5 w-5" />
             </div>

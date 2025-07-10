@@ -1023,4 +1023,144 @@ export const data = [
       }
     ]
   },
+  {
+    "id": 15,
+    "class": "9th",
+    "topic": "Cell - 1",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "What is the building block of life called _________.",
+        "questionImage": "",
+        "options": [
+          "organ",
+          "cell",
+          "room ",
+          "tissue "
+        ],
+        "answer": "cell",
+        "solution": "cell is the building block of life."
+      },
+      {
+        "questionText": "Cell was found/observed by____________ in Cork .",
+        "questionImage": "",
+        "options": [
+          "Robert brown",
+          "Robert hook",
+          "Robert brook",
+          "Robert took"
+        ],
+        "answer": "Robert hook",
+        "solution": "In 1665 Cell was found/observed by Robert hook in Cork."
+      },
+      {
+        "questionText": "_________________ discovered living cell in a pond",
+        "questionImage": "",
+        "options": [
+          "Leewenhoek",
+          "Purkinji ",
+          "Schleiden",
+          "Schwann"
+        ],
+        "answer": "Leewenhoek",
+        "solution": "Leewenhoek discovered living cell in a pond in 1674."
+      },
+      {
+        "questionText": "Nucleus was discovered by_____________",
+        "questionImage": "",
+        "options": [
+          "Dobert Brown",
+          "Robert Bown",
+          "Robert Brown",
+          "Robin Brown"
+        ],
+        "answer": "Robert Brown",
+        "solution": "Nucleus was discovered by Robert Brown in 1831."
+      },
+      {
+        "questionText": "Term Protoplasm was coined by________________ .",
+        "questionImage": "",
+        "options": [
+          "Purkinje",
+          "Robert brown",
+          "Robert lee ",
+          "Purkinji"
+        ],
+        "answer": "Purkinje",
+        "solution": "Term Protoplasm was coined by purkinje in 1839. "
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "class": "9th",
+    "topic": "Cell - 2",
+    "duration": "3 mins",
+    "difficulty": "Easy",
+    "timer": 3,
+    "questionsList": [
+      {
+        "questionText": "All plants are made up of cell is given by________________.",
+        "questionImage": "",
+        "options": [
+          "Mathias Jacob Schleiden",
+          "Robert Brown",
+          "Schleiden Jacob ",
+          "Robert Hook"
+        ],
+        "answer": "Mathias Jacob Schleiden",
+        "solution": "Mathias Jacob Schleiden in 1838 gave this statement All plants are made up of cell."
+      },
+      {
+        "questionText": "All exisiting cell comes from pre-existing cell was given by__________________.",
+        "questionImage": "",
+        "options": [
+          "Virchow Rudolf",
+          "Rudolf Virchow",
+          "Purkinje",
+          "Theodor Schwann"
+        ],
+        "answer": "Rudolf Virchow",
+        "solution": " Rudolf Virchow in 1855 gave this statement All exisiting cell comes from pre-existing cell ."
+      },
+      {
+        "questionText": "Safranin is a___________.",
+        "questionImage": "",
+        "options": [
+          "unicellular organism",
+          "multicellular organism",
+          "ameoba",
+          "biological stain"
+        ],
+        "answer": "biological stain",
+        "solution": "Safranin is a Biological stain which provide colour to cell."
+      },
+      {
+        "questionText": "Smallest cell of human body is ____________.",
+        "questionImage": "",
+        "options": [
+          "Sperm cell",
+          "Ovum",
+          "fat cell",
+          "nerve cell"
+        ],
+        "answer": "Sperm cell",
+        "solution": "Smallest cell of human body is Sperm cell."
+      },
+      {
+        "questionText": "Longest cell of human body is ________________.",
+        "questionImage": "",
+        "options": [
+          "Nerve cell",
+          "ovum",
+          "sperm cell",
+          "rods"
+        ],
+        "answer": "Nerve cell",
+        "solution": "Longest cell of human body is Nerve cell. "
+      },
+    ]
+  },
 ]
