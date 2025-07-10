@@ -1,73 +1,136 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, LabelList, CartesianGrid } from 'recharts'
 import GlobalContext from '../GlobalContext'
 import Layout from '../Layout'
 import Sidebar from '../components/Sidebar'
 import Topbar from '../components/Topbar'
 import InfoCard from '../components/InfoCard'
 
+const difficultyColors = {
+  Easy: '#16a085',
+  Moderate: '#2980b9',
+  Hard: '#c0392b',
+}
+
 const YourProgress = () => {
-  const { userData, setUserData } = useContext(GlobalContext)
+  const { userData } = useContext(GlobalContext)
   const [results, setResults] = useState([])
 
   useEffect(() => {
     if (userData?.results) {
-      const updatedData = userData?.results.map((item) => {
-        return ({
-          ...item,
-          percentage: Math.round((Number(item?.totalMarks) / Number(item?.totalQuestions)) * 100)
-        })
-      })
+      const updatedData = userData?.results.map((item) => ({
+        ...item,
+        percentage: Math.round((Number(item?.totalMarks) / Number(item?.totalQuestions)) * 100)
+      }))
       setResults(updatedData)
     }
   }, [userData?.results])
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
+      const data = payload[0]?.payload
       return (
-        <div className="bg-white p-2 border rounded shadow-md text-base">
-          <p>
-            {`Topic: ${label}`}
-          </p>
-          <p className='text-[#4F46E5]'>
-            {`Percentage: ${payload[0].value}%`}
-          </p>
-          <p className='text-sm text-gray-500'>Difficulty: {payload[0]?.payload?.difficulty}</p>
+        <div className="bg-white p-3 border rounded shadow-lg text-base min-w-[160px]">
+          <div className="font-semibold text-indigo-700 mb-1">{data.topic}</div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-bold text-lg">{data.percentage}%</span>
+            <span className="text-xs text-gray-500">({data.totalMarks}/{data.totalQuestions})</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span
+              className="inline-block w-3 h-3 rounded-full"
+              style={{ background: difficultyColors[data.difficulty] }}
+            ></span>
+            <span className="text-sm text-gray-700">{data.difficulty}</span>
+          </div>
         </div>
       );
     }
     return null;
   };
 
+  // Sort results by topic for better readability
+  const sortedResults = [...results].sort((a, b) => a.topic.localeCompare(b.topic))
+
+  // Custom Bar to color by difficulty and add a subtle shadow
+  const CustomBar = (props) => {
+    const { x, y, width, height, payload } = props
+    return (
+      <g>
+        <rect
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          fill={difficultyColors[payload.difficulty] || '#4F46E5'}
+          rx={8}
+          ry={8}
+          style={{
+            filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.08))'
+          }}
+        />
+      </g>
+    )
+  }
 
   return (
     <Layout>
-      <div className='min-h-screen bg-[#ecf2f9] w-full flex'>
-
+      <div className='min-h-screen bg-gradient-to-br from-[#e0e7ff] to-[#ecf2f9] w-full flex'>
         <div className='flex flex-1'>
           <Sidebar />
-
           <div className='flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto'>
             <Topbar userData={userData} />
-
             <InfoCard
-              text="Here you can track your progress effortlessly with an interactive graph showcasing your past results at a glance."
+              text="Track your progress with a beautiful interactive chart. See your scores, topics, and difficulty levels at a glance!"
               image="/study-female.svg"
             />
-
             <div className='mt-6'>
-              <h3 className='text-xl font-bold'>Your Progress</h3>
-
-              {results?.length > 1 ? (
-                <div className="w-full max-w-2xl py-4 mt-10">
-                  <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={results}>
-                      <XAxis dataKey="topic" tick={{ fontSize: 13 }} />
-                      <YAxis label={{ value: 'Percentage', angle: -90, position: 'insideLeft', style: { fontSize: 13 } }} />
+              <h3 className='text-2xl font-bold mb-2 text-black'>Your Progress</h3>
+              {sortedResults?.length > 1 ? (
+                <div className="w-full max-w-3xl p-2 sm:p-4 mt-10 bg-white rounded-xl shadow-lg">
+                  <ResponsiveContainer width="100%" height={340}>
+                    <BarChart data={sortedResults} barSize={38}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                      <XAxis dataKey="topic" tick={{ fontSize: 14, fill: "gray" }} axisLine={false} tickLine={false} />
+                      <YAxis
+                        label={{
+                          value: 'Percentage',
+                          angle: -90,
+                          position: 'insideLeft',
+                          style: { fontSize: 14, fill: "gray" }
+                        }}
+                        tick={{ fontSize: 13, fill: "#64748b" }}
+                        axisLine={false}
+                        tickLine={false}
+                        domain={[0, 100]}
+                      />
                       <Tooltip content={<CustomTooltip />} />
-                      <Bar dataKey="percentage" fill="#4F46E5" radius={[5, 5, 0, 0]} />
+                      <Legend
+                        verticalAlign="top"
+                        align="right"
+                        iconType="circle"
+                        wrapperStyle={{ top: 0, right: 20, fontSize: 14 }}
+                        payload={[
+                          { value: 'Easy', type: 'circle', color: difficultyColors.Easy },
+                          { value: 'Moderate', type: 'circle', color: difficultyColors.Moderate },
+                          { value: 'Hard', type: 'circle', color: difficultyColors.Hard },
+                        ]}
+                      />
+                      <Bar
+                        dataKey="percentage"
+                        shape={<CustomBar />}
+                        isAnimationActive={true}
+                        radius={[8, 8, 0, 0]}
+                      >
+                        <LabelList dataKey="percentage" position="top" fill="#334155" fontWeight={700} />
+                      </Bar>
                     </BarChart>
                   </ResponsiveContainer>
+                  <div className="flex gap-4 mt-4 justify-center">
+                    <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full inline-block" style={{background: difficultyColors.Easy}}></span>Easy</span>
+                    <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full inline-block" style={{background: difficultyColors.Moderate}}></span>Moderate</span>
+                    <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full inline-block" style={{background: difficultyColors.Hard}}></span>Hard</span>
+                  </div>
                 </div>
               ) : (
                 <div>
@@ -79,7 +142,6 @@ const YourProgress = () => {
                   </div>
                 </div>
               )}
-
             </div>
           </div>
         </div>
