@@ -1,17 +1,15 @@
 import React, { useState, useContext } from "react"
 import GlobalContext from "../GlobalContext"
 import { useNavigate } from "react-router-dom"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-toastify"
 import { authService } from "../services/authService"
 import clsx from "clsx"
 
 // ICONS
 import DownArrow from "../assets/down-arrow.svg?react"
-import UserInfo from "../assets/user-info.svg?react"
 import ShowPassword from "../assets/password-show.svg?react"
 import HidePassword from "../assets/password-hide.svg?react"
-import Copy from "../assets/copy.svg?react"
-import Check from "../assets/check.svg?react"
+import GraduationHat from "../assets/graduation-hat.svg?react"
 
 const Login = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -115,14 +113,7 @@ const Login = () => {
         {/* Logo/Brand Section */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 cta-gradient rounded-2xl mb-4 shadow-lg">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-              />
-            </svg>
+            <GraduationHat className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
             Exam Portal
@@ -160,10 +151,10 @@ const Login = () => {
             {/* Username Field (Register only) */}
             {!isLogin && (
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Full Name</label>
+                <label className="text-sm font-medium text-gray-700">Name</label>
                 <input
                   type="text"
-                  placeholder="Enter your full name"
+                  placeholder="Enter your name"
                   className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm"
                   value={username}
                   onChange={e => setUsername(e.target.value)}
