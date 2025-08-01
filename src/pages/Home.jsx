@@ -76,7 +76,8 @@ const Home = () => {
           <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
             <InfoCard
-              text="Here, you can explore all the available tests and choose the ones that interest you. Attempt tests to challenge your knowledge and improve your skills."
+              header="Ready to learn?"
+              text="Explore available tests and challenge your knowledge with interactive quizzes."
               image="/study-male.svg"
             />
             <div className="mt-6">

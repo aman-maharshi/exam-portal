@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-import GlobalContext from '../GlobalContext'
-import Layout from '../Layout'
-import Sidebar from '../components/Sidebar'
-import Topbar from '../components/Topbar'
-import InfoCard from '../components/InfoCard'
+import React, { useContext, useState } from "react"
+import GlobalContext from "../GlobalContext"
+import Layout from "../Layout"
+import Sidebar from "../components/Sidebar"
+import Topbar from "../components/Topbar"
+import InfoCard from "../components/InfoCard"
 import { studyMaterialsData } from "../dataStudy"
-import FilePreviewModal from '../components/modals/FilePreviewModal'
+import FilePreviewModal from "../components/modals/FilePreviewModal"
 import OpenFileIcon from "../assets/open-file.svg?react"
 import DownloadIcon from "../assets/download.svg?react"
 
@@ -19,10 +19,10 @@ const StudyMaterials = () => {
   const [showFilePreviewModal, setShowFilePreviewModal] = useState(false)
   const [selectedFile, setSelectedFile] = useState({ fileName: "", filePath: "" })
 
-  const handleFileDownload = (file) => {
-    const link = document.createElement('a')
+  const handleFileDownload = file => {
+    const link = document.createElement("a")
     link.href = `/study-materials/${file}`
-    link.setAttribute('download', file)
+    link.setAttribute("download", file)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -35,43 +35,41 @@ const StudyMaterials = () => {
 
   return (
     <Layout>
-      <div className='min-h-screen bg-[#ecf2f9] w-full flex'>
-
-        <div className='flex flex-1'>
+      <div className="min-h-screen bg-[#ecf2f9] w-full flex">
+        <div className="flex flex-1">
           <Sidebar />
 
-          <div className='flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto'>
+          <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
 
             <InfoCard
-              text="Here you can explore a variety of study materials, including notes, guides, and practice resources, to help you prepare effectively and enhance your understanding of key concepts."
+              header="Knowledge at your fingertips"
+              text="Access study materials, notes, and practice resources to enhance your understanding."
               image="/study-male.svg"
             />
 
-            <div className='mt-6'>
-              <h3 className='text-xl font-bold'>Study Materials</h3>
+            <div className="mt-6">
+              <h3 className="text-xl font-bold">Study Materials</h3>
               {studyMaterials?.length > 0 ? (
-                studyMaterials.map((item) => {
+                studyMaterials.map(item => {
                   const { id, title, file } = item
                   return (
                     <div key={item?.id}>
-                      <div className='border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4 bg-white'>
-                        <div className='flex items-center gap-3 lg:gap-4'>
-                          <div className='font-medium text-base lg:text-lg'>
-                            {title}
-                          </div>
+                      <div className="border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4 bg-white">
+                        <div className="flex items-center gap-3 lg:gap-4">
+                          <div className="font-medium text-base lg:text-lg">{title}</div>
                         </div>
-                        <div className='flex gap-4'>
+                        <div className="flex gap-4">
                           <button
                             onClick={() => handleOpenFilePreviewModal(title, file)}
-                            className='cta-gradient flex-1 sm:flex-auto text-white font-bold p-2 md:px-4 rounded-lg flex gap-3 justify-center items-center outline-none'
+                            className="cta-gradient flex-1 sm:flex-auto text-white font-bold p-2 md:px-4 rounded-lg flex gap-3 justify-center items-center outline-none"
                           >
                             <OpenFileIcon className="size-4" />
                             View
                           </button>
                           <button
                             onClick={() => handleFileDownload(file)}
-                            className='cta-gradient flex-1 sm:flex-auto text-white font-bold p-2 md:px-4 rounded-lg flex gap-3 justify-center items-center outline-none'
+                            className="cta-gradient flex-1 sm:flex-auto text-white font-bold p-2 md:px-4 rounded-lg flex gap-3 justify-center items-center outline-none"
                           >
                             <DownloadIcon className="size-4" />
                             Download
@@ -83,8 +81,8 @@ const StudyMaterials = () => {
                 })
               ) : (
                 <div>
-                  <div className='text-center text-gray-500 mt-8'>
-                    <p className='text-xl'>No study materials available</p>
+                  <div className="text-center text-gray-500 mt-8">
+                    <p className="text-xl">No study materials available</p>
                   </div>
                 </div>
               )}

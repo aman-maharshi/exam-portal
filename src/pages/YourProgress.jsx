@@ -83,7 +83,8 @@ const YourProgress = () => {
           <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
             <InfoCard
-              text="Track your progress with a beautiful interactive chart. See your scores, topics, and difficulty levels at a glance!"
+              header="Your learning journey"
+              text="Track your progress with interactive charts showing scores, topics, and difficulty levels."
               image="/study-female.svg"
             />
             <div className="mt-6">
