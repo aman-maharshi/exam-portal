@@ -24,7 +24,7 @@ const InfoCard = ({ text, image }) => {
           </div>
         </div>
 
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 hidden md:flex">
           <div className="relative">
             <div className="absolute inset-0 bg-slate-600/20 rounded-full blur-md"></div>
             <img

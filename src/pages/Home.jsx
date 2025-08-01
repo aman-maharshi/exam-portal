@@ -80,12 +80,12 @@ const Home = () => {
               image="/study-male.svg"
             />
             <div className="mt-6">
-              <div className="flex gap-6">
-                <h3 className="text-xl font-bold">Available Tests</h3>
+              <div className="flex justify-between sm:justify-start gap-4 md:gap-6">
+                <h3 className="text-lg md:text-xl font-bold">Available Tests</h3>
                 <div className="flex space-x-2">
                   <button
                     className={clsx(
-                      "px-4 py-1 text-sm bg-transparent rounded-3xl",
+                      "px-2 md:px-4 py-1 text-sm bg-transparent rounded-3xl",
                       activeTab === "All" ? "cta-gradient text-white" : "text-black"
                     )}
                     onClick={() => handleFilter("All")}
