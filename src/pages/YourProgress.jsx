@@ -5,11 +5,7 @@ import Layout from "../Layout"
 import Sidebar from "../components/Sidebar"
 import Topbar from "../components/Topbar"
 
-const difficultyColors = {
-  Easy: "#10b981", // Modern emerald green
-  Moderate: "#3b82f6", // Modern blue
-  Hard: "#ef4444" // Modern red
-}
+const barColor = "#0e1731"
 
 const YourProgress = () => {
   const { userData } = useContext(GlobalContext)
@@ -38,10 +34,7 @@ const YourProgress = () => {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span
-              className="inline-block w-3 h-3 rounded-full"
-              style={{ background: difficultyColors[data.difficulty] }}
-            ></span>
+            <span className="inline-block w-3 h-3 rounded-full" style={{ background: barColor }}></span>
             <span className="text-sm text-gray-700">{data.difficulty}</span>
           </div>
         </div>
@@ -53,9 +46,9 @@ const YourProgress = () => {
   // Sort results by topic for better readability
   const sortedResults = [...results].sort((a, b) => a.topic.localeCompare(b.topic))
 
-  // Custom Bar to color by difficulty and add a subtle shadow
+  // Custom Bar with consistent color and minimal border radius
   const CustomBar = props => {
-    const { x, y, width, height, payload } = props
+    const { x, y, width, height } = props
     return (
       <g>
         <rect
@@ -63,9 +56,9 @@ const YourProgress = () => {
           y={y}
           width={width}
           height={height}
-          fill={difficultyColors[payload.difficulty] || "#4F46E5"}
-          rx={8}
-          ry={8}
+          fill={barColor}
+          rx={2}
+          ry={2}
           style={{
             filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.08))"
           }}
@@ -102,45 +95,12 @@ const YourProgress = () => {
                         domain={[0, 100]}
                       />
                       <Tooltip content={<CustomTooltip />} />
-                      <Legend
-                        verticalAlign="top"
-                        align="right"
-                        iconType="circle"
-                        wrapperStyle={{ top: 0, right: 20, fontSize: 14 }}
-                        payload={[
-                          { value: "Easy", type: "circle", color: difficultyColors.Easy },
-                          { value: "Moderate", type: "circle", color: difficultyColors.Moderate },
-                          { value: "Hard", type: "circle", color: difficultyColors.Hard }
-                        ]}
-                      />
-                      <Bar dataKey="percentage" shape={<CustomBar />} isAnimationActive={true} radius={[8, 8, 0, 0]}>
+
+                      <Bar dataKey="percentage" shape={<CustomBar />} isAnimationActive={true} radius={[2, 2, 0, 0]}>
                         <LabelList dataKey="percentage" position="top" fill="#334155" fontWeight={700} />
                       </Bar>
                     </BarChart>
                   </ResponsiveContainer>
-                  <div className="flex gap-4 mt-4 justify-center">
-                    <span className="flex items-center gap-1">
-                      <span
-                        className="w-3 h-3 rounded-full inline-block"
-                        style={{ background: difficultyColors.Easy }}
-                      ></span>
-                      Easy
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <span
-                        className="w-3 h-3 rounded-full inline-block"
-                        style={{ background: difficultyColors.Moderate }}
-                      ></span>
-                      Moderate
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <span
-                        className="w-3 h-3 rounded-full inline-block"
-                        style={{ background: difficultyColors.Hard }}
-                      ></span>
-                      Hard
-                    </span>
-                  </div>
                 </div>
               ) : (
                 <div>
