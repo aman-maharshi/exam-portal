@@ -64,7 +64,7 @@ const Profile = () => {
         <div className="flex flex-1">
           <Sidebar />
 
-          <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
+          <div className="flex-1 rounded-lg p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
 
             <div className="mt-6">

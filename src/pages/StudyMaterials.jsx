@@ -38,7 +38,7 @@ const StudyMaterials = () => {
         <div className="flex flex-1">
           <Sidebar />
 
-          <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
+          <div className="flex-1 rounded-lg p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
 
             <div className="mt-6">
@@ -48,7 +48,7 @@ const StudyMaterials = () => {
                   const { id, title, file } = item
                   return (
                     <div key={item?.id}>
-                      <div className="border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4 bg-white">
+                      <div className="border p-4 rounded-lg my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4 bg-white">
                         <div className="flex items-center gap-3 lg:gap-4">
                           <div className="font-medium text-base lg:text-lg">{title}</div>
                         </div>

@@ -91,7 +91,7 @@ const Results = () => {
         <div className="min-h-screen modern-bg w-full flex">
           <div className="flex flex-1">
             <Sidebar />
-            <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
+            <div className="flex-1 rounded-lg p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
               <Topbar userData={userData} />
               <div className="flex items-center justify-center h-64">
                 <div className="text-center">
@@ -112,7 +112,7 @@ const Results = () => {
         <div className="flex flex-1">
           <Sidebar />
 
-          <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
+          <div className="flex-1 rounded-lg p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
 
             {/* User Stats */}
@@ -122,7 +122,7 @@ const Results = () => {
               <h3 className="text-xl font-bold mb-4">Available Results</h3>
 
               {results?.length > 0 && (
-                <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                   {/* Table Header */}
                   <div className="bg-gray-50 border-b border-gray-200 px-4 py-3">
                     <div className="grid grid-cols-12 gap-4 text-sm font-semibold text-gray-700">
@@ -233,7 +233,7 @@ const Results = () => {
               )}
 
               {results?.length === 0 && (
-                <div className="bg-white rounded-xl p-8 text-center">
+                <div className="bg-white rounded-lg p-8 text-center">
                   <div className="text-gray-500">
                     <p className="text-xl mb-2">No results available</p>
                     <p className="text-base mb-4">You haven't attempted any tests yet</p>

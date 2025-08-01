@@ -79,12 +79,12 @@ const YourProgress = () => {
       <div className="min-h-screen modern-bg w-full flex">
         <div className="flex flex-1">
           <Sidebar />
-          <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
+          <div className="flex-1 rounded-lg p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
             <div className="mt-6">
               <h3 className="text-2xl font-bold mb-2 text-black">Your Progress</h3>
               {sortedResults?.length > 1 ? (
-                <div className="w-full max-w-3xl p-2 sm:p-4 mt-10 bg-white rounded-xl shadow-lg">
+                <div className="w-full max-w-3xl p-2 sm:p-4 mt-10 bg-white rounded-lg shadow-lg">
                   <ResponsiveContainer width="100%" height={340}>
                     <BarChart data={sortedResults} barSize={38}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} />

@@ -98,7 +98,7 @@ const Result = () => {
               <p className="text-slate-600 mb-6">We couldn't find the result you're looking for.</p>
               <button
                 onClick={() => navigate("/home")}
-                className="inline-flex items-center px-6 py-3 bg-slate-800 text-white rounded-xl font-medium hover:bg-slate-700 transition-colors duration-200"
+                className="inline-flex items-center px-6 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors duration-200"
               >
                 Back to Home
               </button>
@@ -212,7 +212,7 @@ const Result = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => navigate(`/solution/${testId}`)}
-              className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-slate-800 text-white rounded-xl font-medium hover:bg-slate-700 transition-all duration-200 hover:shadow-lg"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-all duration-200 hover:shadow-lg"
             >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -226,7 +226,7 @@ const Result = () => {
             </button>
             <button
               onClick={() => navigate(`/home`)}
-              className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-white text-slate-800 border-2 border-slate-200 rounded-xl font-medium hover:bg-slate-50 transition-all duration-200 hover:shadow-lg"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-white text-slate-800 border-2 border-slate-200 rounded-lg font-medium hover:bg-slate-50 transition-all duration-200 hover:shadow-lg"
             >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path

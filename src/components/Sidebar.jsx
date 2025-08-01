@@ -62,7 +62,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/home")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/home" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >
@@ -72,7 +72,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/results")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/results" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >
@@ -82,7 +82,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/study-materials")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/study-materials" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >
@@ -92,7 +92,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/your-progress")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/your-progress" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >
