@@ -71,7 +71,6 @@ const Profile = () => {
               {/* Profile Information */}
               <div className="bg-white p-6 rounded-xl max-w-2xl">
                 <div className="flex items-center gap-3 mb-6">
-                  <UserInfo className="h-6 w-6 text-blue-600" />
                   <h3 className="text-xl font-bold">Profile Information</h3>
                 </div>
 
