@@ -21,6 +21,7 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [isLogin, setIsLogin] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleLogin = async e => {
@@ -30,6 +31,7 @@ const Login = () => {
       return showToast("All fields are required")
     }
 
+    setIsLoading(true)
     try {
       const result = await authService.login(email, password)
 
@@ -45,6 +47,8 @@ const Login = () => {
       }
     } catch (error) {
       showToast("Login failed. Please try again.")
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -65,6 +69,7 @@ const Login = () => {
       return showToast("Please enter a valid email address")
     }
 
+    setIsLoading(true)
     try {
       const userData = {
         username,
@@ -89,6 +94,8 @@ const Login = () => {
       }
     } catch (error) {
       showToast("Registration failed. Please try again.")
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -103,108 +110,162 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-neutral-100 text-[#1b1b1b]">
-      <div className="min-h-screen flex flex-col gap-10 items-center">
-        <form
-          onSubmit={isLogin ? handleLogin : handleRegister}
-          className="bg-white p-10 rounded-xl card-shadow flex flex-col w-full sm:w-[450px] mt-24"
-        >
-          <div className="flex justify-center mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        {/* Logo/Brand Section */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 cta-gradient rounded-2xl mb-4 shadow-lg">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+              />
+            </svg>
+          </div>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+            Exam Portal
+          </h1>
+          <p className="text-gray-600 mt-2">Your gateway to academic excellence</p>
+        </div>
+
+        {/* Card Container */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8">
+          {/* Tab Switcher */}
+          <div className="flex bg-gray-100 rounded-2xl p-1 mb-8">
             <button
               type="button"
               className={clsx(
-                "py-2 px-4 rounded-l-lg transition-all font-medium duration-300 outline-none",
-                isLogin ? "cta-gradient text-white" : "bg-gray-200 text-black"
+                "flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300",
+                isLogin ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"
               )}
               onClick={() => setIsLogin(true)}
             >
-              Login
+              Sign In
             </button>
             <button
               type="button"
               className={clsx(
-                "py-2 px-4 rounded-r-lg transition-all font-medium duration-300 outline-none",
-                !isLogin ? "cta-gradient text-white" : "bg-gray-200 text-black"
+                "flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300",
+                !isLogin ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"
               )}
               onClick={() => setIsLogin(false)}
             >
-              Register
+              Sign Up
             </button>
           </div>
 
-          <h2 className="text-3xl font-bold text-center mb-2 mt-4">Exam Portal</h2>
-          <p className="mb-6 text-center text-gray-500">
-            {isLogin ? "Please enter your details to login" : "Please enter your details to register"}
-          </p>
+          <form onSubmit={isLogin ? handleLogin : handleRegister} className="space-y-6">
+            {/* Username Field (Register only) */}
+            {!isLogin && (
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                  value={username}
+                  onChange={e => setUsername(e.target.value)}
+                  required
+                />
+              </div>
+            )}
 
-          {!isLogin && (
-            <input
-              type="text"
-              placeholder="Enter your Name"
-              className="border p-2 rounded-lg mb-4"
-              value={username}
-              onChange={e => setUsername(e.target.value)}
-              required
-            />
-          )}
-
-          <input
-            type="email"
-            placeholder="Enter your Email"
-            className="border p-2 rounded-lg mb-4"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-
-          {isLogin && (
-            <div className="border p-2 rounded-lg overflow-hidden mb-4 flex items-center justify-between">
-              <select
-                className={clsx(
-                  "appearance-none outline-none flex-1 cursor-pointer bg-transparent",
-                  selectedClass ? "text-black" : "text-gray-400"
-                )}
-                value={selectedClass}
-                onChange={e => setSelectedClass(e.target.value)}
+            {/* Email Field */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Email Address</label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
                 required
-              >
-                <option value="" disabled>
-                  Select your class
-                </option>
-                <option value="7th">7th</option>
-                <option value="8th">8th</option>
-                <option value="9th">9th</option>
-              </select>
-              <DownArrow className="h-5 w-5" />
+              />
             </div>
-          )}
 
-          <div className="relative mb-4">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter Password"
-              className="border p-2 rounded-lg w-full pr-10"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              required
-            />
+            {/* Class Selection (Login only) */}
+            {isLogin && (
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">Class</label>
+                <div className="relative">
+                  <select
+                    className="w-full px-4 pr-10 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
+                    value={selectedClass}
+                    onChange={e => setSelectedClass(e.target.value)}
+                    required
+                  >
+                    <option value="" disabled>
+                      Select your class
+                    </option>
+                    <option value="7th">7th Grade</option>
+                    <option value="8th">8th Grade</option>
+                    <option value="9th">9th Grade</option>
+                  </select>
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <DownArrow className="h-5 w-5 text-gray-400" />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Password Field */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Password</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password"
+                  className="w-full px-4 pr-12 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <ShowPassword className="h-5 w-5" /> : <HidePassword className="h-5 w-5" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Submit Button */}
             <button
-              type="button"
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-sm text-gray-600"
-              onClick={() => setShowPassword(!showPassword)}
+              type="submit"
+              disabled={isLoading}
+              className="w-full py-3 px-4 cta-gradient text-white font-semibold rounded-xl hover:opacity-90 focus:outline-none transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
-              {showPassword ? (
-                <ShowPassword className="h-6 w-6 text-black" />
+              {isLoading ? (
+                <div className="flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                  {isLogin ? "Signing In..." : "Creating Account..."}
+                </div>
+              ) : isLogin ? (
+                "Sign In"
               ) : (
-                <HidePassword className="h-6 w-6 text-black" />
+                "Create Account"
               )}
             </button>
-          </div>
+          </form>
 
-          <button type="submit" className="p-2 mt-4 rounded-lg text-white transition-all duration-300 cta-gradient">
-            {isLogin ? "Login" : "Register"}
-          </button>
-        </form>
+          {/* Additional Info */}
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-500">
+              {isLogin ? "Don't have an account? " : "Already have an account? "}
+              <button
+                type="button"
+                disabled={isLoading}
+                className="text-gray-900 hover:text-gray-700 font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={() => setIsLogin(!isLogin)}
+              >
+                {isLogin ? "Sign up" : "Sign in"}
+              </button>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
