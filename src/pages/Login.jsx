@@ -138,7 +138,7 @@ const Login = () => {
               type="button"
               className={clsx(
                 "flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300",
-                isLogin ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                isLogin ? "cta-gradient text-white shadow-sm" : "text-gray-600 hover:text-gray-900"
               )}
               onClick={() => setIsLogin(true)}
             >
@@ -148,7 +148,7 @@ const Login = () => {
               type="button"
               className={clsx(
                 "flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300",
-                !isLogin ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                !isLogin ? "cta-gradient text-white shadow-sm" : "text-gray-600 hover:text-gray-900"
               )}
               onClick={() => setIsLogin(false)}
             >
