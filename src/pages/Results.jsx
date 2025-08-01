@@ -127,7 +127,7 @@ const Results = () => {
                   <div className="overflow-x-auto">
                     <div className="min-w-[800px] w-full">
                       {/* Table Header */}
-                      <div className="bg-gray-50 border-b border-gray-200 px-4 py-3">
+                      <div className="bg-gray-50 border-b rounded-t-lg border-gray-200 px-4 py-3">
                         <div className="grid grid-cols-12 gap-4 text-sm font-semibold text-gray-700">
                           <div className="col-span-3">Topic</div>
                           <div className="col-span-2">Difficulty</div>
