@@ -68,7 +68,7 @@ const Profile = () => {
               {/* Profile Header */}
               <div className="bg-white rounded-lg p-6 mb-6 shadow-sm border border-gray-100">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 cta-gradient rounded-full flex items-center justify-center">
                     <span className="text-white text-xl font-bold">
                       {userData?.username?.charAt(0)?.toUpperCase() || "U"}
                     </span>
@@ -169,42 +169,6 @@ const Profile = () => {
                     </div>
                   </div>
                 )}
-              </div>
-
-              {/* Account Stats */}
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 mb-1">Tests Taken</p>
-                    <p className="text-2xl font-bold text-gray-900">{userData?.results?.length || 0}</p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 mb-1">Average Score</p>
-                    <p className="text-2xl font-bold text-gray-900">
-                      {userData?.results?.length > 0
-                        ? Math.round(
-                            userData.results.reduce((acc, result) => acc + result.percentage, 0) /
-                              userData.results.length
-                          )
-                        : 0}
-                      %
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 mb-1">Member Since</p>
-                    <p className="text-lg font-semibold text-gray-900">
-                      {userData?.createdAt
-                        ? new Date(userData.createdAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })
-                        : "N/A"}
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
