@@ -221,7 +221,7 @@ const Results = () => {
                                 to={`/solution/${result?.testId}`}
                                 className="cta-gradient text-white font-bold py-2 px-3 rounded-lg text-sm hover:opacity-90 transition-opacity"
                               >
-                                View
+                                Solutions
                               </Link>
                             </div>
                           </div>

@@ -8,11 +8,11 @@ const UserStats = ({ userStats }) => {
       <div className="mt-6 mb-4">
         <h3 className="text-xl font-bold">Your Statistics</h3>
       </div>
-      <div className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-2xl shadow-lg border border-blue-100">
+      <div className="bg-white p-6 rounded-xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Tests Taken */}
-          <div className="bg-blue-50 p-6 rounded-xl text-gray-800 shadow-md border border-blue-200">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-blue-50 p-4 rounded-xl text-gray-800 border border-blue-200">
+            <div className="flex items-center justify-between">
               <div className="w-12 h-12 bg-blue-500 bg-opacity-20 rounded-lg flex items-center justify-center">
                 <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -31,8 +31,8 @@ const UserStats = ({ userStats }) => {
           </div>
 
           {/* Average Score */}
-          <div className="bg-green-50 p-6 rounded-xl text-gray-800 shadow-md border border-green-200">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-green-50 p-4 rounded-xl text-gray-800 border border-green-200">
+            <div className="flex items-center justify-between">
               <div className="w-12 h-12 bg-green-500 bg-opacity-20 rounded-lg flex items-center justify-center">
                 <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -51,8 +51,8 @@ const UserStats = ({ userStats }) => {
           </div>
 
           {/* Last Test Date */}
-          <div className="bg-purple-50 p-6 rounded-xl text-gray-800 shadow-md border border-purple-200">
-            <div className="flex items-center justify-between mb-3">
+          <div className="bg-purple-50 p-4 rounded-xl text-gray-800 border border-purple-200">
+            <div className="flex items-center justify-between">
               <div className="w-12 h-12 bg-purple-500 bg-opacity-20 rounded-lg flex items-center justify-center">
                 <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
