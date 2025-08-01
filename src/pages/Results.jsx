@@ -87,7 +87,7 @@ const Results = () => {
   if (loading) {
     return (
       <Layout>
-        <div className="min-h-screen bg-neutral-200 w-full flex">
+        <div className="min-h-screen modern-bg w-full flex">
           <div className="flex flex-1">
             <Sidebar />
             <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
@@ -107,31 +107,98 @@ const Results = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-neutral-200 w-full flex">
+      <div className="min-h-screen modern-bg w-full flex">
         <div className="flex flex-1">
           <Sidebar />
 
           <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
 
+            <div className="mt-6 mb-4">
+              <h3 className="text-xl font-bold">Your Statistics</h3>
+            </div>
+
             {/* User Stats */}
             {userStats && (
-              <div className="mt-6 bg-white p-4 rounded-xl">
-                <h3 className="text-lg font-bold mb-4">Your Statistics</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="text-center p-3 bg-blue-50 rounded-lg">
-                    <div className="text-2xl font-bold text-blue-600">{userStats.totalTestsTaken}</div>
-                    <div className="text-sm text-gray-600">Tests Taken</div>
-                  </div>
-                  <div className="text-center p-3 bg-green-50 rounded-lg">
-                    <div className="text-2xl font-bold text-green-600">{userStats.averageScore}%</div>
-                    <div className="text-sm text-gray-600">Average Score</div>
-                  </div>
-                  <div className="text-center p-3 bg-purple-50 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-600">
-                      {userStats.lastTestDate ? new Date(userStats.lastTestDate).toLocaleDateString() : "N/A"}
+              <div className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-2xl shadow-lg border border-blue-100">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Tests Taken */}
+                  <div className="bg-blue-50 p-6 rounded-xl text-gray-800 shadow-md border border-blue-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-12 h-12 bg-blue-500 bg-opacity-20 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                          />
+                        </svg>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-gray-800">{userStats.totalTestsTaken}</div>
+                        <div className="text-gray-600 text-sm font-medium">Tests Taken</div>
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-600">Last Test</div>
+                  </div>
+
+                  {/* Average Score */}
+                  <div className="bg-green-50 p-6 rounded-xl text-gray-800 shadow-md border border-green-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-12 h-12 bg-green-500 bg-opacity-20 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                          />
+                        </svg>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-gray-800">{userStats.averageScore}%</div>
+                        <div className="text-gray-600 text-sm font-medium">Average Score</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Last Test Date */}
+                  <div className="bg-purple-50 p-6 rounded-xl text-gray-800 shadow-md border border-purple-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-12 h-12 bg-purple-500 bg-opacity-20 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
+                        </svg>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-bold text-gray-800">
+                          {userStats.lastTestDate
+                            ? (() => {
+                                const date = new Date(userStats.lastTestDate)
+                                const now = new Date()
+                                const diffTime = Math.abs(now - date)
+                                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+                                if (diffDays === 1) return "Yesterday"
+                                if (diffDays === 0) return "Today"
+                                if (diffDays < 7) return `${diffDays} days ago`
+                                if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`
+                                return date.toLocaleDateString("en-US", {
+                                  month: "short",
+                                  day: "numeric",
+                                  year: date.getFullYear() !== now.getFullYear() ? "numeric" : undefined
+                                })
+                              })()
+                            : "N/A"}
+                        </div>
+                        <div className="text-gray-600 text-sm font-medium">Last Test</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -188,7 +255,21 @@ const Results = () => {
 
                     {result?.submittedAt && (
                       <div className="text-xs text-gray-500 mt-2 md:mt-0">
-                        {new Date(result.submittedAt).toLocaleDateString()}
+                        {(() => {
+                          const date = new Date(result.submittedAt)
+                          const now = new Date()
+                          const diffTime = Math.abs(now - date)
+                          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+                          if (diffDays === 0) return "Today"
+                          if (diffDays === 1) return "Yesterday"
+                          if (diffDays < 7) return `${diffDays} days ago`
+                          return date.toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                            year: date.getFullYear() !== now.getFullYear() ? "numeric" : undefined
+                          })
+                        })()}
                       </div>
                     )}
                   </div>

@@ -76,7 +76,7 @@ const YourProgress = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-neutral-200 w-full flex">
+      <div className="min-h-screen modern-bg w-full flex">
         <div className="flex flex-1">
           <Sidebar />
           <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">

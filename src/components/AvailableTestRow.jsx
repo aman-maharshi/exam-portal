@@ -15,7 +15,7 @@ const AvailableTestRow = ({ test, userData }) => {
     <div
       className={clsx(
         "border p-4 rounded-xl my-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4",
-        testAttempted ? "bg-neutral-100 border-neutral-300" : "bg-white"
+        testAttempted ? "bg-neutral-200 border-neutral-300" : "bg-white"
       )}
     >
       <div className="flex items-center gap-3 lg:gap-4">
