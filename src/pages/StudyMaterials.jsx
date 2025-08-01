@@ -3,7 +3,6 @@ import GlobalContext from "../GlobalContext"
 import Layout from "../Layout"
 import Sidebar from "../components/Sidebar"
 import Topbar from "../components/Topbar"
-import InfoCard from "../components/InfoCard"
 import { studyMaterialsData } from "../dataStudy"
 import FilePreviewModal from "../components/modals/FilePreviewModal"
 import OpenFileIcon from "../assets/open-file.svg?react"
@@ -14,7 +13,7 @@ const StudyMaterials = () => {
   // console.log(userData, "userData")
   // console.log(studyMaterialsData, "studyMaterialsData")
 
-  const filteredData = studyMaterialsData?.filter(item => item.class === userData.grade)
+  const filteredData = studyMaterialsData?.filter(item => item.class === userData.selectedClass)
   const [studyMaterials, setStudyMaterials] = useState(filteredData || [])
   const [showFilePreviewModal, setShowFilePreviewModal] = useState(false)
   const [selectedFile, setSelectedFile] = useState({ fileName: "", filePath: "" })
@@ -41,12 +40,6 @@ const StudyMaterials = () => {
 
           <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
-
-            <InfoCard
-              header="Knowledge at your fingertips"
-              text="Access study materials, notes, and practice resources to enhance your understanding."
-              image="/study-male.svg"
-            />
 
             <div className="mt-6">
               <h3 className="text-xl font-bold">Study Materials</h3>

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react"
 import GlobalContext from "../GlobalContext"
 import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
-import { defaultPassword } from "../utils/apiConstants"
+import { authService } from "../services/authService"
 import clsx from "clsx"
 
 // ICONS
@@ -16,49 +16,89 @@ import Check from "../assets/check.svg?react"
 const Login = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const [username, setUsername] = useState("")
-  const [grade, setGrade] = useState("")
+  const [email, setEmail] = useState("")
+  const [selectedClass, setSelectedClass] = useState("")
   const [password, setPassword] = useState("")
-  const [role, setRole] = useState("student")
   const [showPassword, setShowPassword] = useState(false)
-  const [isPasswordCopied, setIsPasswordCopied] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
   const navigate = useNavigate()
-  const testUserPassword = import.meta.env.VITE_DEFAULT_PASSWORD
 
-  const handleCopyPassword = async () => {
-    try {
-      await navigator.clipboard.writeText(testUserPassword)
-      setIsPasswordCopied(true)
-      setTimeout(() => setIsPasswordCopied(false), 2000)
-    } catch (error) {
-      console.error("Failed to copy password:", error)
-    }
-  }
-
-  const handleLogin = e => {
+  const handleLogin = async e => {
     e?.preventDefault()
 
-    if (role !== "student") {
-      return showToast("Unauthorized")
-    }
-
-    if (!username || !grade || !password) {
+    if (!email || !password || !selectedClass) {
       return showToast("All fields are required")
     }
 
-    if (password !== defaultPassword) {
-      return showToast("Incorrect Password!")
-    }
+    try {
+      const result = await authService.login(email, password)
 
-    setUserData({ username, password, grade, role, loggedIn: true, results: [] })
-    navigate("/home")
+      if (result.success) {
+        setUserData({
+          ...result.user,
+          selectedClass,
+          loggedIn: true
+        })
+        navigate("/home")
+      } else {
+        showToast(result.error || "Login failed")
+      }
+    } catch (error) {
+      showToast("Login failed. Please try again.")
+    }
   }
 
-  const showToast = message => {
+  const handleRegister = async e => {
+    e?.preventDefault()
+
+    if (!username || !email || !password) {
+      return showToast("All fields are required")
+    }
+
+    if (password.length < 6) {
+      return showToast("Password must be at least 6 characters")
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return showToast("Please enter a valid email address")
+    }
+
+    try {
+      const userData = {
+        username,
+        email,
+        role: "student", // Default role is student
+        results: [],
+        createdAt: new Date().toISOString()
+      }
+
+      const result = await authService.register(email, password, userData)
+
+      if (result.success) {
+        showToast("Registration successful! You can now login.", {
+          type: "success"
+        })
+        setIsLogin(true)
+        setPassword("")
+        setUsername("")
+        setEmail("")
+      } else {
+        showToast(result.error || "Registration failed")
+      }
+    } catch (error) {
+      showToast("Registration failed. Please try again.")
+    }
+  }
+
+  const showToast = (message, options = {}) => {
     toast(message, {
       position: "top-center",
       type: "error",
       limit: 1,
-      autoClose: 5000
+      autoClose: 5000,
+      ...options
     })
   }
 
@@ -66,7 +106,7 @@ const Login = () => {
     <div className="w-full min-h-screen bg-neutral-100 text-[#1b1b1b]">
       <div className="min-h-screen flex flex-col gap-10 items-center">
         <form
-          onSubmit={handleLogin}
+          onSubmit={isLogin ? handleLogin : handleRegister}
           className="bg-white p-10 rounded-xl card-shadow flex flex-col w-full sm:w-[450px] mt-24"
         >
           <div className="flex justify-center mb-6">
@@ -74,45 +114,58 @@ const Login = () => {
               type="button"
               className={clsx(
                 "py-2 px-4 rounded-l-lg transition-all font-medium duration-300 outline-none",
-                role === "student" ? "cta-gradient text-white" : "bg-gray-200 text-black"
+                isLogin ? "cta-gradient text-white" : "bg-gray-200 text-black"
               )}
-              onClick={() => setRole("student")}
+              onClick={() => setIsLogin(true)}
             >
-              Student Login
+              Login
             </button>
             <button
               type="button"
               className={clsx(
                 "py-2 px-4 rounded-r-lg transition-all font-medium duration-300 outline-none",
-                role === "teacher" ? "cta-gradient text-white" : "bg-gray-200 text-black"
+                !isLogin ? "cta-gradient text-white" : "bg-gray-200 text-black"
               )}
-              onClick={() => setRole("teacher")}
+              onClick={() => setIsLogin(false)}
             >
-              Teacher Login
+              Register
             </button>
           </div>
 
           <h2 className="text-3xl font-bold text-center mb-2 mt-4">Exam Portal</h2>
-          <p className="mb-6 text-center text-gray-500">Please enter your details below to start your test</p>
+          <p className="mb-6 text-center text-gray-500">
+            {isLogin ? "Please enter your details to login" : "Please enter your details to register"}
+          </p>
+
+          {!isLogin && (
+            <input
+              type="text"
+              placeholder="Enter your Name"
+              className="border p-2 rounded-lg mb-4"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              required
+            />
+          )}
 
           <input
-            type="text"
-            placeholder="Enter your Name"
+            type="email"
+            placeholder="Enter your Email"
             className="border p-2 rounded-lg mb-4"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             required
           />
 
-          {role === "student" && (
+          {isLogin && (
             <div className="border p-2 rounded-lg overflow-hidden mb-4 flex items-center justify-between">
               <select
                 className={clsx(
                   "appearance-none outline-none flex-1 cursor-pointer bg-transparent",
-                  grade ? "text-black" : "text-gray-400"
+                  selectedClass ? "text-black" : "text-gray-400"
                 )}
-                value={grade}
-                onChange={e => setGrade(e.target.value)}
+                value={selectedClass}
+                onChange={e => setSelectedClass(e.target.value)}
                 required
               >
                 <option value="" disabled>
@@ -149,38 +202,9 @@ const Login = () => {
           </div>
 
           <button type="submit" className="p-2 mt-4 rounded-lg text-white transition-all duration-300 cta-gradient">
-            Login
+            {isLogin ? "Login" : "Register"}
           </button>
         </form>
-
-        {role === "student" && (
-          <div className="p-4 w-[280px] bg-gradient-to-r from-neutral-50 to-gray-50 border border-neutral-200 rounded-xl shadow-sm flex items-center gap-4">
-            <div className="flex-shrink-0">
-              <div className="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center">
-                <UserInfo className="h-5 w-5 text-neutral-600" />
-              </div>
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-sm font-semibold text-neutral-900 mb-1">Demo Password</div>
-              <div className="flex items-center gap-2">
-                <div className="text-sm text-neutral-700 font-mono bg-neutral-100 px-2 py-1 rounded-md flex-1">
-                  {testUserPassword}
-                </div>
-                <button
-                  onClick={handleCopyPassword}
-                  className="p-1.5 bg-neutral-100 rounded-md transition-colors"
-                  title={isPasswordCopied ? "Password copied!" : "Copy password"}
-                >
-                  {isPasswordCopied ? (
-                    <Check className="w-4 h-4 text-green-600" />
-                  ) : (
-                    <Copy className="w-4 h-4 text-neutral-600" />
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )

@@ -3,6 +3,7 @@ import GlobalContext from "../GlobalContext"
 import { useNavigate, useLocation } from "react-router-dom"
 import clsx from "clsx"
 import LogoutModal from "./modals/LogoutModal"
+import { authService } from "../services/authService"
 
 // ICONS
 import TrophyIcon from "../assets/trophy.svg?react"
@@ -20,9 +21,17 @@ const Sidebar = () => {
 
   const { pathname } = useLocation()
 
-  const handleLogout = () => {
-    setUserData({ role: userData?.role })
-    navigate("/")
+  const handleLogout = async () => {
+    try {
+      await authService.logout()
+      setUserData(null)
+      navigate("/")
+    } catch (error) {
+      console.error("Logout failed:", error)
+      // Fallback to local logout
+      setUserData({ role: userData?.role })
+      navigate("/")
+    }
   }
 
   const [isOpen, setIsOpen] = useState(false)

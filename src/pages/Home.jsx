@@ -10,7 +10,6 @@ import Layout from "../Layout"
 import Sidebar from "../components/Sidebar"
 import AvailableTestRow from "../components/AvailableTestRow"
 import Topbar from "../components/Topbar"
-import InfoCard from "../components/InfoCard"
 
 const Home = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -19,7 +18,7 @@ const Home = () => {
   // console.log(userData, "userData")
   // console.log(data, "data")
 
-  const filteredData = data.filter(item => item.class === userData?.grade)
+  const filteredData = data.filter(item => item.class === userData?.selectedClass)
   const [availableTests, setAvailableTests] = useState(filteredData)
   const [availabeTestsCopy, setAvailabeTestsCopy] = useState(filteredData)
   const [activeTab, setActiveTab] = useState("All")
@@ -35,7 +34,8 @@ const Home = () => {
   // Ensure attempted tests are moved to the end on initial load
   useEffect(() => {
     setAvailableTests(putAttemptedTestsEnd(filteredData))
-  }, [])
+    setAvailabeTestsCopy(filteredData)
+  }, [userData?.selectedClass])
 
   const handleFilter = tab => {
     if (tab === "All") {
@@ -75,11 +75,6 @@ const Home = () => {
 
           <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
-            <InfoCard
-              header="Ready to learn?"
-              text="Explore available tests and challenge your knowledge with interactive quizzes."
-              image="/study-male.svg"
-            />
             <div className="mt-6">
               <div className="flex justify-between sm:justify-start gap-4 md:gap-6">
                 <h3 className="text-lg md:text-xl font-bold">Available Tests</h3>

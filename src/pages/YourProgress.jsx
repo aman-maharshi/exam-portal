@@ -4,7 +4,6 @@ import GlobalContext from "../GlobalContext"
 import Layout from "../Layout"
 import Sidebar from "../components/Sidebar"
 import Topbar from "../components/Topbar"
-import InfoCard from "../components/InfoCard"
 
 const difficultyColors = {
   Easy: "#10b981", // Modern emerald green
@@ -82,11 +81,6 @@ const YourProgress = () => {
           <Sidebar />
           <div className="flex-1 rounded-xl p-4 sm:p-6 h-auto lg:h-screen overflow-y-auto">
             <Topbar userData={userData} />
-            <InfoCard
-              header="Your learning journey"
-              text="Track your progress with interactive charts showing scores, topics, and difficulty levels."
-              image="/study-female.svg"
-            />
             <div className="mt-6">
               <h3 className="text-2xl font-bold mb-2 text-black">Your Progress</h3>
               {sortedResults?.length > 1 ? (
