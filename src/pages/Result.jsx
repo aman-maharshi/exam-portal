@@ -66,10 +66,12 @@ const Result = () => {
   if (loading) {
     return (
       <Layout>
-        <div className="min-h-screen bg-[#ecf2f9] w-full p-6 flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading your result...</p>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-6">
+          <div className="text-center space-y-4">
+            <div className="relative">
+              <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto"></div>
+            </div>
+            <p className="text-slate-600 font-medium">Loading your result...</p>
           </div>
         </div>
       </Layout>
@@ -79,12 +81,28 @@ const Result = () => {
   if (!result) {
     return (
       <Layout>
-        <div className="min-h-screen bg-[#ecf2f9] w-full p-6 flex items-center justify-center">
-          <div className="text-center">
-            <p className="text-gray-600">Result not found</p>
-            <button onClick={() => navigate("/home")} className="mt-4 cta-gradient py-2 px-4 rounded-lg text-white">
-              Back to Home
-            </button>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-6">
+          <div className="text-center space-y-6">
+            <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto">
+              <svg className="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47-.881-6.08-2.33"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-slate-800 mb-2">Result Not Found</h3>
+              <p className="text-slate-600 mb-6">We couldn't find the result you're looking for.</p>
+              <button
+                onClick={() => navigate("/home")}
+                className="inline-flex items-center px-6 py-3 bg-slate-800 text-white rounded-xl font-medium hover:bg-slate-700 transition-colors duration-200"
+              >
+                Back to Home
+              </button>
+            </div>
           </div>
         </div>
       </Layout>
@@ -95,95 +113,130 @@ const Result = () => {
   const isHighScore = resultPercentage >= 75
   const isAverageScore = resultPercentage >= 50
 
+  const getScoreColor = () => {
+    if (isHighScore) return "from-emerald-500 to-green-600"
+    if (isAverageScore) return "from-amber-500 to-orange-600"
+    return "from-red-500 to-pink-600"
+  }
+
+  const getScoreMessage = () => {
+    if (isHighScore) return "Outstanding Performance!"
+    if (isAverageScore) return "Good Work!"
+    return "Keep Learning!"
+  }
+
+  const getScoreEmoji = () => {
+    if (isHighScore) return "🎉"
+    if (isAverageScore) return "👍"
+    return "📚"
+  }
+
   return (
     <Layout>
       {isHighScore && <Confetti width={width} height={height} recycle={false} numberOfPieces={200} />}
-      <div className="min-h-screen bg-[#ecf2f9] w-full p-6">
-        <div className="bg-white p-4 rounded-xl max-w-[800px] mx-auto mt-10">
-          <h2 className="text-4xl font-bold text-center mt-4">Your Result</h2>
-
-          <div className="flex items-center gap-4 justify-center mt-4 flex-wrap">
-            <div className="bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium">
-              Topic: {result.topic}
-            </div>
-            <div className="bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium">
-              Difficulty: {result.difficulty}
-            </div>
-            {result.class && (
-              <div className="bg-stone-100 text-stone-700 py-1 px-3 rounded-lg text-sm font-medium">
-                Class: {result.class}
-              </div>
-            )}
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4">
+        <div className="max-w-2xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-6">
+            <h1 className="text-3xl font-bold text-slate-800 mb-2">Test Results</h1>
+            <p className="text-slate-600">Here's how you performed</p>
           </div>
 
-          <div className="flex flex-col items-center justify-center mt-10">
-            <div>
-              {isHighScore ? (
-                <span role="img" aria-label="excellent" className="text-6xl">
-                  🎉
-                </span>
-              ) : isAverageScore ? (
-                <span role="img" aria-label="good" className="text-6xl">
-                  😊
-                </span>
-              ) : (
-                <span role="img" aria-label="needs improvement" className="text-6xl">
-                  📚
-                </span>
+          {/* Main Result Card */}
+          <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-6 mb-6">
+            {/* Score Display */}
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-slate-50 to-slate-100 rounded-full mb-4">
+                <span className="text-3xl">{getScoreEmoji()}</span>
+              </div>
+
+              <h2 className="text-xl font-bold text-slate-800 mb-2">{getScoreMessage()}</h2>
+              <p className="text-slate-600 mb-4 text-sm">
+                You got <span className="font-semibold text-slate-800">{result?.totalMarks}</span> out of{" "}
+                <span className="font-semibold text-slate-800">{result?.totalQuestions}</span> questions correct
+              </p>
+
+              {/* Percentage Circle */}
+              <div className="relative inline-flex items-center justify-center">
+                <div className="w-28 h-28 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+                  <div
+                    className={`w-24 h-24 rounded-full bg-gradient-to-br ${getScoreColor()} flex items-center justify-center`}
+                  >
+                    <span className="text-2xl font-bold text-white">{resultPercentage}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Test Details */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+              <div className="bg-slate-50 rounded-lg p-3 text-center">
+                <p className="text-xs font-medium text-slate-500 mb-1">Topic</p>
+                <p className="font-semibold text-slate-800 text-sm">{result.topic}</p>
+              </div>
+              <div className="bg-slate-50 rounded-lg p-3 text-center">
+                <p className="text-xs font-medium text-slate-500 mb-1">Difficulty</p>
+                <p className="font-semibold text-slate-800 text-sm">{result.difficulty}</p>
+              </div>
+              {result.class && (
+                <div className="bg-slate-50 rounded-lg p-3 text-center">
+                  <p className="text-xs font-medium text-slate-500 mb-1">Class</p>
+                  <p className="font-semibold text-slate-800 text-sm">{result.class}</p>
+                </div>
               )}
             </div>
 
-            <p className="my-4 text-lg">
-              You got {result?.totalMarks} out of {result?.totalQuestions} questions correct
-            </p>
-
-            <div
-              className={`p-6 max-w-xs rounded-xl border ${
-                isHighScore
-                  ? "bg-green-50 border-green-200"
-                  : isAverageScore
-                  ? "bg-yellow-50 border-yellow-200"
-                  : "bg-red-50 border-red-200"
-              }`}
-            >
-              <div className="space-y-2">
-                <p
-                  className={`text-6xl font-bold ${
-                    isHighScore ? "text-green-600" : isAverageScore ? "text-yellow-600" : "text-red-600"
-                  }`}
-                >
-                  {resultPercentage}%
-                </p>
-                <p className="text-sm text-gray-600">
-                  {isHighScore
-                    ? "Excellent! Keep up the great work!"
-                    : isAverageScore
-                    ? "Good job! You can do even better!"
-                    : "Keep practicing! You'll improve with time!"}
-                </p>
-              </div>
-            </div>
-
+            {/* Submission Time */}
             {result.submittedAt && (
-              <div className="mt-4 text-sm text-gray-500">
-                Submitted on: {new Date(result.submittedAt).toLocaleDateString()} at{" "}
-                {new Date(result.submittedAt).toLocaleTimeString()}
+              <div className="text-center">
+                <p className="text-xs text-slate-500">
+                  Submitted on{" "}
+                  {new Date(result.submittedAt).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                  })}{" "}
+                  at{" "}
+                  {new Date(result.submittedAt).toLocaleTimeString("en-US", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true
+                  })}
+                </p>
               </div>
             )}
           </div>
 
-          <div className="flex gap-4 justify-center mt-8">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => navigate(`/solution/${testId}`)}
-              className="bg-blue-600 hover:bg-blue-700 py-2 px-6 rounded-lg text-white transition-colors"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-slate-800 text-white rounded-xl font-medium hover:bg-slate-700 transition-all duration-200 hover:shadow-lg"
             >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
               View Solutions
             </button>
             <button
               onClick={() => navigate(`/home`)}
-              className="cta-gradient py-2 px-6 rounded-lg text-white transition-all duration-300 hover:opacity-90"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-white text-slate-800 border-2 border-slate-200 rounded-xl font-medium hover:bg-slate-50 transition-all duration-200 hover:shadow-lg"
             >
-              ← Back to Home
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+              Back to Home
             </button>
           </div>
         </div>
