@@ -10,6 +10,8 @@ import DownArrow from "../assets/down-arrow.svg?react"
 import UserInfo from "../assets/user-info.svg?react"
 import ShowPassword from "../assets/password-show.svg?react"
 import HidePassword from "../assets/password-hide.svg?react"
+import Copy from "../assets/copy.svg?react"
+import Check from "../assets/check.svg?react"
 
 const Login = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -18,8 +20,19 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [role, setRole] = useState("student")
   const [showPassword, setShowPassword] = useState(false)
+  const [isPasswordCopied, setIsPasswordCopied] = useState(false)
   const navigate = useNavigate()
   const testUserPassword = import.meta.env.VITE_DEFAULT_PASSWORD
+
+  const handleCopyPassword = async () => {
+    try {
+      await navigator.clipboard.writeText(testUserPassword)
+      setIsPasswordCopied(true)
+      setTimeout(() => setIsPasswordCopied(false), 2000)
+    } catch (error) {
+      console.error("Failed to copy password:", error)
+    }
+  }
 
   const handleLogin = e => {
     e?.preventDefault()
@@ -141,13 +154,30 @@ const Login = () => {
         </form>
 
         {role === "student" && (
-          <div className="p-4 w-[250px] bg-stone-200 border border-stone-400 rounded-md flex items-center gap-6">
-            <div>
-              <UserInfo className="h-7 w-7 text-black" />
+          <div className="p-4 w-[280px] bg-gradient-to-r from-neutral-50 to-gray-50 border border-neutral-200 rounded-xl shadow-sm flex items-center gap-4">
+            <div className="flex-shrink-0">
+              <div className="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center">
+                <UserInfo className="h-5 w-5 text-neutral-600" />
+              </div>
             </div>
-            <div>
-              <div className="text-sm font-bold">Demo Student Password</div>
-              <div className="text-sm text-stone-700">{testUserPassword}</div>
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-semibold text-neutral-900 mb-1">Demo Password</div>
+              <div className="flex items-center gap-2">
+                <div className="text-sm text-neutral-700 font-mono bg-neutral-100 px-2 py-1 rounded-md flex-1">
+                  {testUserPassword}
+                </div>
+                <button
+                  onClick={handleCopyPassword}
+                  className="p-1.5 bg-neutral-100 rounded-md transition-colors"
+                  title={isPasswordCopied ? "Password copied!" : "Copy password"}
+                >
+                  {isPasswordCopied ? (
+                    <Check className="w-4 h-4 text-green-600" />
+                  ) : (
+                    <Copy className="w-4 h-4 text-neutral-600" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         )}
