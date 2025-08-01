@@ -35,7 +35,7 @@ const StudyMaterials = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-neutral-100 w-full flex">
+      <div className="min-h-screen bg-neutral-200 w-full flex">
         <div className="flex flex-1">
           <Sidebar />
 
