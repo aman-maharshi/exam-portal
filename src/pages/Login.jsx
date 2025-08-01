@@ -50,7 +50,7 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-gradient text-[#1b1b1b]">
+    <div className="w-full min-h-screen bg-neutral-100 text-[#1b1b1b]">
       <div className="min-h-screen flex flex-col gap-10 items-center">
         <form
           onSubmit={handleLogin}

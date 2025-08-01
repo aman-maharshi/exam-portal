@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext } from "react"
 import GlobalContext from "./GlobalContext"
 
 const Layout = ({ children }) => {
@@ -6,15 +6,11 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     if (!userData?.loggedIn) {
-      window.location.href = '/'
+      window.location.href = "/"
     }
   }, [userData])
 
-  return (
-    <div className='w-full min-h-screen bg-gradient text-[#1b1b1b]'>
-      {children}
-    </div>
-  )
+  return <div className="w-full min-h-screen text-[#1b1b1b]">{children}</div>
 }
 
 export default Layout
