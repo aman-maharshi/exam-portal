@@ -133,7 +133,7 @@ const Results = () => {
                           <div className="col-span-2">Difficulty</div>
                           <div className="col-span-2">Class</div>
                           <div className="col-span-2">Score</div>
-                          <div className="hidden sm:block col-span-2">Date</div>
+                          <div className="hidden lg:block col-span-2">Date</div>
                           <div className="col-span-1">Actions</div>
                         </div>
                       </div>
@@ -194,7 +194,7 @@ const Results = () => {
                                 </div>
 
                                 {/* Date */}
-                                <div className="hidden sm:block col-span-2">
+                                <div className="hidden lg:block col-span-2">
                                   {result?.submittedAt ? (
                                     <div className="text-sm text-gray-600">
                                       {(() => {

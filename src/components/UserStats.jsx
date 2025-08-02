@@ -64,7 +64,7 @@ const UserStats = ({ userStats, results }) => {
         {/* Last Test Date */}
         <div className="bg-white rounded-lg p-4">
           <div>
-            <p className="text-sm font-medium text-gray-600 mb-1">Last Test</p>
+            <p className="text-sm font-medium text-gray-600 mb-1">Last Test Taken</p>
             <p className="text-lg font-bold text-gray-900">{lastTestDate}</p>
           </div>
         </div>
