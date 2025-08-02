@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { authService } from "../../services/authService"
 import GlobalContext from "../../GlobalContext"
+import { rateLimiter } from "../../utils/rateLimiter"
 
 // ICONS
 import DownArrow from "../../assets/down-arrow.svg?react"
@@ -25,6 +26,12 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToForgotPassword }) => {
       return showToast("All fields are required")
     }
 
+    // Check rate limiting for signin
+    if (rateLimiter.isRateLimited("signin")) {
+      const timeRemaining = rateLimiter.formatTimeRemaining("signin")
+      return showToast(`Too many failed attempts. Please try again in ${timeRemaining}.`)
+    }
+
     setIsLoading(true)
     try {
       const result = await authService.login(email, password)
@@ -37,10 +44,28 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToForgotPassword }) => {
         })
         navigate("/home")
       } else {
-        showToast("Invalid email or password. Please try again.")
+        // Record failed attempt
+        rateLimiter.recordAttempt("signin")
+        const remainingAttempts = rateLimiter.getRemainingAttempts("signin")
+
+        if (remainingAttempts > 0) {
+          showToast("Invalid email or password. Please try again.")
+        } else {
+          const timeRemaining = rateLimiter.formatTimeRemaining("signin")
+          showToast(`Too many failed attempts. Please try again in ${timeRemaining}.`)
+        }
       }
     } catch (error) {
-      showToast("Network error. Please check your connection and try again.")
+      // Record failed attempt for network errors too
+      rateLimiter.recordAttempt("signin")
+      const remainingAttempts = rateLimiter.getRemainingAttempts("signin")
+
+      if (remainingAttempts > 0) {
+        showToast("Network error. Please check your connection and try again.")
+      } else {
+        const timeRemaining = rateLimiter.formatTimeRemaining("signin")
+        showToast(`Too many failed attempts. Please try again in ${timeRemaining}.`)
+      }
     } finally {
       setIsLoading(false)
     }

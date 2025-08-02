@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { toast } from "react-toastify"
 import { authService } from "../../services/authService"
+import { rateLimiter } from "../../utils/rateLimiter"
 
 // ICONS
 import ShowPassword from "../../assets/password-show.svg?react"
@@ -30,6 +31,12 @@ const SignUp = ({ onSwitchToSignIn }) => {
       return showToast("Please enter a valid email address")
     }
 
+    // Check rate limiting for signup
+    if (rateLimiter.isRateLimited("signup")) {
+      const timeRemaining = rateLimiter.formatTimeRemaining("signup")
+      return showToast(`Too many signup attempts. Please try again in ${timeRemaining}.`)
+    }
+
     setIsLoading(true)
     try {
       const userData = {
@@ -42,6 +49,9 @@ const SignUp = ({ onSwitchToSignIn }) => {
 
       const result = await authService.register(email, password, userData)
 
+      // Record attempt regardless of success/failure for signup
+      rateLimiter.recordAttempt("signup")
+
       if (result.success) {
         showToast("Registration successful! You can now login.", {
           type: "success"
@@ -51,10 +61,26 @@ const SignUp = ({ onSwitchToSignIn }) => {
         setUsername("")
         setEmail("")
       } else {
-        showToast("Registration failed. Please check your details and try again.")
+        const remainingAttempts = rateLimiter.getRemainingAttempts("signup")
+
+        if (remainingAttempts > 0) {
+          showToast("Registration failed. Please check your details and try again.")
+        } else {
+          const timeRemaining = rateLimiter.formatTimeRemaining("signup")
+          showToast(`Too many signup attempts. Please try again in ${timeRemaining}.`)
+        }
       }
     } catch (error) {
-      showToast("Network error. Please check your connection and try again.")
+      // Record failed attempt for network errors too
+      rateLimiter.recordAttempt("signup")
+      const remainingAttempts = rateLimiter.getRemainingAttempts("signup")
+
+      if (remainingAttempts > 0) {
+        showToast("Network error. Please check your connection and try again.")
+      } else {
+        const timeRemaining = rateLimiter.formatTimeRemaining("signup")
+        showToast(`Too many signup attempts. Please try again in ${timeRemaining}.`)
+      }
     } finally {
       setIsLoading(false)
     }

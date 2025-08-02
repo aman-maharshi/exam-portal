@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { toast } from "react-toastify"
 import { authService } from "../../services/authService"
+import { rateLimiter } from "../../utils/rateLimiter"
 
 const ForgotPassword = ({ onBackToSignIn }) => {
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState("")
@@ -19,19 +20,44 @@ const ForgotPassword = ({ onBackToSignIn }) => {
       return showToast("Please enter a valid email address")
     }
 
+    // Check rate limiting for forgot password
+    if (rateLimiter.isRateLimited("forgotPassword")) {
+      const timeRemaining = rateLimiter.formatTimeRemaining("forgotPassword")
+      return showToast(`Too many password reset attempts. Please try again in ${timeRemaining}.`)
+    }
+
     setForgotPasswordLoading(true)
     try {
       const result = await authService.forgotPassword(forgotPasswordEmail)
+
+      // Record attempt regardless of success/failure for forgot password
+      rateLimiter.recordAttempt("forgotPassword")
 
       if (result.success) {
         showToast("If an account with this email exists, a password reset link has been sent.", { type: "success" })
         onBackToSignIn()
         setForgotPasswordEmail("")
       } else {
-        showToast("Failed to send reset email. Please try again.")
+        const remainingAttempts = rateLimiter.getRemainingAttempts("forgotPassword")
+
+        if (remainingAttempts > 0) {
+          showToast("Failed to send reset email. Please try again.")
+        } else {
+          const timeRemaining = rateLimiter.formatTimeRemaining("forgotPassword")
+          showToast(`Too many password reset attempts. Please try again in ${timeRemaining}.`)
+        }
       }
     } catch (error) {
-      showToast("Network error. Please check your connection and try again.")
+      // Record failed attempt for network errors too
+      rateLimiter.recordAttempt("forgotPassword")
+      const remainingAttempts = rateLimiter.getRemainingAttempts("forgotPassword")
+
+      if (remainingAttempts > 0) {
+        showToast("Network error. Please check your connection and try again.")
+      } else {
+        const timeRemaining = rateLimiter.formatTimeRemaining("forgotPassword")
+        showToast(`Too many password reset attempts. Please try again in ${timeRemaining}.`)
+      }
     } finally {
       setForgotPasswordLoading(false)
     }

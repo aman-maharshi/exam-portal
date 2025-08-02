@@ -25,6 +25,9 @@ const Sidebar = () => {
     try {
       await authService.logout()
       setUserData(null)
+      localStorage.removeItem("rate_limit_signin")
+      localStorage.removeItem("rate_limit_signup")
+      localStorage.removeItem("rate_limit_forgot_password")
       navigate("/")
     } catch (error) {
       console.error("Logout failed:", error)
