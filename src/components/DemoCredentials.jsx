@@ -1,46 +1,70 @@
-import React from "react"
+import React, { useState } from "react"
 import CopyIcon from "../assets/copy.svg?react"
+import DownArrowIcon from "../assets/down-arrow.svg?react"
+import CheckIcon from "../assets/check.svg?react"
 
 const DemoCredentials = () => {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [copiedField, setCopiedField] = useState(null)
+
+  const handleCopy = (text, field) => {
+    navigator.clipboard.writeText(text)
+    setCopiedField(field)
+    setTimeout(() => setCopiedField(null), 2000)
+  }
+
   return (
-    <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-lg border border-blue-200/50 p-6">
-      <div className="flex items-center gap-3 mb-4">
-        <p className="text-sm text-black">Try the platform with demo credentials</p>
-      </div>
+    <div className="mt-4 !bg-white backdrop-blur-sm rounded-lg shadow-lg border border-white/20">
+      <button onClick={() => setIsExpanded(!isExpanded)} className="w-full text-left p-3 rounded-lg">
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-medium text-gray-700">View Demo Credentials</span>
+          <DownArrowIcon
+            className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+          />
+        </div>
+      </button>
+      {/* Minimal Credentials Display */}
+      {isExpanded && (
+        <div className="mt-2 p-3 !bg-white rounded-lg border-t border-gray-100">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-gray-600">Email:</span>
+              <div className="flex items-center gap-1">
+                <code className="text-xs bg-white px-2 py-1 rounded border font-mono">demo@examportal.com</code>
+                <button
+                  onClick={() => handleCopy("demo@examportal.com", "email")}
+                  className="text-gray-400 hover:text-gray-600 p-1"
+                  title="Copy email"
+                >
+                  {copiedField === "email" ? (
+                    <CheckIcon className="w-3 h-3 text-green-500" />
+                  ) : (
+                    <CopyIcon className="w-3 h-3" />
+                  )}
+                </button>
+              </div>
+            </div>
 
-      <div className="space-y-3">
-        <div className="bg-white/70 rounded-lg p-3 border border-blue-100">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-700">Email:</span>
-            <div className="flex items-center gap-2">
-              <code className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono">demo@examportal.com</code>
-              <button
-                onClick={() => navigator.clipboard.writeText("demo@examportal.com")}
-                className="text-blue-600 hover:text-blue-800 transition-colors"
-                title="Copy email"
-              >
-                <CopyIcon className="w-4 h-4" />
-              </button>
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-gray-600">Password:</span>
+              <div className="flex items-center gap-1">
+                <code className="text-xs bg-white px-2 py-1 rounded border font-mono">test879@</code>
+                <button
+                  onClick={() => handleCopy("test879@", "password")}
+                  className="text-gray-400 hover:text-gray-600 p-1"
+                  title="Copy password"
+                >
+                  {copiedField === "password" ? (
+                    <CheckIcon className="w-3 h-3 text-green-500" />
+                  ) : (
+                    <CopyIcon className="w-3 h-3" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="bg-white/70 rounded-lg p-3 border border-blue-100">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-700">Password:</span>
-            <div className="flex items-center gap-2">
-              <code className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono">test879@</code>
-              <button
-                onClick={() => navigator.clipboard.writeText("test879@")}
-                className="text-blue-600 hover:text-blue-800 transition-colors"
-                title="Copy password"
-              >
-                <CopyIcon className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   )
 }
