@@ -52,9 +52,9 @@ const StudyMaterials = () => {
                       {/* Table Header */}
                       <div className="bg-gray-50 rounded-t-lg border-b border-gray-200 px-4 py-3">
                         <div className="grid grid-cols-12 gap-4 text-sm font-semibold text-gray-700">
-                          <div className="col-span-6">Material Title</div>
-                          <div className="col-span-3">Class</div>
-                          <div className="col-span-3">Actions</div>
+                          <div className="col-span-4 sm:col-span-6">Material Title</div>
+                          <div className="col-span-4 sm:col-span-3">Class</div>
+                          <div className="col-span-4 sm:col-span-3">Actions</div>
                         </div>
                       </div>
 
@@ -66,19 +66,19 @@ const StudyMaterials = () => {
                             <div key={index} className="px-4 py-4 hover:bg-gray-50 transition-colors">
                               <div className="grid grid-cols-12 gap-4 items-center">
                                 {/* Material Title */}
-                                <div className="col-span-6">
+                                <div className="col-span-4 sm:col-span-6">
                                   <div className="font-medium text-gray-900 truncate">{title}</div>
                                 </div>
 
                                 {/* Class */}
-                                <div className="col-span-3">
+                                <div className="col-span-4 sm:col-span-3">
                                   <div className="text-sm px-2 py-1 bg-gray-100 text-gray-600 rounded-full w-fit">
                                     {materialClass}
                                   </div>
                                 </div>
 
                                 {/* Actions */}
-                                <div className="col-span-3">
+                                <div className="col-span-4 sm:col-span-3">
                                   <div className="flex gap-2">
                                     <button
                                       onClick={() => handleOpenFilePreviewModal(title, file)}

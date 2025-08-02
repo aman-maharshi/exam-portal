@@ -129,11 +129,11 @@ const Results = () => {
                       {/* Table Header */}
                       <div className="bg-gray-50 border-b rounded-t-lg border-gray-200 px-4 py-3">
                         <div className="grid grid-cols-12 gap-4 text-sm font-semibold text-gray-700">
-                          <div className="col-span-3">Topic</div>
+                          <div className="col-span-4 sm:col-span-3">Topic</div>
                           <div className="col-span-2">Difficulty</div>
                           <div className="col-span-2">Class</div>
                           <div className="col-span-2">Score</div>
-                          <div className="col-span-2">Date</div>
+                          <div className="hidden sm:block col-span-2">Date</div>
                           <div className="col-span-1">Actions</div>
                         </div>
                       </div>
@@ -153,7 +153,7 @@ const Results = () => {
                             <div key={index} className="px-4 py-4 hover:bg-gray-50 transition-colors">
                               <div className="grid grid-cols-12 gap-4 items-center">
                                 {/* Topic */}
-                                <div className="col-span-3">
+                                <div className="col-span-4 sm:col-span-3">
                                   <div className="font-medium text-gray-900 truncate">{result?.topic}</div>
                                 </div>
 
@@ -194,7 +194,7 @@ const Results = () => {
                                 </div>
 
                                 {/* Date */}
-                                <div className="col-span-2">
+                                <div className="hidden sm:block col-span-2">
                                   {result?.submittedAt ? (
                                     <div className="text-sm text-gray-600">
                                       {(() => {
