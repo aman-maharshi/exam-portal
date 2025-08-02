@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "Roboto", serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 .cta-gradient {
