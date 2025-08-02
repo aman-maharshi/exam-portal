@@ -7,10 +7,11 @@ import TrophyIcon from "../assets/trophy.svg?react"
 import GraphIcon from "../assets/graph.svg?react"
 import CheckIcon from "../assets/check.svg?react"
 
-// AUTH COMPONENTS
+// COMPONENTS
 import SignIn from "../components/auth/SignIn"
 import SignUp from "../components/auth/SignUp"
 import ForgotPassword from "../components/auth/ForgotPassword"
+import DemoCredentials from "../components/DemoCredentials"
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true)
@@ -144,6 +145,8 @@ const Auth = () => {
                 <SignUp onSwitchToSignIn={handleSwitchToSignIn} />
               )}
             </div>
+
+            <DemoCredentials />
           </div>
         </div>
       </div>
