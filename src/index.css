@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-  font-family: "Roboto", serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 .cta-gradient {
-  background-color: #222731;
+  background-color: #0e1731;
 }
 
 .card-shadow {
@@ -17,4 +17,9 @@ body {
 .container {
   max-width: 1024px;
   margin: 0 auto;
+}
+
+/* Modern gradient background */
+.modern-bg {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }

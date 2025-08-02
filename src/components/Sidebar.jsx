@@ -3,6 +3,7 @@ import GlobalContext from "../GlobalContext"
 import { useNavigate, useLocation } from "react-router-dom"
 import clsx from "clsx"
 import LogoutModal from "./modals/LogoutModal"
+import { authService } from "../services/authService"
 
 // ICONS
 import TrophyIcon from "../assets/trophy.svg?react"
@@ -20,9 +21,20 @@ const Sidebar = () => {
 
   const { pathname } = useLocation()
 
-  const handleLogout = () => {
-    setUserData({ role: userData?.role })
-    navigate("/")
+  const handleLogout = async () => {
+    try {
+      await authService.logout()
+      setUserData(null)
+      localStorage.removeItem("rate_limit_signin")
+      localStorage.removeItem("rate_limit_signup")
+      localStorage.removeItem("rate_limit_forgot_password")
+      navigate("/")
+    } catch (error) {
+      console.error("Logout failed:", error)
+      // Fallback to local logout
+      setUserData({ role: userData?.role })
+      navigate("/")
+    }
   }
 
   const [isOpen, setIsOpen] = useState(false)
@@ -53,7 +65,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/home")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/home" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >
@@ -63,7 +75,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/results")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/results" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >
@@ -73,7 +85,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/study-materials")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/study-materials" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >
@@ -83,7 +95,7 @@ const Sidebar = () => {
           <div
             onClick={() => navigate("/your-progress")}
             className={clsx(
-              "p-4 rounded-xl font-bold cursor-pointer flex items-center gap-3",
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
               pathname === "/your-progress" ? "cta-gradient text-white" : "bg-transparent"
             )}
           >

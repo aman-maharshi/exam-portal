@@ -2,6 +2,8 @@ import { useState, useEffect, useContext, useRef } from "react"
 import GlobalContext from "../GlobalContext"
 import { useNavigate, useParams } from "react-router-dom"
 import { data } from "../data"
+import { databaseService } from "../services/databaseService"
+import { toast } from "react-toastify"
 
 import { clsx } from "clsx"
 
@@ -15,10 +17,10 @@ const Test = () => {
   const navigate = useNavigate()
   const { testId } = useParams()
   const test = data.find(test => test.id === parseInt(testId))
-  // console.log(test)
 
   const [totalMarks, setTotalMarks] = useState(0)
   const [loading, setLoading] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
   const answersMap = test?.questionsList.map(item => ({
     question: item.questionText,
@@ -40,43 +42,87 @@ const Test = () => {
   }, [answersList])
 
   const handleSubmitTest = async () => {
+    if (submitting) return // Prevent double submission
+
+    setSubmitting(true)
     setLoading(true)
-    updateResultLocally()
 
-    // try {
-    //   const percentage = parseInt((totalMarks / test?.questionsList.length) * 100)
-    //   await updateTestResult(Number(testId), userData.username, percentage)
-    // } catch (error) {
-    //   console.log(error)
-    // } finally {
-    //   setLoading(false)
-    // }
+    try {
+      // Validate test data
+      if (!test) {
+        toast.error("Test not found")
+        return
+      }
 
-    setTimeout(() => {
-      setLoading(false)
+      if (!userData?.uid) {
+        toast.error("User not authenticated")
+        return
+      }
+
+      // Prepare test result data
+      const testResult = {
+        testId: parseInt(testId),
+        totalMarks,
+        totalQuestions: test?.questionsList.length,
+        topic: test?.topic,
+        difficulty: test?.difficulty,
+        percentage: Math.round((totalMarks / test?.questionsList.length) * 100),
+        submittedAt: new Date().toISOString(),
+        answers: answersList, // Store answers for detailed review
+        class: test?.class
+      }
+
+      // Save result to Firebase
+      const result = await databaseService.saveTestResult(userData.uid, testResult)
+
+      if (result.success) {
+        // Update local state with the returned result
+        updateResultLocally(result.result)
+        toast.success("Test submitted successfully!")
+        navigate("/result/" + testId)
+      } else {
+        console.error("Failed to save result:", result.error)
+        toast.error("Failed to save result. Please try again.")
+
+        // Still update local state as fallback
+        updateResultLocally(testResult)
+        navigate("/result/" + testId)
+      }
+    } catch (error) {
+      console.error("Error submitting test:", error)
+      toast.error("An error occurred. Please try again.")
+
+      // Fallback to local storage
+      const testResult = {
+        testId: parseInt(testId),
+        totalMarks,
+        totalQuestions: test?.questionsList.length,
+        topic: test?.topic,
+        difficulty: test?.difficulty,
+        percentage: Math.round((totalMarks / test?.questionsList.length) * 100),
+        submittedAt: new Date().toISOString(),
+        answers: answersList,
+        class: test?.class
+      }
+
+      updateResultLocally(testResult)
       navigate("/result/" + testId)
-    }, 250)
+    } finally {
+      setLoading(false)
+      setSubmitting(false)
+    }
   }
 
-  const updateResultLocally = () => {
-    const existingResultIndex = userData.results.findIndex(result => result.testId === testId)
+  const updateResultLocally = testResult => {
+    const existingResultIndex = userData.results.findIndex(result => result.testId === parseInt(testId))
     let updatedResults
 
     if (existingResultIndex !== -1) {
       updatedResults = userData.results.map((result, index) =>
-        index === existingResultIndex ? { ...result, totalMarks } : result
+        index === existingResultIndex ? { ...result, ...testResult } : result
       )
     } else {
-      updatedResults = [
-        ...userData.results,
-        {
-          testId,
-          totalMarks,
-          totalQuestions: test?.questionsList.length,
-          topic: test?.topic,
-          difficulty: test?.difficulty
-        }
-      ]
+      updatedResults = [...userData.results, testResult]
     }
 
     const updatedData = {
@@ -98,8 +144,12 @@ const Test = () => {
 
   const handleTimerEnd = () => {
     setTimerEnded(true)
+    toast.warning("Time's up! Submitting your test...")
     handleSubmitTest()
   }
+
+  // Check if user has already attempted this test
+  const hasAttempted = userData?.results?.some(result => result.testId === parseInt(testId))
 
   return (
     <Layout>
@@ -112,7 +162,17 @@ const Test = () => {
               <div className="p-4 text-lg font-bold text-red-500">Timer has ended!</div>
             )}
           </div>
+
           <h2 className="text-2xl md:text-4xl font-bold text-center mt-4">{test?.topic}</h2>
+
+          {hasAttempted && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4 text-center">
+              <p className="text-blue-800 font-medium">
+                You have already attempted this test. Your previous score will be updated.
+              </p>
+            </div>
+          )}
+
           <div className="max-w-[600px] my-10 mx-auto text-stone-600">
             {test?.questionsList?.map((question, index) => (
               <Question key={index} index={index} question={question} setAnswersList={setAnswersList} />
@@ -122,12 +182,12 @@ const Test = () => {
           <button
             onClick={handleSubmitTest}
             className={clsx(
-              "py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white",
-              loading ? "bg-stone-400" : "cta-gradient"
+              "py-2 px-8 mt-14 mb-4 block mx-auto rounded-lg text-white transition-all duration-300",
+              loading || submitting ? "bg-stone-400 cursor-not-allowed" : "cta-gradient hover:opacity-90"
             )}
-            disabled={loading}
+            disabled={loading || submitting}
           >
-            {loading ? "Submitting..." : "Submit"}
+            {loading || submitting ? "Submitting..." : "Submit Test"}
           </button>
         </div>
       </div>
