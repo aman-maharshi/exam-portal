@@ -1,4 +1,10 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth"
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail
+} from "firebase/auth"
 import { doc, setDoc, getDoc } from "firebase/firestore"
 import { auth, db } from "../firebase"
 
@@ -64,5 +70,20 @@ export const authService = {
   // Get current user
   getCurrentUser() {
     return auth.currentUser
+  },
+
+  // Forgot password
+  async forgotPassword(email) {
+    try {
+      await sendPasswordResetEmail(auth, email)
+      return { success: true }
+    } catch (error) {
+      // Firebase doesn't distinguish between "user not found" and "email sent" for security
+      // Common error codes: auth/user-not-found, auth/invalid-email
+      if (error.code === "auth/user-not-found" || error.code === "auth/invalid-email") {
+        return { success: true } // Treat as success for security
+      }
+      return { success: false, error: error.message }
+    }
   }
 }
