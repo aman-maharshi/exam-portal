@@ -10,7 +10,6 @@ import DownArrow from "../assets/down-arrow.svg?react"
 import ShowPassword from "../assets/password-show.svg?react"
 import HidePassword from "../assets/password-hide.svg?react"
 import GraduationHat from "../assets/graduation-hat.svg?react"
-import BookIcon from "../assets/book.svg?react"
 import TrophyIcon from "../assets/trophy.svg?react"
 import GraphIcon from "../assets/graph.svg?react"
 import CheckIcon from "../assets/check.svg?react"
@@ -45,10 +44,10 @@ const Login = () => {
         })
         navigate("/home")
       } else {
-        showToast(result.error || "Login failed")
+        showToast("Invalid email or password. Please try again.")
       }
     } catch (error) {
-      showToast("Login failed. Please try again.")
+      showToast("Network error. Please check your connection and try again.")
     } finally {
       setIsLoading(false)
     }
@@ -92,10 +91,10 @@ const Login = () => {
         setUsername("")
         setEmail("")
       } else {
-        showToast(result.error || "Registration failed")
+        showToast("Registration failed. Please check your details and try again.")
       }
     } catch (error) {
-      showToast("Registration failed. Please try again.")
+      showToast("Network error. Please check your connection and try again.")
     } finally {
       setIsLoading(false)
     }
