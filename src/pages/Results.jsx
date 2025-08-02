@@ -184,12 +184,14 @@ const Results = () => {
 
                                 {/* Score */}
                                 <div className="col-span-2">
-                                  <div className="flex items-center gap-2">
-                                    <div className="font-bold text-lg">
+                                  <div className="flex items-end gap-2">
+                                    <div className="font-bold text-xl">
                                       <span className={textColor}>{result?.totalMarks}</span>
-                                      <span className="text-gray-600"> / {result?.totalQuestions}</span>
+                                      <span className="text-gray-600 text-sm"> / {result?.totalQuestions}</span>
                                     </div>
-                                    <div className="text-sm text-gray-500 font-medium">({resultPercentage}%)</div>
+                                    <div className="text-sm text-gray-500 font-medium pb-0.5">
+                                      ({resultPercentage}%)
+                                    </div>
                                   </div>
                                 </div>
 
