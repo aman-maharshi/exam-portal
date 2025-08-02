@@ -133,18 +133,6 @@ const Login = () => {
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                    <BookIcon className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Comprehensive Study Materials</h3>
-                    <p className="text-purple-100 text-sm">
-                      Access detailed PDF resources and study guides tailored to your class level.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                     <TrophyIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
