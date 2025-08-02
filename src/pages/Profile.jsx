@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import GlobalContext from "../GlobalContext"
 import { databaseService } from "../services/databaseService"
 import { toast } from "react-toastify"
+import EditIcon from "../assets/edit.svg?react"
 
 // COMPONENTS
 import Layout from "../Layout"
@@ -13,6 +14,7 @@ const Profile = () => {
   const { userData, setUserData } = useContext(GlobalContext)
   const navigate = useNavigate()
   const [editing, setEditing] = useState(false)
+  const [saving, setSaving] = useState(false)
   const [formData, setFormData] = useState({
     username: userData?.username || "",
     selectedClass: userData?.selectedClass || ""
@@ -24,6 +26,7 @@ const Profile = () => {
       return
     }
 
+    setSaving(true)
     try {
       const result = await databaseService.updateUserProfile(userData.uid, {
         username: formData.username,
@@ -44,6 +47,8 @@ const Profile = () => {
     } catch (error) {
       console.error("Error updating profile:", error)
       toast.error("Error updating profile")
+    } finally {
+      setSaving(false)
     }
   }
 
@@ -67,30 +72,23 @@ const Profile = () => {
             <div className="mt-6 max-w-4xl mx-auto">
               {/* Profile Header */}
               <div className="bg-white rounded-lg p-6 mb-6 shadow-sm border border-gray-100">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 cta-gradient rounded-full flex items-center justify-center">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="w-16 h-16 cta-gradient rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xl font-bold">
                       {userData?.username?.charAt(0)?.toUpperCase() || "U"}
                     </span>
                   </div>
-                  <div className="flex-1">
-                    <h1 className="text-2xl font-bold text-gray-900">{userData?.username}</h1>
-                    <p className="text-gray-600">{userData?.email}</p>
+                  <div className="flex-1 min-w-0">
+                    <h1 className="text-xl sm:text-2xl font-bold text-gray-900 truncate">{userData?.username}</h1>
+                    <p className="text-gray-600 truncate">{userData?.email}</p>
                   </div>
                   {!editing && (
                     <button
                       onClick={() => setEditing(true)}
-                      className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                      className="flex items-center gap-2 px-0 sm:px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base"
                     >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                        />
-                      </svg>
-                      Edit Profile
+                      <EditIcon className="w-4 h-4" />
+                      <span className="inline">Edit Profile</span>
                     </button>
                   )}
                 </div>
@@ -110,7 +108,7 @@ const Profile = () => {
                         type="text"
                         value={formData.username}
                         onChange={e => setFormData(prev => ({ ...prev, username: e.target.value }))}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors"
                         placeholder="Enter your username"
                       />
                     </div>
@@ -120,7 +118,7 @@ const Profile = () => {
                       <select
                         value={formData.selectedClass}
                         onChange={e => setFormData(prev => ({ ...prev, selectedClass: e.target.value }))}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors"
                       >
                         <option value="">Select your class</option>
                         <option value="7th">7th Grade</option>
@@ -129,16 +127,25 @@ const Profile = () => {
                       </select>
                     </div>
 
-                    <div className="flex gap-3 pt-4">
+                    <div className="flex flex-col sm:flex-row gap-3 pt-4">
                       <button
                         onClick={handleSaveProfile}
-                        className="px-6 py-2 cta-gradient text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
+                        disabled={saving}
+                        className="px-6 py-2 cta-gradient text-white rounded-lg font-medium hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Save Changes
+                        {saving ? (
+                          <div className="flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                            Saving...
+                          </div>
+                        ) : (
+                          "Save Changes"
+                        )}
                       </button>
                       <button
                         onClick={handleCancelEdit}
-                        className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                        disabled={saving}
+                        className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         Cancel
                       </button>
@@ -146,15 +153,15 @@ const Profile = () => {
                   </div>
                 ) : (
                   <div className="p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-500 mb-1">Username</label>
-                        <p className="text-lg font-semibold text-gray-900">{userData?.username}</p>
+                        <p className="text-lg font-semibold text-gray-900 truncate">{userData?.username}</p>
                       </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-500 mb-1">Email</label>
-                        <p className="text-lg font-semibold text-gray-900">{userData?.email}</p>
+                        <p className="text-lg font-semibold text-gray-900 truncate">{userData?.email}</p>
                       </div>
 
                       <div>
