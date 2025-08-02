@@ -116,7 +116,7 @@ const Results = () => {
             <Topbar userData={userData} />
 
             {/* User Stats */}
-            <UserStats userStats={userStats} />
+            <UserStats userStats={userStats} results={results} />
 
             <div className="mt-6">
               <h3 className="text-xl font-bold mb-4">Available Results</h3>
