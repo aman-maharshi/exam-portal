@@ -7,7 +7,7 @@ import { authService } from "./services/authService"
 
 // COMPONENTS
 import Home from "./pages/Home"
-import Login from "./pages/Login"
+import Auth from "./pages/Auth"
 import Instructions from "./pages/Instructions"
 import Result from "./pages/Result"
 import Test from "./pages/Test"
@@ -48,7 +48,7 @@ const App = () => {
     <GlobalContext.Provider value={contextObject}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Auth />} />
           <Route path="/home" element={<Home />} />
           <Route path="/results" element={<Results />} />
           <Route path="/study-materials" element={<StudyMaterials />} />
