@@ -139,7 +139,7 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToForgotPassword }) => {
             {showPassword ? <ShowPassword className="h-5 w-5" /> : <HidePassword className="h-5 w-5" />}
           </button>
         </div>
-        <div className="text-right">
+        {/* <div className="text-right">
           <button
             type="button"
             className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
@@ -147,7 +147,7 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToForgotPassword }) => {
           >
             Forgot Password?
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Submit Button */}
@@ -167,7 +167,7 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToForgotPassword }) => {
       </button>
 
       {/* Additional Info */}
-      <div className="mt-6 text-center">
+      {/* <div className="mt-6 text-center">
         <p className="text-sm text-gray-500">
           Don't have an account?{" "}
           <button
@@ -179,7 +179,7 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToForgotPassword }) => {
             Sign up
           </button>
         </p>
-      </div>
+      </div> */}
     </form>
   )
 }

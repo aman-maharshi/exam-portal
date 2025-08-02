@@ -51,8 +51,6 @@ const Auth = () => {
 
             {/* Features */}
             <div className="space-y-6 mb-8">
-              <h2 className="text-2xl font-semibold mb-6">Some of the Features</h2>
-
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -109,7 +107,7 @@ const Auth = () => {
             {/* Card Container */}
             <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-2xl border border-white/20 p-8">
               {/* Tab Switcher - Only show when not in forgot password mode */}
-              {!showForgotPassword && (
+              {/* {!showForgotPassword && (
                 <div className="flex bg-gray-100 rounded-2xl p-1 mb-8">
                   <button
                     type="button"
@@ -132,7 +130,7 @@ const Auth = () => {
                     Sign Up
                   </button>
                 </div>
-              )}
+              )} */}
 
               {/* Render appropriate component based on state */}
               {showForgotPassword ? (
