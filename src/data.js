@@ -819,7 +819,7 @@ export const data = [
   {
     id: 17,
     class: "9th",
-    topic: "Cell",
+    topic: "Cell - 1",
     duration: "3 mins",
     difficulty: "Moderate",
     timer: 3,
@@ -866,7 +866,7 @@ export const data = [
   {
     id: 18,
     class: "9th",
-    topic: "Cell",
+    topic: "Cell - 2",
     duration: "3 mins",
     difficulty: "Moderate",
     timer: 3,
@@ -910,6 +910,114 @@ export const data = [
         ],
         answer: "lipids and proteins",
         solution: "The plasma membrane is flexible and is made up of organic molecules called lipids and proteins. "
+      }
+    ]
+  },
+  {
+    id: 19,
+    class: "9th",
+    topic: "Cell - 3",
+    duration: "3 mins",
+    difficulty: "Moderate",
+    timer: 3,
+    questionsList: [
+      {
+        questionText: "The mitochondira has ________ number of membrane.",
+        questionImage: "",
+        options: ["one", "two", "three", "none"],
+        answer: "two",
+        solution: "The mitochondira has two number of membrane."
+      },
+      {
+        questionText: "The outter membrane of mitochondria is_________.",
+        questionImage: "",
+        options: ["broken", "folded", "porous", "absent"],
+        answer: "porous",
+        solution: "The outter membrane of mitochondria is porous."
+      },
+      {
+        questionText: "Mitochondria can make some of their own ____________.",
+        questionImage: "",
+        options: ["dna", "rna ", "protein", "peptidoglycan"],
+        answer: "protein",
+        solution: "Mitochondria can make some of their own protein."
+      },
+      {
+        questionText:
+          "The energy required for various chemical activities needed for life is released by mitochondria in the form ______________.",
+        questionImage: "",
+        options: [
+          "Adeonsine triphoqshate molecules",
+          "Abenosine triphopshate molecules",
+          "Adenosine triphopshate molecules ",
+          "Adenosine traphopshate molecules"
+        ],
+        answer: "Adenosine triphopshate molecules",
+        solution:
+          "The energy required for various chemical activities needed for life is released by mitochondria in the form Adenosine triphopshate molecules."
+      },
+      {
+        questionText:
+          "The inner membrane is ___________ to increase the surface area for ATP generating chemical reaction.",
+        questionImage: "",
+        options: ["deeply folded", "porous ", "permiable ", "deeply rooted"],
+        answer: "deeply folded",
+        solution:
+          "The inner membrane is deeply folded to increase the surface area for ATP generating chemical reaction. "
+      }
+    ]
+  },
+  {
+    id: 20,
+    class: "9th",
+    topic: "Cell - 4",
+    duration: "3 mins",
+    difficulty: "Moderate",
+    timer: 3,
+    questionsList: [
+      {
+        questionText: "Plastids are present only in____________ cell.",
+        questionImage: "",
+        options: ["bacteria", "fungai", "plant", "animal"],
+        answer: "plant",
+        solution: "Plastids are present only in plant cell."
+      },
+      {
+        questionText: "Chromoplasts containing the pigment chlorophyll is called ____________  .",
+        questionImage: "",
+        options: ["lucoplaste", "chromoplastids", "chloroplast", "chloroplasma"],
+        answer: "chloroplast",
+        solution: "Chromoplasts containing the pigment chlorophyll is called chloroplast."
+      },
+      {
+        questionText:
+          "The internal organisation of the Chloroplast consists of numerous membrane layers embedded in a material called the ____________.",
+        questionImage: "",
+        options: ["starch", "stroma", "stomata", "stroama"],
+        answer: "stroma",
+        solution:
+          "The internal organisation of the Chloroplast consists of numerous membrane layers embedded in a material called the stroma."
+      },
+      {
+        questionText: "Plastids have their own ________&_______.",
+        questionImage: "",
+        options: ["protein and lipids", "dna and protein", "dna and lipds", "dna and ribosomes"],
+        answer: "s",
+        solution: "Plastids have their own dna and ribosomes."
+      },
+      {
+        questionText:
+          "Leucoplasts are primarily organelles in which materials such as ____________________________  granules are stored.",
+        questionImage: "",
+        options: [
+          "sucrose oil and protein.",
+          "lipids protein and oil",
+          "starch, oils and protein",
+          "protein and carbohydrates "
+        ],
+        answer: "starch, oils and protein",
+        solution:
+          "Leucoplasts are primarily organelles in which materials such as starch, oils and protein  granules are stored  "
       }
     ]
   }
