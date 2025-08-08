@@ -377,9 +377,9 @@ export const data = [
     id: 8,
     class: "7th",
     topic: "Light",
-    duration: "5 mins",
+    duration: "7 mins",
     difficulty: "Moderate",
-    timer: 5,
+    timer: 7,
     questionsList: [
       {
         questionText:
@@ -730,9 +730,9 @@ export const data = [
     id: 15,
     class: "9th",
     topic: "Cell",
-    duration: "6 mins",
-    difficulty: "Easy",
-    timer: 6,
+    duration: "12 mins",
+    difficulty: "Moderate",
+    timer: 12,
     questionsList: [
       {
         questionText: "What is the building block of life called _________.",
@@ -803,6 +803,79 @@ export const data = [
         options: ["Nerve cell", "ovum", "sperm cell", "rods"],
         answer: "Nerve cell",
         solution: "Longest cell of human body is Nerve cell. "
+      },
+      {
+        questionText: "The cytoplasm is a ______________  content inside the plasma membrane.",
+        questionImage: "",
+        options: ["fluid", "green colour", "chlorophyll", "colour less "],
+        answer: "fluid",
+        solution: "The cytoplasm is a fluid  content inside the plasma membrane."
+      },
+      {
+        questionText: "The absence of a defined nuclear region is found in _____________ cell.",
+        questionImage: "",
+        options: ["virus", "fungi", "prokaryotic", "eukaryotic"],
+        answer: "prokaryotic",
+        solution: "The absence of a defined nuclear region is found in prokaryotic cell."
+      },
+      {
+        questionText: "The membrane-bound cell organelles are also absent in ______________ cell.",
+        questionImage: "",
+        options: ["eukariotic", "prokariotic", "prokaryotic", "eukaryotic"],
+        answer: "prokaryotic",
+        solution: "The membrane-bound cell organelles are also absent in prokaryotic cell."
+      },
+      {
+        questionText:
+          "The nuclear region of a ______________ cell is well defined and surrounded by a nuclear membrane.",
+        questionImage: "",
+        options: ["eukariotic", "prokariotic", "prokaryotic ", "eukaryotic"],
+        answer: "eukaryotic",
+        solution: "The nuclear region of a eukaryotic cell is well defined and surrounded by a nuclear membrane."
+      },
+      {
+        questionText: "The membrane-bound cell organelles are also present in ______________ cell.",
+        questionImage: "",
+        options: ["eukariotic", "eukaryotic", "prokariotic", "prokaryotic"],
+        answer: "eukaryotic",
+        solution: "The membrane-bound cell organelles are also present in eukaryotic cell. "
+      },
+      {
+        questionText: "The ______________ cell have single chromosomes.",
+        questionImage: "",
+        options: ["bacteria", "fungai", "prokaryotic", "eukaryotic"],
+        answer: "prokaryotic",
+        solution: "The prokaryotic cell have single chromosomes."
+      },
+      {
+        questionText: "The rough endoplasmic reticulum (R-ER) is rough because of presence of ______________ on it.",
+        questionImage: "",
+        options: ["lysosomes", "lipids", "rybosomes", "ribosomes"],
+        answer: "ribosomes",
+        solution: "The rough endoplasmic reticulum (R-ER) is rough because of presence of ribosomes on it."
+      },
+      {
+        questionText:
+          "The smooth endoplasmic reticulum (S-ER) helps in the manufacture of ______________________ important for cell function.",
+        questionImage: "",
+        options: ["fab", "fet", "lipibs", "lipids"],
+        answer: "lipids",
+        solution:
+          "The smooth endoplasmic reticulum (S-ER) helps in the manufacture of fat molecules or lipids important for cell function."
+      },
+      {
+        questionText: "The cell membrane are made up of ________ & _______.",
+        questionImage: "",
+        options: ["protein & lipids", "dna & protein", "dna & lipds", "dna & ribosomes"],
+        answer: "protein & lipids",
+        solution: "The cell membrane are made up of protein & lipids."
+      },
+      {
+        questionText: "The ____________ cell have more than one chromosomes.",
+        questionImage: "",
+        options: ["animal", "virus", "eukaryotic", "prokaryotic"],
+        answer: "eukaryotic",
+        solution: "The eukaryotic cell have more than one chromosomes."
       }
     ]
   },
@@ -978,6 +1051,719 @@ export const data = [
         answer: "starch, oils and protein",
         solution:
           "Leucoplasts are primarily organelles in which materials such as starch, oils and protein  granules are stored  "
+      }
+    ]
+  },
+  {
+    id: 17,
+    class: "7th",
+    topic: "Nutrition in Plants - Definitions",
+    duration: "20 mins",
+    difficulty: "Moderate",
+    timer: 20,
+    questionsList: [
+      {
+        questionText:
+          "The carbohydrates, proteins, fats, vitamins and minerals are components of food. These components of food are called _______________ and are necessary for our body.",
+        questionImage: "",
+        options: ["nutirents", "nutrition", "nutrients", "nurture "],
+        answer: "nutrients",
+        solution:
+          "The carbohydrates, proteins, fats, vitamins and minerals are components of food. These components of food are called nutrients and are necessary for our body."
+      },
+      {
+        questionText:
+          "The mode of nutrition in which organisms make food themselves from simple substances is called  nutrition.",
+        questionImage: "",
+        options: ["hetortropic", "autotrophic", "autotraphic", "hetrotropic"],
+        answer: "autotrophic",
+        solution:
+          "The mode of nutrition in which organisms make food themselves from simple substances is called autotrophic nutrition."
+      },
+      {
+        questionText: "The bodies of living organisms are made of tiny units called ____________.",
+        questionImage: "",
+        options: ["call", "cells", "nucleus", "bell"],
+        answer: "cells",
+        solution: "The bodies of living organisms are made of tiny units called cells."
+      },
+      {
+        questionText:
+          "Carbon dioxide from air is taken in through the tiny pores present on the surface of leaves by ________________.",
+        questionImage: "",
+        options: ["pores", "chlorophyll", "stomata", "holes"],
+        answer: "stomata",
+        solution:
+          "Carbon dioxide from air is taken in through the tiny pores present on the surface of leaves by stomata."
+      },
+      {
+        questionText: "The __________ is the ultimate source of energy for all living organisms.",
+        questionImage: "",
+        options: ["moon", "mercury", "venus", "sun"],
+        answer: "sun",
+        solution: "The sun is the ultimate source of energy for all living organisms. "
+      },
+      {
+        questionText: "The plant on which it climbs is called the .",
+        questionImage: "",
+        options: ["hots", "dost", "fost", "host"],
+        answer: "host",
+        solution: "The plant on which it climbs is called the host."
+      },
+      {
+        questionText:
+          "You often see slimy, green patches in ponds or stagnant water bodies. These are generally formed by the growth of organisms called ______.",
+        questionImage: "",
+        options: ["algaec", "host", "fungi", "cell"],
+        answer: "algae",
+        solution:
+          "You often see slimy, green patches in ponds or stagnant water bodies. These are generally formed by the growth of organisms called algae."
+      },
+      {
+        questionText: "The cell is enclosed by a thin outer boundary, called the __________________.",
+        questionImage: "",
+        options: ["nucleus", "cytoplasm", "cell", "cell membrane"],
+        answer: "cell membrane",
+        solution: "The cell is enclosed by a thin outer boundary, called the cell membrane."
+      },
+      {
+        questionText: "Most cells have a distinct, centrally located spherical structure called the _____________.",
+        questionImage: "",
+        options: ["nucleus", "cell", "cytoplasm", "cell wall"],
+        answer: "nucleus",
+        solution: "Most cells have a distinct, centrally located spherical structure called the nucleus."
+      },
+      {
+        questionText: "________________ is the mode of taking food by an organism and its utilisation by the body.",
+        questionImage: "",
+        options: ["Hetortropic", "Nutrition", "Nutrients", "Hetrotropic"],
+        answer: "Nutrition",
+        solution: "Nutrition is the mode of taking food by an organism and its utilisation by the body."
+      },
+      {
+        questionText:
+          "Animals and most other organisms take in food prepared by plants. They are called ________________.",
+        questionImage: "",
+        options: ["hetortropic", "autotrophic", "autotraphic", "heterotrophs"],
+        answer: "heterotrophs",
+        solution: "Animals and most other organisms take in food prepared by plants. They are called heterotrophs."
+      },
+      {
+        questionText: "_________________ takes readymade food from the plant on which it is climbing.",
+        questionImage: "",
+        options: ["Tulsi", "Mango", "Cuscuta", "China Rose"],
+        answer: "Cuscuta",
+        solution: "Cuscuta takes readymade food from the plant on which it is climbing."
+      },
+      {
+        questionText:
+          "It takes readymade food from the plant on which it is climbing. The plant on which it climbs is called the host. Since it deprives the host of valuable nutrients its called _______________.",
+        questionImage: "",
+        options: ["parasite", "fungai", "saprophyte", "autotrophs"],
+        answer: "parasite",
+        solution:
+          "It takes readymade food from the plant on which it is climbing. The plant on which it climbs is called the host. Since it deprives the host of valuable nutrients its called parasite."
+      },
+      {
+        questionText:
+          "The mode of nutrition in which organisms take in nutrients from dead and decaying matter is called __________________ nutrition.",
+        questionImage: "",
+        options: ["parasite", "fungai", "saprotrophic", "autotrophs"],
+        answer: "saprotrophic",
+        solution:
+          "The mode of nutrition in which organisms take in nutrients from dead and decaying matter is called saprotrophic nutrition."
+      },
+      {
+        questionText: "The insect-eating plants are called ________________ plants.",
+        questionImage: "",
+        options: ["parasite", "insectivorous", "saprophyte", "creepers"],
+        answer: "insectivorous",
+        solution: "The insect-eating plants are called insectivorous plants."
+      },
+      {
+        questionText:
+          "Some organisms live together and share both shelter and nutrients. This relationship is called _____________.",
+        questionImage: "",
+        options: ["parasite", "rhyzobium", "symbiosis", "saphrophyte"],
+        answer: "symbiosis",
+        solution:
+          "Some organisms live together and share both shelter and nutrients. This relationship is called symbiosis."
+      },
+      {
+        questionText:
+          "In organisms called ____________ , a chlorophyll-containing partner, which is an alga, and a fungus live together.",
+        questionImage: "",
+        options: ["liches", "lichens", "symbiosis", "rhizobium"],
+        answer: "lichens",
+        solution:
+          "In organisms called lichen, a chlorophyll-containing partner, which is an alga, and a fungus live together."
+      },
+      {
+        questionText:
+          "The plants need nitrogen in a soluble form. The bacterium called ________________ can take atmospheric nitrogen and convert it into a usable form.",
+        questionImage: "",
+        options: ["parasite", "lichens", "symbiosis", "rhizobium"],
+        answer: "rhizobium",
+        solution:
+          "The plants need nitrogen in a soluble form. The bacterium called rhizobium can take atmospheric nitrogen and convert it into a usable form."
+      }
+    ]
+  },
+  {
+    id: 18,
+    class: "7th",
+    topic: "Nutrition in Animals - Definitions",
+    duration: "30 mins",
+    difficulty: "Moderate",
+    timer: 30,
+    questionsList: [
+      {
+        questionText: "The breakdown of complex components of food into simpler substance is called _______________.",
+        questionImage: "",
+        options: ["nutirents", "indigestion", "digestion", "nurture "],
+        answer: "digestion",
+        solution: "The breakdown of complex components of food into simpler substance is called digestion."
+      },
+      {
+        questionText: "The digestive tract and the associated glands together constitute the ________________.",
+        questionImage: "",
+        options: ["system", "indigestive system", "degestive system", "digestive system"],
+        answer: "digestive system",
+        solution: "The digestive tract and the associated glands together constitute the digestive system."
+      },
+      {
+        questionText:
+          "The first set of teeth grows during infancy and they fall off at the age between six to eight years. These are termed _____________ .",
+        questionImage: "",
+        options: ["tooth", "permanent teeth", "teeth", "milk teeth"],
+        answer: "milk teeth",
+        solution:
+          "The first set of teeth grows during infancy and they fall off at the age between six to eight years. These are termed milk teeth."
+      },
+      {
+        questionText:
+          "The second set that replaces them are the _____________________,it may last throughout life or fall off during old age or due to some dental disease.",
+        questionImage: "",
+        options: ["permanent teeth", "milk teeth", "tooth", "teetgh"],
+        answer: "permanent teeth",
+        solution:
+          "The second set that replaces them are the permanent teeth,it may last throughout life or fall off during old age or due to some dental disease."
+      },
+      {
+        questionText:
+          "Food is taken into the body through the mouth. The process of taking food into the body is called _______________.",
+        questionImage: "",
+        options: ["digestion", "gestion", "indigestion", "ingestion"],
+        answer: "ingestion",
+        solution:
+          "Food is taken into the body through the mouth. The process of taking food into the body is called ingestion. "
+      },
+      {
+        questionText: "Our mouth has the salivary glands which secrete ____________.",
+        questionImage: "",
+        options: ["saliva", "starch", "molar", "pre molar"],
+        answer: "saliva",
+        solution: "Our mouth has the salivary glands which secrete saliva."
+      },
+      {
+        questionText: "Cutting and biting teeth of the food is done by ______________ teeth.",
+        questionImage: "",
+        options: ["molar", "incisor", "premolar", "canine"],
+        answer: "incisor",
+        solution: "Cutting and biting teeth of the food is done by incisor teeth."
+      },
+      {
+        questionText: "Piercing and tearing teeth of the food is done by __________________ teeth.",
+        questionImage: "",
+        options: ["premolar", "canine", "molar", "incisor"],
+        answer: "canine",
+        solution: "Piercing and tearing teeth of the food is done by canine teeth."
+      },
+      {
+        questionText: "Chewing and grinding teeth of the food is done by _____________ teeth.",
+        questionImage: "",
+        options: ["lomor", "incisor", "premolar and molar", "canine"],
+        answer: "premolar and molar",
+        solution: "Chewing and grinding teeth of the food is done by premolar and molar teeth."
+      },
+      {
+        questionText: "The saliva breaks down the _________ into sugars.",
+        questionImage: "",
+        options: ["sucrose", "starch", "glucose", "milk"],
+        answer: "starch",
+        solution: "The saliva breaks down the starch into sugars."
+      },
+      {
+        questionText:
+          "These bacteria break down the sugars present from the leftover food and release acids . The acids gradually damage the teeth This is called ______________.",
+        questionImage: "",
+        options: ["yellowing of teeth", "tooth decay", "milk teeth", "sensitive teeth"],
+        answer: "tooth decay",
+        solution:
+          "These bacteria break down the sugars present from the leftover food and release acids . The acids gradually damage the teeth This is called tooth decay."
+      },
+      {
+        questionText:
+          "Sometimes when you eat in a hurry, talk or laugh while eating, you may cough, get hiccups or a choking sensation. This happens when food particles enter the ________________.",
+        questionImage: "",
+        options: ["acidity", "lungs", "windpipe", "vomiting"],
+        answer: "windpipe",
+        solution:
+          "Sometimes when you eat in a hurry, talk or laugh while eating, you may cough, get hiccups or a choking sensation. This happens when food particles enter the windpipe."
+      },
+      {
+        questionText:
+          "The inner lining of the stomach secretes _______________, _________________  and digestive juices",
+        questionImage: "",
+        options: ["mucons", "mucons hybrochloric acid", "mucous, hydrochloric acid", "hydrochloric acid"],
+        answer: "mucous, hydrochloric acid",
+        solution: "The inner lining of the stomach secretes mucous, hydrochloric acid and digestive juices."
+      },
+      {
+        questionText:
+          "The ___________ protects the lining of the stomach. The____________ kills many bacteria that enter along with thefood and makes the medium in the stomach acidic and helps the digestive juices to act.",
+        questionImage: "",
+        options: [
+          "hyrdrochlnoric acid; mucous",
+          "muscous; hydrochloric acid",
+          "hyrdrochloric acid and mucous",
+          "mucous; hyrdrochloric acids"
+        ],
+        answer: "mucous; hyrdrochloric acid",
+        solution:
+          "The mucous protects the lining of the stomach. The hydrochloric acid kills many bacteria that enter along with thefood and makes the medium in the stomach acidic and helps the digestive juices to act."
+      },
+      {
+        questionText: "The ____________ secretes bile juice that is stored in a sac called the gall bladder.",
+        questionImage: "",
+        options: ["stomcah", "livir", "lever", "liver"],
+        answer: "liver",
+        solution: "The liver secretes bile juice that is stored in a sac called the gall bladder."
+      },
+      {
+        questionText: "The bile plays an important role in the digestion of __________.",
+        questionImage: "",
+        options: ["fats", "carbohydrates", "protein", "vitamins"],
+        answer: "fats",
+        solution: "The bile plays an important role in the digestion of fats."
+      },
+      {
+        questionText:
+          "The digested food can now pass into the blood vessels in the wall of the intestine. This process is called ______________.",
+        questionImage: "",
+        options: ["engestion", "adsorbtion", "absorption", "digestion"],
+        answer: "absorption",
+        solution:
+          "The digested food can now pass into the blood vessels in the wall of the intestine. This process is called absorption."
+      },
+      {
+        questionText:
+          "The inner walls of the small intestine have thousands of finger-like outgrowths. These are called _____________.",
+        questionImage: "",
+        options: ["hilli", "villi", "milli", "rilli"],
+        answer: "villi",
+        solution:
+          "The inner walls of the small intestine have thousands of finger-like outgrowths. These are called villi."
+      },
+      {
+        questionText:
+          "The absorbed substances are transported via the blood vessels to different organs of the body where they are used to build complex substances such as the proteins required by the body. This is called _______________.",
+        questionImage: "",
+        options: ["engestion", "assimilation", "digestion", "absorbtion"],
+        answer: "assimilation",
+        solution:
+          "The absorbed substances are transported via the blood vessels to different organs of the body where they are used to build complex substances such as the proteins required by the body. This is called assimilation."
+      },
+      {
+        questionText:
+          "The remaining waste passes into the rectum and remains there as semi-solid faeces. The faecal matter is removed through the anus from time-to-time. This is called _______________.",
+        questionImage: "",
+        options: ["egestion", "assimilation", "digestion", "absorbtion"],
+        answer: "egestion",
+        solution:
+          "The remaining waste passes into the rectum and remains there as semi-solid faeces. The faecal matter is removed through the anus from time-to-time. This is called egestion."
+      },
+      {
+        questionText:
+          "The absorbed substances are transported via the blood vessels to different organs of the body where they are used to build complex substances such as the proteins required by the body. This is called _______________.",
+        questionImage: "",
+        options: ["engestion", "assimilation", "digestion", "absorbtion"],
+        answer: "assimilation",
+        solution:
+          "The absorbed substances are transported via the blood vessels to different organs of the body where they are used to build complex substances such as the proteins required by the body. This is called assimilation."
+      },
+      {
+        questionText:
+          "The grass-eating animals chewing continuously even when they are not eating they quickly swallow the grass and store it in a part of the stomach called  _______________.",
+        questionImage: "",
+        options: ["rectum", "rumen", "ruman", "rumman"],
+        answer: "rumen",
+        solution:
+          "The grass-eating animals chewing continuously even when they are not eating they quickly swallow the grass and store it in a part of the stomach called rumen."
+      },
+      {
+        questionText:
+          "Sometime you may have experienced the need to pass watery stool frequently.This condition is known as __________________.",
+        questionImage: "",
+        options: ["stools", "direa", "diarrhoea", "motion"],
+        answer: "diarrhoea",
+        solution:
+          "Sometime you may have experienced the need to pass watery stool frequently.This condition is known as diarrhoea."
+      },
+      {
+        questionText: "The fulform of ORS is___________________.",
+        questionImage: "",
+        options: [
+          "oral rehydrotaing solute",
+          "oral rehydrating solvent",
+          "oral rehydrating solution",
+          "oral rehydration solution"
+        ],
+        answer: "oral rehydration solution",
+        solution: "The fulform of ORS is oral rehydration solution."
+      },
+      {
+        questionText: "The grass is rich in _____________, a type of carbohydrate.",
+        questionImage: "",
+        options: ["fats", "protein", "cellulose", "minerals"],
+        answer: "cellulose",
+        solution: "The grass is rich in cellulose, a type of carbohydrate."
+      },
+      {
+        questionText: "The partially digested food and is called ____________.",
+        questionImage: "",
+        options: ["cule", "cud", "cuddle", "cub"],
+        answer: "cud",
+        solution: "The partially digested food and is called cud."
+      },
+      {
+        questionText: "_______________ is a microscopic single-celled organism found in pond water.",
+        questionImage: "",
+        options: ["Bacteria", "Amoeba", "Cell", "Microbe"],
+        answer: "Amoeba",
+        solution: "Amoeba is a microscopic single-celled organism found in pond water."
+      },
+      {
+        questionText:
+          "Amoeba pushes out one, or more finger-like projections, called _____________________ for movement and capture of food.",
+        questionImage: "",
+        options: [
+          "paseudopodia or false feet",
+          "peseudopodia or false feet",
+          "pseudopodia or false feet",
+          "prpmseudopodia or false feet"
+        ],
+        answer: "pseudopodia or false feet",
+        solution:
+          "Amoeba pushes out one, or more finger-like projections, called pseudopodia or false feet for movement and capture of food."
+      }
+    ]
+  },
+  {
+    id: 19,
+    class: "7th",
+    topic: "Heat - Definitions",
+    duration: "20 mins",
+    difficulty: "Moderate",
+    timer: 20,
+    questionsList: [
+      {
+        questionText:
+          "The flow energy transferred between objects due to a temperature difference is called _______________.",
+        questionImage: "",
+        options: ["temprature", "pressure", "heat", "energy"],
+        answer: "heat",
+        solution: "The flow of energy transferred between objects due to a temperature difference is called heat."
+      },
+      {
+        questionText: "________________ is a measure of the degree of hotness of an object.",
+        questionImage: "",
+        options: ["Heat", "Pressure", "Energy", "Temperature"],
+        answer: "Temperature",
+        solution: "Temperature is a measure of the degree of hotness of an object."
+      },
+      {
+        questionText: "Temperature is measured by a device called _____________ .",
+        questionImage: "",
+        options: ["temperature", "thermometer", "heat", "pressure"],
+        answer: "thermometer",
+        solution: "Temperature is measured by a device called thermometer."
+      },
+      {
+        questionText:
+          "The second set that replaces them are the _____________________,it may last throughout life or fall off during old age or due to some dental disease.",
+        questionImage: "",
+        options: ["permanent teeth", "milk teeth", "tooth", "teetgh"],
+        answer: "permanent teeth",
+        solution:
+          "The second set that replaces them are the permanent teeth,it may last throughout life or fall off during old age or due to some dental disease."
+      },
+      {
+        questionText: "The thermometer that measures our body temperature is called a _______________thermometer.",
+        questionImage: "",
+        options: ["surgical", "clinical", "simple", "laboratory"],
+        answer: "clinical",
+        solution: "The thermometer that measures our body temperature is called a clinical thermometer. "
+      },
+      {
+        questionText: "The normal temperature of human body is __________ °C.",
+        questionImage: "",
+        options: ["36", "35", "38", "37"],
+        answer: "37",
+        solution: "The normal temperature of human body is 37°C."
+      },
+      {
+        questionText: "_______________ prevents mercury level from falling on its own.",
+        questionImage: "",
+        options: ["Link", "Kink", "Tink", "Mink"],
+        answer: "Kink",
+        solution: "Kink prevents mercury level from falling on its own."
+      },
+      {
+        questionText: "Digital thermometers are prefered over mercury thermometer as they are more______________.",
+        questionImage: "",
+        options: ["good looking", "accurate", "smaller", "bigger"],
+        answer: "accurate",
+        solution: "Digital thermometers are prefered over mercury thermometer as they are more accurate."
+      },
+      {
+        questionText:
+          "The process by which heat is transferred from the hotter end to the colder end of an object is known as _______________ .",
+        questionImage: "",
+        options: ["convection", "induction", "conduction", "advection"],
+        answer: "conduction",
+        solution:
+          "The process by which heat is transferred from the hotter end to the colder end of an object is known as conduction."
+      },
+      {
+        questionText: "The materials which allow heat to pass through them easily are _______________ of heat.",
+        questionImage: "",
+        options: ["conductors", "ductors", "insulators", "conduction"],
+        answer: "conductors",
+        solution: "The materials which allow heat to pass through them easily are conductors of heat."
+      },
+      {
+        questionText:
+          "The materials which do not allow heat to pass through them easily are poor conductors of heat Poor conductors are known as  ______________.",
+        questionImage: "",
+        options: ["good material", "bad material", "conductors", "insulators"],
+        answer: "insulators",
+        solution:
+          "The materials which do not allow heat to pass through them easily are poor conductors of heat Poor conductors are known as insulators."
+      },
+      {
+        questionText: "These aluminum, iron and copper are examples of ________________.",
+        questionImage: "",
+        options: ["conductors", "insulators", "conduction", "convection"],
+        answer: "conductors",
+        solution: "These aluminum, iron and copper are examples of conductors."
+      },
+      {
+        questionText: "These plastic and wood are examples of ______________.",
+        questionImage: "",
+        options: ["insulators", "conductors", "good conductors", "fast conductors"],
+        answer: "insulators",
+        solution: "These plastic and wood are examples of insulators."
+      },
+      {
+        questionText:
+          "When water is heated, the water near the flame gets hot & rises up. The cold water from the sides moves down towards the source of heat. This water also gets hot and rises and water from the sides moves down. This process continues till the whole water gets heated. This mode of heat transfer is known as ______________.",
+        questionImage: "",
+        options: ["radiation", "conducion", "convection", "conduction"],
+        answer: "convection",
+        solution:
+          "When water is heated, the water near the flame gets hot & rises up. The cold water from the sides moves down towards the source of heat. This water also gets hot and rises and water from the sides moves down. This process continues till the whole water gets heated. This mode of heat transfer is known as convection."
+      },
+      {
+        questionText: "The sun the heat comes to us by another process known as______________.",
+        questionImage: "",
+        options: ["medium", "convection", "conduction", "radiation"],
+        answer: "radiation",
+        solution: "The sun the heat comes to us by another process known as radiation."
+      },
+      {
+        questionText:
+          "The air over the land becomes hotter and rises up. The cooler air from the sea rushes in towards the land to take its place. The warm air from the land moves towards the sea to complete the cycle . The air from the sea is called the  __________.",
+        questionImage: "",
+        options: ["rain breeze", "sea breeze", "land breeze", "air breeze"],
+        answer: "sea breeze",
+        solution:
+          "The air over the land becomes hotter and rises up. The cooler air from the sea rushes in towards the land to take its place. The warm air from the land moves towards the sea to complete the cycle . The air from the sea is called the sea breeze."
+      },
+      {
+        questionText:
+          "The water cools down more slowly than the land. So, the cool air from the land moves towards the sea. This is called the .______________.",
+        questionImage: "",
+        options: ["land breeze", "sea breeze", "air breeze", "rain breeze"],
+        answer: "land breeze",
+        solution:
+          "The water cools down more slowly than the land. So, the cool air from the land moves towards the sea. This is called the land breeze."
+      },
+      {
+        questionText:
+          "In the winter, we use woollen clothes. Wool is a poor conductor of heat. Moreover, there is _______ trapped in between the wool fibres. This prevents the flow of heat from our body to the cold surroundings. So, we feel warm.",
+        questionImage: "",
+        options: ["heat", "water", "wool", "air"],
+        answer: "air",
+        solution:
+          "In the winter, we use woollen clothes. Wool is a poor conductor of heat. Moreover, there is air trapped in between the wool fibres. This prevents the flow of heat from our body to the cold surroundings. So, we feel warm."
+      },
+      {
+        questionText:
+          "The absorbed substances are transported via the blood vessels to different organs of the body where they are used to build complex substances such as the proteins required by the body. This is called _______________.",
+        questionImage: "",
+        options: ["engestion", "assimilation", "digestion", "absorbtion"],
+        answer: "assimilation",
+        solution:
+          "The absorbed substances are transported via the blood vessels to different organs of the body where they are used to build complex substances such as the proteins required by the body. This is called assimilation."
+      },
+      {
+        questionText: "The range of a laboratory thermometer is generally from  _______________.",
+        questionImage: "",
+        options: ["–1°C to 110°C", "–10°C to 110°C", "–15°C to 110°C", "–20°C to 110°C"],
+        answer: "–10°C to 110°C",
+        solution: "The range of a laboratory thermometer is generally from –10°C to 110°C."
+      }
+    ]
+  },
+  {
+    id: 20,
+    class: "7th",
+    topic: "Acids, Bases and Salts - Definitions",
+    duration: "20 mins",
+    difficulty: "Moderate",
+    timer: 20,
+    questionsList: [
+      {
+        questionText: "The substances taste sour because they contain _______________.",
+        questionImage: "",
+        options: ["base", "acids", "neutral", "salts"],
+        answer: "acids",
+        solution: "The substances taste sour because they contain acids."
+      },
+      {
+        questionText: "The substance which are bitter in taste and feel soapy on touching are known as____________ .",
+        questionImage: "",
+        options: ["acids", "neutral", "bases", "salts"],
+        answer: "bases",
+        solution: "The substances which are bitter in taste and feel soapy on touching are known as bases."
+      },
+      {
+        questionText:
+          "Special type of substances are used to test whether a substance is acidic or basic. These substances are known as______________ .",
+        questionImage: "",
+        options: ["base", "neutral", "acids", "indicators"],
+        answer: "indicators",
+        solution:
+          "Special types of substances are used to test whether a substance is acidic or basic. These substances are known as indicators."
+      },
+      {
+        questionText: "Turmeric, litmus, China rose petals are examples of______________.",
+        questionImage: "",
+        options: ["acids", "base", "indicators", "neutral"],
+        answer: "indicators",
+        solution: "Turmeric, litmus, China rose petals are examples of indicators."
+      },
+      {
+        questionText: "The most commonly used natural indicator is litmus. It is extracted froms ______________ .",
+        questionImage: "",
+        options: ["lionch", "lichen", "leechen", "linchen"],
+        answer: "lichens",
+        solution: "The most commonly used natural indicator is litmus. It is extracted from lichens. "
+      },
+      {
+        questionText:
+          "The solutions which do not change the colour of either red or blue litmus are known as__________  solutions.",
+        questionImage: "",
+        options: ["nutral", "neutral", "nitral", "nuetral"],
+        answer: "neutral",
+        solution:
+          "The solutions which do not change the colour of either red or blue litmus are known as neutral solutions."
+      },
+      {
+        questionText:
+          "Vinegar, Ant’s sting Citric acid Citrus fruits such as oranges, lemons,. Lactic acid  Spinach Amla, Citrus fruits (Vitamin C)  Tamarind, grapes, unripe mangoes all are examples of __________.",
+        questionImage: "",
+        options: ["acid", "base", "neutral", "salts"],
+        answer: "acid",
+        solution:
+          "Vinegar, Ant’s sting Citric acid Citrus fruits such as oranges, lemons,. Lactic acid  Spinach Amla, Citrus fruits (Vitamin C)  Tamarind, grapes, unripe mangoes all are examples of acid."
+      },
+      {
+        questionText: "Lime water, Window cleaner, Soap &  Milk of magnesia are examples of ______________.",
+        questionImage: "",
+        options: ["neutral", "acid", "base", "salt"],
+        answer: "base",
+        solution: "Lime water, Window cleaner, Soap &  Milk of magnesia are examples of base."
+      },
+      {
+        questionText: "Acid turns blue litmus to red.",
+        questionImage: "",
+        options: ["true", "false"],
+        answer: "true",
+        solution: "Acid turns blue litmus to red."
+      },
+      {
+        questionText: "Bases turn red litmus to blue.",
+        questionImage: "",
+        options: ["true", "false"],
+        answer: "true",
+        solution: "Bases turn red litmus to blue."
+      },
+      {
+        questionText:
+          "China rose is a natural indicator. It turns an Acidic solution to dark pink / magenta colour. China rose in natural indicators. It turns Basic solution to green.",
+        questionImage: "",
+        options: ["true", "false"],
+        answer: "true",
+        solution:
+          "China rose is a natural indicator. It turns an Acidic solution to dark pink / magenta colour. China rose in natural indicators. It turns Basic solution to green."
+      },
+      {
+        questionText:
+          "Hydrochloric acid (HCl) + Sodium hydroxide (NaOH) equals to Sodium chloride (NaCl) + Water (H2O) + heat is an example of ____________________ reaction.",
+        questionImage: "",
+        options: ["naturalisation", "neutralisation", "nutralisation", "newtralisation"],
+        answer: "neutralisation",
+        solution:
+          "Hydrochloric acid (HCl) + Sodium hydroxide (NaOH) equals to Sodium chloride (NaCl) + Water (H2O) + heat is an example of neutralisation reaction."
+      },
+      {
+        questionText: "Methyl orange in an acidic medium, methyl orange is red, and in a basic medium, it is yellow.",
+        questionImage: "",
+        options: ["true", "false"],
+        answer: "true",
+        solution: "Methyl orange in an acidic medium, methyl orange is red, and in a basic medium, it is yellow."
+      },
+      {
+        questionText: "Phenolphthalein turns colorless in acidic solutions and pink in basic (alkaline) solutions.",
+        questionImage: "",
+        options: ["true", "false"],
+        answer: "true",
+        solution: "Phenolphthalein turns colorless in acidic solutions and pink in basic (alkaline) solutions."
+      },
+      {
+        questionText: "Phenolphthalein and methyl orange are example of ______________ indicators.",
+        questionImage: "",
+        options: ["neutral", "sinthetic", "synthetic", "natural"],
+        answer: "synthetic",
+        solution: "Phenolphthalein and methyl orange are examples of synthetic indicators."
+      },
+      {
+        questionText: "litmus, china rose and turmeric are example of ______________ indicators.",
+        questionImage: "",
+        options: ["indicators", "synthetic", "neutral", "natural"],
+        answer: "natural",
+        solution: "litmus, china rose and turmeric are examples of natural indicators."
+      },
+      {
+        questionText:
+          "The reaction between an acid and a base is known as__________________ . Salt and water are produced in this process with the evolution of heat.",
+        questionImage: "",
+        options: ["naturalisation", "nutralisation", "neutralisation", "newtralisation"],
+        answer: "neutralisation",
+        solution:
+          "The reaction between an acid and a base is known as neutralisation. Salt and water are produced in this process with the evolution of heat."
       }
     ]
   }

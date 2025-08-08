@@ -116,10 +116,11 @@ const Home = () => {
                       {/* Table Header */}
                       <div className="bg-gray-50 border-b rounded-t-lg border-gray-200 px-4 py-3">
                         <div className="grid grid-cols-12 gap-4 text-sm font-semibold text-gray-700">
-                          <div className="col-span-4">Topic</div>
+                          <div className="col-span-3">Topic</div>
                           <div className="col-span-2">Difficulty</div>
+                          <div className="col-span-2">Questions</div>
                           <div className="col-span-2">Class</div>
-                          <div className="col-span-4">Actions</div>
+                          <div className="col-span-3">Actions</div>
                         </div>
                       </div>
 
@@ -138,7 +139,7 @@ const Home = () => {
                             >
                               <div className="grid grid-cols-12 gap-4 items-center">
                                 {/* Topic */}
-                                <div className="col-span-4">
+                                <div className="col-span-3">
                                   <div className="font-medium text-gray-900 truncate">{test?.topic}</div>
                                 </div>
 
@@ -156,6 +157,13 @@ const Home = () => {
                                   </div>
                                 </div>
 
+                                {/* Number of Questions */}
+                                <div className="col-span-2">
+                                  <div className="text-sm text-gray-600">
+                                    {test?.questionsList?.length || 0} questions
+                                  </div>
+                                </div>
+
                                 {/* Class */}
                                 <div className="col-span-2">
                                   {test?.class ? (
@@ -168,7 +176,7 @@ const Home = () => {
                                 </div>
 
                                 {/* Actions */}
-                                <div className="col-span-4">
+                                <div className="col-span-3">
                                   <button
                                     onClick={() => navigate(`/instructions/${test?.id}`)}
                                     className="cta-gradient text-white font-bold py-2 px-3 rounded-lg text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
