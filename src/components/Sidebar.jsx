@@ -13,6 +13,7 @@ import LogoutIcon from "../assets/logout.svg?react"
 import MenuIcon from "../assets/menu.svg?react"
 import CloseIcon from "../assets/close.svg?react"
 import GraphIcon from "../assets/graph.svg?react"
+import PracticeIcon from "../assets/graduation-hat.svg?react" // Reusing graduation hat for practice
 
 const Sidebar = () => {
   const { userData, setUserData } = useContext(GlobalContext)
@@ -102,6 +103,16 @@ const Sidebar = () => {
             <GraphIcon className="w-5 h-5" />
             <div>Your Progress</div>
           </div>
+          {/* <div
+            onClick={() => navigate("/practice")}
+            className={clsx(
+              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
+              pathname === "/practice" ? "cta-gradient text-white" : "bg-transparent"
+            )}
+          >
+            <PracticeIcon className="w-5 h-5" />
+            <div>Practice Mode</div>
+          </div> */}
           <div
             onClick={() => setIsModalOpen(true)}
             className="p-4 mt-auto text-gray-500 font-bold cursor-pointer flex items-center gap-3"
