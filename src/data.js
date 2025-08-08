@@ -729,10 +729,10 @@ export const data = [
   {
     id: 15,
     class: "9th",
-    topic: "Cell - 1",
-    duration: "3 mins",
+    topic: "Cell",
+    duration: "6 mins",
     difficulty: "Easy",
-    timer: 3,
+    timer: 6,
     questionsList: [
       {
         questionText: "What is the building block of life called _________.",
@@ -768,17 +768,7 @@ export const data = [
         options: ["Purkinje", "Robert brown", "Robert lee ", "Purkinji"],
         answer: "Purkinje",
         solution: "Term Protoplasm was coined by purkinje in 1839. "
-      }
-    ]
-  },
-  {
-    id: 16,
-    class: "9th",
-    topic: "Cell - 2",
-    duration: "3 mins",
-    difficulty: "Easy",
-    timer: 3,
-    questionsList: [
+      },
       {
         questionText: "All plants are made up of cell is given by________________.",
         questionImage: "",
@@ -817,12 +807,12 @@ export const data = [
     ]
   },
   {
-    id: 17,
+    id: 16,
     class: "9th",
-    topic: "Cell - 1",
-    duration: "3 mins",
+    topic: "Cell",
+    duration: "12 mins",
     difficulty: "Moderate",
-    timer: 3,
+    timer: 12,
     questionsList: [
       {
         questionText: "The Functional segments of DNA is called____________.",
@@ -860,17 +850,7 @@ export const data = [
         answer: "membranes",
         solution:
           "Viruses lack any membranes and hence do not show characteristics of life until they enter a living body. "
-      }
-    ]
-  },
-  {
-    id: 18,
-    class: "9th",
-    topic: "Cell - 2",
-    duration: "3 mins",
-    difficulty: "Moderate",
-    timer: 3,
-    questionsList: [
+      },
       {
         questionText: "Movement of water from inside the cell to outside is called____________.",
         questionImage: "",
@@ -910,17 +890,7 @@ export const data = [
         ],
         answer: "lipids and proteins",
         solution: "The plasma membrane is flexible and is made up of organic molecules called lipids and proteins. "
-      }
-    ]
-  },
-  {
-    id: 19,
-    class: "9th",
-    topic: "Cell - 3",
-    duration: "3 mins",
-    difficulty: "Moderate",
-    timer: 3,
-    questionsList: [
+      },
       {
         questionText: "The mitochondira has ________ number of membrane.",
         questionImage: "",
@@ -964,17 +934,7 @@ export const data = [
         answer: "deeply folded",
         solution:
           "The inner membrane is deeply folded to increase the surface area for ATP generating chemical reaction. "
-      }
-    ]
-  },
-  {
-    id: 20,
-    class: "9th",
-    topic: "Cell - 4",
-    duration: "3 mins",
-    difficulty: "Moderate",
-    timer: 3,
-    questionsList: [
+      },
       {
         questionText: "Plastids are present only in____________ cell.",
         questionImage: "",
