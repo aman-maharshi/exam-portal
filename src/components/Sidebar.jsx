@@ -44,6 +44,45 @@ const Sidebar = () => {
     setIsOpen(!isOpen)
   }
 
+  // Navigation items array
+  const navigationItems = [
+    {
+      id: "home",
+      label: "Home",
+      path: "/home",
+      icon: HomeIcon,
+      isActive: pathname === "/home"
+    },
+    {
+      id: "practice",
+      label: "Practice Mode",
+      path: "/practice",
+      icon: PracticeIcon,
+      isActive: pathname === "/practice"
+    },
+    {
+      id: "results",
+      label: "Test Results",
+      path: "/results",
+      icon: TrophyIcon,
+      isActive: pathname === "/results"
+    },
+    {
+      id: "study-materials",
+      label: "Study Material",
+      path: "/study-materials",
+      icon: BookIcon,
+      isActive: pathname === "/study-materials"
+    },
+    {
+      id: "progress",
+      label: "Your Progress",
+      path: "/your-progress",
+      icon: GraphIcon,
+      isActive: pathname === "/your-progress"
+    }
+  ]
+
   return (
     <>
       <button
@@ -63,56 +102,25 @@ const Sidebar = () => {
         )}
       >
         <div className="flex flex-col gap-4 h-full">
-          <div
-            onClick={() => navigate("/home")}
-            className={clsx(
-              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
-              pathname === "/home" ? "cta-gradient text-white" : "bg-transparent"
-            )}
-          >
-            <HomeIcon className="w-5 h-5" />
-            <div>Home</div>
-          </div>
-          <div
-            onClick={() => navigate("/results")}
-            className={clsx(
-              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
-              pathname === "/results" ? "cta-gradient text-white" : "bg-transparent"
-            )}
-          >
-            <TrophyIcon className="w-5 h-5" />
-            <div>Test Results</div>
-          </div>
-          <div
-            onClick={() => navigate("/study-materials")}
-            className={clsx(
-              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
-              pathname === "/study-materials" ? "cta-gradient text-white" : "bg-transparent"
-            )}
-          >
-            <BookIcon className="w-5 h-5" />
-            <div>Study Material</div>
-          </div>
-          <div
-            onClick={() => navigate("/your-progress")}
-            className={clsx(
-              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
-              pathname === "/your-progress" ? "cta-gradient text-white" : "bg-transparent"
-            )}
-          >
-            <GraphIcon className="w-5 h-5" />
-            <div>Your Progress</div>
-          </div>
-          <div
-            onClick={() => navigate("/practice")}
-            className={clsx(
-              "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
-              pathname === "/practice" ? "cta-gradient text-white" : "bg-transparent"
-            )}
-          >
-            <PracticeIcon className="w-5 h-5" />
-            <div>Practice Mode</div>
-          </div>
+          {/* Navigation items */}
+          {navigationItems.map(item => {
+            const IconComponent = item.icon
+            return (
+              <div
+                key={item.id}
+                onClick={() => navigate(item.path)}
+                className={clsx(
+                  "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
+                  item.isActive ? "cta-gradient text-white" : "bg-transparent"
+                )}
+              >
+                <IconComponent className="w-5 h-5" />
+                <div>{item.label}</div>
+              </div>
+            )
+          })}
+
+          {/* Logout button */}
           <div
             onClick={() => setIsModalOpen(true)}
             className="p-4 mt-auto text-gray-500 font-bold cursor-pointer flex items-center gap-3"
