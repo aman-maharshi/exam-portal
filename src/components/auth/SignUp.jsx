@@ -6,6 +6,9 @@ import { rateLimiter } from "../../utils/rateLimiter"
 // ICONS
 import ShowPassword from "../../assets/password-show.svg?react"
 import HidePassword from "../../assets/password-hide.svg?react"
+import UserIcon from "../../assets/user.svg?react"
+import EmailAtIcon from "../../assets/email-at.svg?react"
+import LockIcon from "../../assets/lock.svg?react"
 
 const SignUp = ({ onSwitchToSignIn }) => {
   const [username, setUsername] = useState("")
@@ -101,44 +104,57 @@ const SignUp = ({ onSwitchToSignIn }) => {
       {/* Username Field */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-gray-700">Name</label>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          required
-        />
+        <div className="flex items-center border border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm focus-within:border-gray-400 transition-all duration-200">
+          <div className="pl-3 pr-2">
+            <UserIcon className="h-5 w-5 text-gray-500" />
+          </div>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            className="flex-1 py-3 pr-4 border-none bg-transparent focus:outline-none"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+          />
+        </div>
       </div>
 
       {/* Email Field */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-gray-700">Email Address</label>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-        />
+        <div className="flex items-center border border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm focus-within:border-gray-400 transition-all duration-200">
+          <div className="pl-3 pr-2">
+            <EmailAtIcon className="h-5 w-5 text-gray-500" />
+          </div>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="flex-1 py-3 pr-4 border-none bg-transparent focus:outline-none"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+        </div>
       </div>
 
       {/* Password Field */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-gray-700">Password</label>
-        <div className="relative">
+        <div className="flex items-center border border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm focus-within:border-gray-400 transition-all duration-200">
+          <div className="pl-3 pr-2">
+            <LockIcon className="h-5 w-5 text-gray-500" />
+          </div>
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
-            className="w-full px-4 pr-12 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 transition-all duration-200 bg-white/50 backdrop-blur-sm"
+            className="flex-1 py-3 pr-12 border-none bg-transparent focus:outline-none"
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
           />
           <button
             type="button"
-            className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
+            className="pr-3 text-gray-400 hover:text-gray-600 transition-colors duration-200"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <ShowPassword className="h-5 w-5" /> : <HidePassword className="h-5 w-5" />}

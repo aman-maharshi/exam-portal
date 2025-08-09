@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import clsx from "clsx"
 
 // ICONS
-import GraduationHat from "../assets/graduation-hat.svg?react"
+import GraduationHatIcon from "../assets/graduation-hat.svg?react"
 
 // COMPONENTS
 import SignIn from "../components/auth/SignIn"
@@ -45,7 +45,7 @@ const Auth = () => {
             {/* Mobile Logo */}
             <div className="lg:hidden text-center mb-8">
               <div className="inline-flex items-center justify-center w-16 h-16 cta-gradient rounded-2xl mb-4 shadow-lg">
-                <GraduationHat className="w-8 h-8 text-white" />
+                <GraduationHatIcon className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
                 Exam Portal
