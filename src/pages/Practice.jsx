@@ -174,22 +174,10 @@ const Practice = () => {
                           Question {currentQuestionIndex + 1} of {practiceSession.totalQuestions}
                         </p>
                       </div>
-                      <button
-                        onClick={resetSession}
-                        className="px-6 py-3 bg-white text-gray-700 rounded-xl hover:bg-gray-50 transition-all duration-200 border border-gray-200 hover:border-gray-300 hover:shadow-md font-medium"
-                      >
-                        <RefreshIcon className="w-4 h-4 inline mr-2" />
-                        Change Topic
-                      </button>
-                    </div>
-                  </div>
 
-                  <div className="p-6">
-                    {/* Minimal Score Display */}
-
-                    {!practiceSession.completed && (
-                      <div className="mb-8 p-8 bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-100">
-                        <div className="flex items-center justify-between">
+                      {/* Minimal Score Display */}
+                      {!practiceSession.completed && (
+                        <div className="flex items-center space-x-6">
                           {/* Score */}
                           <div className="flex items-baseline space-x-2">
                             <span className="text-4xl font-light text-slate-800">{practiceSession.score}</span>
@@ -210,9 +198,19 @@ const Practice = () => {
                             </div>
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
+                      <button
+                        onClick={resetSession}
+                        className="px-6 py-3 bg-white text-gray-700 rounded-xl hover:bg-gray-50 transition-all duration-200 border border-gray-200 hover:border-gray-300 hover:shadow-md font-medium"
+                      >
+                        <RefreshIcon className="w-4 h-4 inline mr-2" />
+                        Change Topic
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="p-6">
                     {practiceSession.completed ? (
                       <PracticeCompletion
                         practiceSession={practiceSession}
