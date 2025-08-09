@@ -200,12 +200,12 @@ const Practice = () => {
                           <div className="flex items-center space-x-4">
                             <div className="text-right">
                               <div className="text-sm text-slate-500 font-medium">Progress</div>
-                              <div className="text-2xl font-light text-slate-800">{getScorePercentage()}%</div>
+                              <div className="text-2xl font-light text-slate-800">{getProgressPercentage()}%</div>
                             </div>
                             <div className="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden">
                               <div
                                 className="h-full bg-slate-800 rounded-full transition-all duration-500 ease-out"
-                                style={{ width: `${getScorePercentage()}%` }}
+                                style={{ width: `${getProgressPercentage()}%` }}
                               />
                             </div>
                           </div>

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react"
 
+import CheckIcon from "../assets/check.svg?react"
+import CrossIcon from "../assets/close.svg?react"
+
 const PracticeQuestion = ({ question, onAnswerSubmit, questionNumber, totalQuestions }) => {
   const { questionText, questionImage, imageWidth, options, answer, solution } = question
   const [selectedAnswer, setSelectedAnswer] = useState("")
@@ -43,7 +46,7 @@ const PracticeQuestion = ({ question, onAnswerSubmit, questionNumber, totalQuest
 
   const getFeedbackIcon = () => {
     if (!showFeedback) return null
-    return isCorrect ? "✅" : "❌"
+    return isCorrect ? <CheckIcon className="w-6 h-6 text-green-600" /> : <CrossIcon className="w-6 h-6 text-red-600" />
   }
 
   return (
