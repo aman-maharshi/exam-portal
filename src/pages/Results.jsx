@@ -123,116 +123,227 @@ const Results = () => {
 
               {results?.length > 0 && (
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-                  {/* Table Container with Horizontal Scroll */}
-                  <div className="overflow-x-auto">
-                    <div className="min-w-[800px] w-full">
-                      {/* Table Header */}
-                      <div className="bg-gray-50 border-b rounded-t-lg border-gray-200 px-4 py-3">
-                        <div className="grid grid-cols-12 gap-4 text-sm font-semibold text-gray-700">
-                          <div className="col-span-4 sm:col-span-3">Topic</div>
-                          <div className="col-span-2">Difficulty</div>
-                          <div className="col-span-2">Class</div>
-                          <div className="col-span-2">Score</div>
-                          <div className="hidden lg:block col-span-2">Date</div>
-                          <div className="col-span-1">Actions</div>
-                        </div>
-                      </div>
+                  {/* Mobile Cards View */}
+                  <div className="block md:hidden p-4 space-y-4">
+                    {results?.map((result, index) => {
+                      const resultPercentage = parseInt((result?.totalMarks / result?.totalQuestions) * 100)
+                      let textColor =
+                        resultPercentage >= 75
+                          ? "text-green-600"
+                          : resultPercentage >= 50
+                          ? "text-yellow-600"
+                          : "text-red-600"
 
-                      {/* Table Body */}
-                      <div className="divide-y divide-gray-200">
-                        {results?.map((result, index) => {
-                          const resultPercentage = parseInt((result?.totalMarks / result?.totalQuestions) * 100)
-                          let textColor =
-                            resultPercentage >= 75
-                              ? "text-green-600"
-                              : resultPercentage >= 50
-                              ? "text-yellow-600"
-                              : "text-red-600"
+                      return (
+                        <div
+                          key={index}
+                          className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                        >
+                          {/* Topic */}
+                          <div className="mb-3">
+                            <h4 className="font-semibold text-gray-900 text-lg">{result?.topic}</h4>
+                          </div>
 
-                          return (
-                            <div key={index} className="px-4 py-4 hover:bg-gray-50 transition-colors">
-                              <div className="grid grid-cols-12 gap-4 items-center">
-                                {/* Topic */}
-                                <div className="col-span-4 sm:col-span-3">
-                                  <div className="font-medium text-gray-900 truncate">{result?.topic}</div>
+                          {/* Info Grid */}
+                          <div className="grid grid-cols-2 gap-3 mb-4">
+                            {/* Difficulty */}
+                            <div>
+                              <p className="text-xs text-gray-500 mb-1">Difficulty</p>
+                              <div
+                                className={clsx(
+                                  "text-sm px-3 py-1 rounded-full w-fit",
+                                  result?.difficulty === "Easy" && "bg-green-100 text-green-600",
+                                  result?.difficulty === "Moderate" && "bg-yellow-100 text-yellow-600",
+                                  result?.difficulty === "Hard" && "bg-red-100 text-red-600"
+                                )}
+                              >
+                                {result?.difficulty}
+                              </div>
+                            </div>
+
+                            {/* Class */}
+                            <div>
+                              <p className="text-xs text-gray-500 mb-1">Class</p>
+                              {result?.class ? (
+                                <div className="text-sm px-2 py-1 bg-gray-100 text-gray-600 rounded-full w-fit">
+                                  {result.class}
                                 </div>
+                              ) : (
+                                <span className="text-gray-400 text-sm">-</span>
+                              )}
+                            </div>
 
-                                {/* Difficulty */}
-                                <div className="col-span-2">
-                                  <div
-                                    className={clsx(
-                                      "text-sm px-3 py-1 rounded-full w-fit",
-                                      result?.difficulty === "Easy" && "bg-green-100 text-green-600",
-                                      result?.difficulty === "Moderate" && "bg-yellow-100 text-yellow-600",
-                                      result?.difficulty === "Hard" && "bg-red-100 text-red-600"
-                                    )}
-                                  >
-                                    {result?.difficulty}
-                                  </div>
-                                </div>
-
-                                {/* Class */}
-                                <div className="col-span-2">
-                                  {result?.class ? (
-                                    <div className="text-sm px-2 py-1 bg-gray-100 text-gray-600 rounded-full w-fit">
-                                      {result.class}
-                                    </div>
-                                  ) : (
-                                    <span className="text-gray-400">-</span>
-                                  )}
-                                </div>
-
-                                {/* Score */}
-                                <div className="col-span-2">
-                                  <div className="flex items-end gap-2">
-                                    <div className="font-bold text-xl">
-                                      <span className={textColor}>{result?.totalMarks}</span>
-                                      <span className="text-gray-600 text-sm"> / {result?.totalQuestions}</span>
-                                    </div>
-                                    <div className="text-sm text-gray-500 font-medium pb-0.5">
-                                      ({resultPercentage}%)
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {/* Date */}
-                                <div className="hidden lg:block col-span-2">
-                                  {result?.submittedAt ? (
-                                    <div className="text-sm text-gray-600">
-                                      {(() => {
-                                        const date = new Date(result.submittedAt)
-                                        const now = new Date()
-                                        const diffTime = Math.abs(now - date)
-                                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-
-                                        if (diffDays === 0) return "Today"
-                                        if (diffDays === 1) return "Yesterday"
-                                        if (diffDays < 7) return `${diffDays} days ago`
-                                        return date.toLocaleDateString("en-US", {
-                                          month: "short",
-                                          day: "numeric",
-                                          year: date.getFullYear() !== now.getFullYear() ? "numeric" : undefined
-                                        })
-                                      })()}
-                                    </div>
-                                  ) : (
-                                    <span className="text-gray-400">-</span>
-                                  )}
-                                </div>
-
-                                {/* Actions */}
-                                <div className="col-span-1">
-                                  <Link
-                                    to={`/solution/${result?.testId}`}
-                                    className="cta-gradient text-white font-bold py-2 px-3 rounded-lg text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
-                                  >
-                                    Solutions
-                                  </Link>
+                            {/* Score */}
+                            <div>
+                              <p className="text-xs text-gray-500 mb-1">Score</p>
+                              <div className="flex items-end gap-2">
+                                <div className="font-bold text-lg">
+                                  <span className={textColor}>{result?.totalMarks}</span>
+                                  <span className="text-gray-600 text-sm"> / {result?.totalQuestions}</span>
                                 </div>
                               </div>
                             </div>
-                          )
-                        })}
+
+                            {/* Percentage */}
+                            <div>
+                              <p className="text-xs text-gray-500 mb-1">Percentage</p>
+                              <div className="text-sm">
+                                <span className={`font-medium ${textColor}`}>{resultPercentage}%</span>
+                              </div>
+                            </div>
+
+                            {/* Date */}
+                            <div className="col-span-2">
+                              <p className="text-xs text-gray-500 mb-1">Date</p>
+                              {result?.submittedAt ? (
+                                <div className="text-sm text-gray-600">
+                                  {(() => {
+                                    const date = new Date(result.submittedAt)
+                                    const now = new Date()
+                                    const diffTime = Math.abs(now - date)
+                                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+                                    if (diffDays === 0) return "Today"
+                                    if (diffDays === 1) return "Yesterday"
+                                    if (diffDays < 7) return `${diffDays} days ago`
+                                    return date.toLocaleDateString("en-US", {
+                                      month: "short",
+                                      day: "numeric",
+                                      year: date.getFullYear() !== now.getFullYear() ? "numeric" : undefined
+                                    })
+                                  })()}
+                                </div>
+                              ) : (
+                                <span className="text-gray-400 text-sm">-</span>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Action Button */}
+                          <Link
+                            to={`/solution/${result?.testId}`}
+                            className="w-full cta-gradient text-white font-bold py-3 px-4 rounded-lg text-sm hover:opacity-90 transition-opacity text-center block"
+                          >
+                            View Solutions
+                          </Link>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  {/* Desktop Table View */}
+                  <div className="hidden md:block">
+                    {/* Table Container with Horizontal Scroll */}
+                    <div className="overflow-x-auto">
+                      <div className="min-w-[800px] w-full">
+                        {/* Table Header */}
+                        <div className="bg-gray-50 border-b rounded-t-lg border-gray-200 px-4 py-3">
+                          <div className="grid grid-cols-12 gap-4 text-sm font-semibold text-gray-700">
+                            <div className="col-span-4 sm:col-span-3">Topic</div>
+                            <div className="col-span-2">Difficulty</div>
+                            <div className="col-span-2">Class</div>
+                            <div className="col-span-2">Score</div>
+                            <div className="hidden lg:block col-span-2">Date</div>
+                            <div className="col-span-1">Actions</div>
+                          </div>
+                        </div>
+
+                        {/* Table Body */}
+                        <div className="divide-y divide-gray-200">
+                          {results?.map((result, index) => {
+                            const resultPercentage = parseInt((result?.totalMarks / result?.totalQuestions) * 100)
+                            let textColor =
+                              resultPercentage >= 75
+                                ? "text-green-600"
+                                : resultPercentage >= 50
+                                ? "text-yellow-600"
+                                : "text-red-600"
+
+                            return (
+                              <div key={index} className="px-4 py-4 hover:bg-gray-50 transition-colors">
+                                <div className="grid grid-cols-12 gap-4 items-center">
+                                  {/* Topic */}
+                                  <div className="col-span-4 sm:col-span-3">
+                                    <div className="font-medium text-gray-900 truncate">{result?.topic}</div>
+                                  </div>
+
+                                  {/* Difficulty */}
+                                  <div className="col-span-2">
+                                    <div
+                                      className={clsx(
+                                        "text-sm px-3 py-1 rounded-full w-fit",
+                                        result?.difficulty === "Easy" && "bg-green-100 text-green-600",
+                                        result?.difficulty === "Moderate" && "bg-yellow-100 text-yellow-600",
+                                        result?.difficulty === "Hard" && "bg-red-100 text-red-600"
+                                      )}
+                                    >
+                                      {result?.difficulty}
+                                    </div>
+                                  </div>
+
+                                  {/* Class */}
+                                  <div className="col-span-2">
+                                    {result?.class ? (
+                                      <div className="text-sm px-2 py-1 bg-gray-100 text-gray-600 rounded-full w-fit">
+                                        {result.class}
+                                      </div>
+                                    ) : (
+                                      <span className="text-gray-400">-</span>
+                                    )}
+                                  </div>
+
+                                  {/* Score */}
+                                  <div className="col-span-2">
+                                    <div className="flex items-end gap-2">
+                                      <div className="font-bold text-xl">
+                                        <span className={textColor}>{result?.totalMarks}</span>
+                                        <span className="text-gray-600 text-sm"> / {result?.totalQuestions}</span>
+                                      </div>
+                                      <div className="text-sm text-gray-500 font-medium pb-0.5">
+                                        ({resultPercentage}%)
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* Date */}
+                                  <div className="hidden lg:block col-span-2">
+                                    {result?.submittedAt ? (
+                                      <div className="text-sm text-gray-600">
+                                        {(() => {
+                                          const date = new Date(result.submittedAt)
+                                          const now = new Date()
+                                          const diffTime = Math.abs(now - date)
+                                          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+                                          if (diffDays === 0) return "Today"
+                                          if (diffDays === 1) return "Yesterday"
+                                          if (diffDays < 7) return `${diffDays} days ago`
+                                          return date.toLocaleDateString("en-US", {
+                                            month: "short",
+                                            day: "numeric",
+                                            year: date.getFullYear() !== now.getFullYear() ? "numeric" : undefined
+                                          })
+                                        })()}
+                                      </div>
+                                    ) : (
+                                      <span className="text-gray-400">-</span>
+                                    )}
+                                  </div>
+
+                                  {/* Actions */}
+                                  <div className="col-span-1">
+                                    <Link
+                                      to={`/solution/${result?.testId}`}
+                                      className="cta-gradient text-white font-bold py-2 px-3 rounded-lg text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
+                                    >
+                                      Solutions
+                                    </Link>
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
                       </div>
                     </div>
                   </div>
