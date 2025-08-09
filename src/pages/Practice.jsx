@@ -155,16 +155,6 @@ const Practice = () => {
                     </div>
                   ) : (
                     <div className="text-center py-12">
-                      <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                      </div>
                       <h3 className="text-xl font-semibold text-gray-700 mb-2">No Topics Available</h3>
                       <p className="text-gray-500">No practice topics are available for your selected class yet.</p>
                     </div>
@@ -176,23 +166,11 @@ const Practice = () => {
                   {/* Enhanced Session Header */}
                   <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-6 border-b border-gray-100">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="text-xl font-bold text-gray-900">Practicing: {selectedTopic}</h4>
-                          <p className="text-gray-600">
-                            Question {currentQuestionIndex + 1} of {practiceSession.totalQuestions}
-                          </p>
-                        </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900">Practicing: {selectedTopic}</h4>
+                        <p className="text-gray-600">
+                          Question {currentQuestionIndex + 1} of {practiceSession.totalQuestions}
+                        </p>
                       </div>
                       <button
                         onClick={resetSession}
@@ -212,44 +190,27 @@ const Practice = () => {
                   </div>
 
                   <div className="p-6">
-                    {/* Enhanced Progress Bar */}
-                    <div className="mb-8">
-                      <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm font-medium text-gray-700">Progress</span>
-                        <span className="text-sm font-bold text-blue-600">{getProgressPercentage()}%</span>
-                      </div>
-                      <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
-                        <div
-                          className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-500 ease-out"
-                          style={{ width: `${getProgressPercentage()}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Enhanced Score Display */}
-                    <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
+                    {/* Minimal Score Display */}
+                    <div className="mb-8 p-8 bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-100">
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
-                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                              />
-                            </svg>
-                          </div>
-                          <div>
-                            <span className="text-sm font-medium text-blue-800">Current Score</span>
-                            <div className="text-2xl font-bold text-blue-900">
-                              {practiceSession.score} / {practiceSession.totalQuestions}
-                            </div>
-                          </div>
+                        {/* Score */}
+                        <div className="flex items-baseline space-x-2">
+                          <span className="text-4xl font-light text-slate-800">{practiceSession.score}</span>
+                          <span className="text-lg text-slate-400">/ {practiceSession.totalQuestions}</span>
                         </div>
-                        <div className="text-right">
-                          <div className="text-3xl font-bold text-blue-600">{getScorePercentage()}%</div>
-                          <div className="text-sm text-blue-700">Success Rate</div>
+
+                        {/* Progress */}
+                        <div className="flex items-center space-x-4">
+                          <div className="text-right">
+                            <div className="text-sm text-slate-500 font-medium">Progress</div>
+                            <div className="text-2xl font-light text-slate-800">{getScorePercentage()}%</div>
+                          </div>
+                          <div className="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-slate-800 rounded-full transition-all duration-500 ease-out"
+                              style={{ width: `${getScorePercentage()}%` }}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
