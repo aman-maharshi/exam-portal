@@ -34,7 +34,7 @@ const UserStats = ({ userStats, results }) => {
   return (
     <>
       <div className="mt-6 mb-4">
-        <h3 className="text-lg font-bold text-gray-900">Your Statistics</h3>
+        <h3 className="text-lg md:text-xl font-bold text-gray-900">Your Statistics</h3>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {/* Tests Taken */}

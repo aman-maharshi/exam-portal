@@ -103,7 +103,7 @@ const Sidebar = () => {
             <GraphIcon className="w-5 h-5" />
             <div>Your Progress</div>
           </div>
-          {/* <div
+          <div
             onClick={() => navigate("/practice")}
             className={clsx(
               "p-4 rounded-lg font-bold cursor-pointer flex items-center gap-3",
@@ -112,7 +112,7 @@ const Sidebar = () => {
           >
             <PracticeIcon className="w-5 h-5" />
             <div>Practice Mode</div>
-          </div> */}
+          </div>
           <div
             onClick={() => setIsModalOpen(true)}
             className="p-4 mt-auto text-gray-500 font-bold cursor-pointer flex items-center gap-3"
